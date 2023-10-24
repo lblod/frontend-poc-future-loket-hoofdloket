@@ -12,3 +12,26 @@
 @import "_home";
 @import "_header";
 @import "_footer";
+
+.au-c-list-navigation__link {
+  font-size: var(--au-h6);
+  text-decoration: none;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // font-weight: var(--au-medium);
+  padding-left: $au-unit;
+}
+
+.has-tabs {
+  padding-bottom: 0;
+
+  .au-c-tabs {
+    border-bottom: 0;
+    padding-left: $au-unit;
+  }
+
+  .au-c-icon {
+    width: 1.1em;
+    height: 1.1em;
+  }
+}
