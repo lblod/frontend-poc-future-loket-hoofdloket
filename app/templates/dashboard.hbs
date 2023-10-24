@@ -1,0 +1,30 @@
+{{page-title "Dashboard"}}
+
+<LayoutDashboard @loggedIn={{true}}>
+  <AuMainContainer as |m|>
+    <m.sidebar>
+      <div class="au-c-sidebar">
+        <div class="au-c-sidebar__content">
+          <nav>
+            <ul class="au-c-list-navigation">
+              <li class="au-c-list-navigation__item">
+                <AuNavigationLink @linkRoute="">
+                  <AuIcon @icon="documents" @alignment="left" />
+                  Navigation item
+                </AuNavigationLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="au-c-sidebar__footer">
+          <AuLinkExternal href="https://www.vlaanderen.be/" @width="block" @skin="secondary" @icon="manual" @iconAlignment="left">
+            Manual
+          </AuLinkExternal>
+        </div>
+      </div>
+    </m.sidebar>
+    <m.content @scroll={{true}}>
+      {{outlet}}
+    </m.content>
+  </AuMainContainer>
+</LayoutDashboard>

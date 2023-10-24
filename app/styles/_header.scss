@@ -1,0 +1,74 @@
+.c-header-buttons {
+  display: flex;
+  align-items: center;
+  margin-right: -$au-unit-small;
+  margin-top: -$au-unit-small;
+  margin-bottom: -$au-unit-small;
+}
+
+.c-header-buttons__login {
+  text-transform: uppercase;
+  font-size: var(--au-base);
+  border: 0;
+
+  &,
+  &:visited {
+    background-color: transparent;
+    color: var(--au-gray-900);
+  }
+
+  > .au-c-icon {
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--au-blue-700);
+    background-color: transparent;
+  }
+}
+
+.c-header-buttons__help {
+  position: relative;
+  text-transform: uppercase;
+  font-size: var(--au-base);
+  border: 0;
+  border-radius: 0;
+  height: 4.2rem;
+  line-height: 4.2rem;
+  margin-left: $au-unit-small;
+  overflow: visible;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -13px;
+    width: 0;
+    height: 0;
+    border-top: 0 solid transparent;
+    border-bottom: 43px solid transparent;
+    border-right: 13.5px solid var(--au-yellow-300);
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  > .au-c-icon {
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  &,
+  &:visited {
+    background-color: var(--au-yellow-300);
+    color: var(--au-gray-900);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--au-gray-900);
+    text-decoration: underline;
+    background-color: var(--au-yellow-300);
+  }
+}

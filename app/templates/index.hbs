@@ -1,0 +1,29 @@
+{{page-title "Index"}}
+
+<AuMainContainer as |m|>
+  <m.content @scroll={{true}}  class="au-u-background-gray-100">
+    <section class="au-o-region-large">
+      <div class="au-o-layout au-o-layout--small   au-o-flow">
+        <AuHeading class="au-u-text-center">
+          Loket prototype
+        </AuHeading>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Overview</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="login">Login page</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="dashboard">Dashboard</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+      </div>
+    </section>
+  </m.content>
+</AuMainContainer>
