@@ -1,0 +1,82 @@
+{{page-title "Subsidies"}}
+<AuBodyContainer class="au-u-background-gray-100" >
+  <AuToolbar @border="bottom" @size="medium" as |Group|>
+    <Group>
+      <AuHeading @skin="5">234 Subsidies</AuHeading>
+    </Group>
+  </AuToolbar>
+  <AuBodyContainer @scroll={{true}}>
+    {{!-- <AuTable>
+      <:header>
+        <tr>
+          <th>Titel subsidie</th>
+          <th>Periode</th>
+          <th>Aanvragen tot</th>
+          <th>Categorie</th>
+          <th class="c-row-end"></th>
+        </tr>
+      </:header>
+      <:body>
+        {{#each this.subsidies as |item|}}
+        <tr class="c-clickable-row">
+          <td>
+            <strong>{{item.name}}</strong><br/>
+            <AuLinkExternal @icon="external-link" @iconAlignment="right" @href={{item.link}} class="c-external">
+              Meer info
+            </AuLinkExternal>
+          </td>
+          <td>
+            {{item.periode}}
+            <AuHelpText @skin="secondary">
+              {{item.periode-detail}}
+            </AuHelpText>
+          </td>
+          
+          <td>
+            {{item.deadline}}
+          </td>
+          <td>
+            <AuPill @size="small">
+              {{item.category}}
+            </AuPill>
+          </td>
+          <td class="c-row-end">
+            <AuButton @skin="naked" @icon="chevron-right" @hideText={{true}} class="c-row-action">
+              Subsidieaanvraag starten
+            </AuButton>
+          </td>
+        </tr>
+        {{/each}}
+      </:body>
+    </AuTable> --}}
+    <div class="au-o-box au-o-box--small">
+      <AuList as |listitem|>
+        {{#each this.subsidies as |item|}}
+        <listitem>
+          <AuCard @size="small" class="c-overview-card" as |card|>
+            <card.header>
+              <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
+                <AuLink class="au-u-h5 au-u-medium c-overview-card__link">
+                  {{item.name}}
+                </AuLink>
+                <AuPill @skin="border">
+                  {{item.category}}
+                </AuPill>
+              </div>
+            </card.header>
+            <card.content class="au-o-flow">
+              <p class="au-u-h-functional"><strong>Deadline:</strong> {{item.deadline}}</p>
+              <p class="au-u-h-functional">
+                <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                  Meer info 
+                </AuLinkExternal>
+              </p>
+            </card.content>
+          </AuCard>
+        </listitem>
+        {{/each}}
+      </AuList>
+    </div>
+  </AuBodyContainer>
+  <Pagination />
+</AuBodyContainer>

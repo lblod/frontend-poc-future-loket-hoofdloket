@@ -1,0 +1,13 @@
+<AuToolbar @border="top" @size="medium" as |Group|>
+  <Group class="au-u-flex au-u-flex--vertical-center">
+    <p class="au-u-h-functional"><strong>1-10</strong> van 33</p>
+    <AuButtonGroup>
+      <AuButton @skin="naked" @icon="chevron-left" @disabled={{true}}>Vorige</AuButton>
+      <AuButton @skin="naked" @icon="chevron-right" @iconAlignment="right">Volgende</AuButton>
+    </AuButtonGroup>
+  </Group>
+  <Group class="au-u-flex au-u-flex--vertical-center">
+    <p class="au-u-h-functional au-u-muted">Aantal resultaten per pagina</p>
+    <AuSelect />
+  </Group>
+</AuToolbar>

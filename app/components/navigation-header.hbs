@@ -1,0 +1,17 @@
+<div class="c-navigation-header">
+  <Navigation />
+  <div class="c-navigation-search">
+    <div>
+      <AuLabel for="search" class="au-u-hidden-visually">Trefwoord</AuLabel>
+      <AuInput id="search" @width="block" />
+    </div>
+    <AuButton @icon="search">
+      Zoek
+    </AuButton>
+  </div>
+  <AuButton @skin="secondary" class="au-c-button--counter">
+    <AuIcon @icon="notification" @iconAlignment="left" />
+    Notificaties
+    <span class="c-counter">2</span>
+  </AuButton>
+</div>

@@ -1,0 +1,12 @@
+<div class="c-complex-link">
+  <div class="c-complex-link__left">
+    <AuIcon @icon={{@icon}}  />
+  </div>
+  <div>
+    <AuLink @route={{@route}}>
+      {{@title}}
+    </AuLink>
+    <AuHelpText @skin="secondary" class="au-u-margin-top-none">{{yield}}</AuHelpText>
+  </div>
+  <AuIcon @icon="chevron-right" class="c-complex-link__right" />
+</div>

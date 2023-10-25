@@ -1,0 +1,53 @@
+<div class="c-help-dropdown" ...attributes>
+  <AuButton
+    {{this.reference}}
+    @icon="circle-question"
+    @iconAlignment="right"
+    aria-haspopup="true"
+    aria-expanded="{{if this.dropdownOpen 'true' 'false'}}"
+    class="c-help-dropdown__button"
+    type="button"
+    {{on "click" this.toggleDropdown}}
+    data-test-dropdown-button
+    data-au-dropdown-toggle
+  >
+    Hulp nodig
+  </AuButton>
+  {{#if this.dropdownOpen}}
+    <div
+      id="help" 
+      {{focus-trap
+        shouldSelfFocus=true
+        focusTrapOptions=(hash
+          clickOutsideDeactivates=this.clickOutsideDeactivates
+        )
+      }}
+      {{on "click" this.closeDropdown}}
+      class="c-help-dropdown__dialog"
+    >
+      <div class="c-help-dropdown__header">
+        <AuHeading @level="2" @skin="4">Hulp nodig?</AuHeading>
+        <AuButton @skin="naked" @hideText={{true}} @icon="cross" {{on "click" this.toggleDropdown}}>Sluit</AuButton>
+      </div>
+      <AuContent class="c-help-dropdown__content">
+        <AuHeading @level="3" @skin="6">Neem contact op met de Vlaamse overheid</AuHeading>
+        <AuList @divider={{true}} as |item|>
+          <item>
+            <ComplexLink @title="Via-email" @icon="mail">
+              Via e-mail
+              U krijgt antwoord binnen 2 werkdagen
+            </ComplexLink>
+          </item>
+          <item>
+            <ComplexLink @title="Via chat" @icon="message">
+              Elke werkdag bereikbaar tussen 9u en 19u
+            </ComplexLink>
+          </item>
+        </AuList>
+        <AuHelpText class="au-u-margin-top">
+          De Vlaamse overheid hecht veel belang aan de bescherming van uw persoonlijke levenssfeer. Voor meer informatie raadpleeg de <a href="#!" class="au-c-link">privacyverklaring</a>.
+        </AuHelpText>
+      </AuContent>
+    </div>
+  {{/if}}
+</div>

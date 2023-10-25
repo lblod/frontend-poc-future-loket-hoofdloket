@@ -1,0 +1,40 @@
+<div class="c-navigation" ...attributes>
+  <AuButton
+    {{this.reference}}
+    aria-haspopup="true"
+    aria-expanded="{{if this.dropdownOpen 'true' 'false'}}"
+    class="c-navigation__button"
+    @skin="naked"
+    type="button"
+    {{on "click" this.toggleDropdown}}
+  >
+    <div class="c-navigation__trigger">
+      <AuIcon @icon="tiles" @iconAlignment="left" />
+    </div>
+    {{#if (eq this.activeRoute 'dashboard.subsidies')}}
+    Subsidies
+    {{else if (eq this.activeRoute 'dashboard.reporting')}}
+    Rapporten
+    {{else if (eq this.activeRoute 'dashboard.datasources')}}
+    Data bronnen
+    {{/if}}
+  </AuButton>
+  {{#if this.dropdownOpen}}
+    <div
+      id="account" 
+      role="menu"
+      {{focus-trap
+        shouldSelfFocus=true
+        focusTrapOptions=(hash
+          clickOutsideDeactivates=this.clickOutsideDeactivates
+        )
+      }}
+      {{on "click" this.closeDropdown}}
+      class="c-navigation__dialog"
+    >
+      <AuLink @route="dashboard.subsidies" role="menuitem"><AuIcon @icon="subsidies" @alignment="left" />Subsidies</AuLink>
+      <AuLink @route="dashboard.datasources" role="menuitem"><AuIcon @icon="datasource" @alignment="left" />Data bronnen</AuLink>
+      <AuLink role="menuitem" @route="dashboard.reporting"><AuIcon @icon="reporting" @alignment="left" />Rapporten</AuLink>
+    </div>
+  {{/if}}
+</div>

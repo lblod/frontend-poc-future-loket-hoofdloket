@@ -1,72 +1,65 @@
 {{page-title "Dashboard"}}
 
 <LayoutDashboard @loggedIn={{true}}>
-  <AuToolbar @border="bottom" class="has-tabs" as |Group|>
-    <Group>
-      <AuTabs as |Tab|>
-        <Tab>
-          <AuLink @icon="search">Zoek</AuLink>
-        </Tab>
-        <Tab>
-          <AuLink @route="dashboard">Aanvragen</AuLink>
-        </Tab>
-        <Tab>
-          <AuLink>Rapporten</AuLink>
-        </Tab>
-        <Tab>
-          <AuLink>Data</AuLink>
-        </Tab>
-      </AuTabs>
-    </Group>
-    <Group>
-      <AuLink @icon="message" @skin="button-naked">Notificaties</AuLink>
-    </Group>
-  </AuToolbar>
+  <NavigationHeader />
   <AuMainContainer as |m|>
     <m.sidebar>
       <div class="au-c-sidebar">
         <div class="au-c-sidebar__content">
-          <nav>
-            <ul class="au-c-list-navigation">
-              <li class="au-c-list-navigation__item">
-                <AuNavigationLink @route="dashboard">
-                  Subsidies
-                </AuNavigationLink>
-              </li>
-              <li class="au-c-list-navigation__item">
-                <AuNavigationLink>
-                  Producten en diensten
-                </AuNavigationLink>
-              </li>
-              <li class="au-c-list-navigation__item">
-                <AuNavigationLink>
-                  Erediensten
-                </AuNavigationLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="au-c-sidebar__footer">
-          <AuLinkExternal href="https://www.vlaanderen.be/" @width="block" @skin="secondary" @icon="manual" @iconAlignment="left">
-            Handleiding
-          </AuLinkExternal>
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__section-title">
+              Thema's
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Jeugd
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Sport
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Cultuur
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Vrije tijd
+              </AuNavigationLink>
+            </li>
+          </ul>
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__section-title">
+              Deadline
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Deze week
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Deze maand
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Dit kwartaal
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Specifiek
+              </AuNavigationLink>
+            </li>
+          </ul>
         </div>
       </div>
     </m.sidebar>
-    <m.content @scroll={{true}}>
-      <AuToolbar @border="bottom" @size="small" @nowrap={{true}} as |Group|>
-        <Group class="au-u-1-1">
-          <AuFormRow @alignment="inline" class="au-u-flex--spaced-tiny au-u-1-1 au-u-flex--vertical-end">
-            <div class="au-u-4-5">
-              <AuLabel for="search">Trefwoord</AuLabel>
-              <AuInput @width="block" />
-            </div>
-            <AuButton @width="block" @icon="filter" class="au-u-1-5">
-              Filter
-            </AuButton>
-          </AuFormRow>
-        </Group>
-      </AuToolbar>
+    <m.content>
       {{outlet}}
     </m.content>
   </AuMainContainer>

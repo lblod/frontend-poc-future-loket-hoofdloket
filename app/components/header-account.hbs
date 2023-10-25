@@ -1,0 +1,49 @@
+<div class="c-account-dropdown" ...attributes>
+  <AuButton
+    {{this.reference}}
+    @icon="user-check"
+    aria-haspopup="true"
+    aria-expanded="{{if this.dropdownOpen 'true' 'false'}}"
+    class="c-account-dropdown__button"
+    type="button"
+    {{on "click" this.toggleDropdown}}
+    data-test-dropdown-button
+    data-au-dropdown-toggle
+  >
+    Hannes Ingber
+  </AuButton>
+  {{#if this.dropdownOpen}}
+    <div
+      id="account" 
+      role="menu"
+      {{focus-trap
+        shouldSelfFocus=true
+        focusTrapOptions=(hash
+          clickOutsideDeactivates=this.clickOutsideDeactivates
+        )
+      }}
+      {{on "click" this.closeDropdown}}
+      class="c-account-dropdown__dialog"
+    >
+      <div class="c-account-dropdown__header">
+        <AuHeading @level="2" @skin="5">Loket voor Lokale Besturen</AuHeading>
+        <AuHelpText @skin="secondary" class="au-u-margin-top-none">Ingelogd als Hannes Ingber</AuHelpText>
+      </div>
+      <AuContent class="c-account-dropdown__content">
+        <AuList @divider={{true}} as |item|>
+          <item>
+            <AuLink @icon="settings" role="menuitem">
+              Instellingen
+            </AuLink>
+          </item>
+          <item>
+            <AuLink @route="login" role="menuitem">
+              <AuIcon @icon="exit" @alignment="left" />
+              Afmelden
+            </AuLink>
+          </item>
+        </AuList>
+      </AuContent>
+    </div>
+  {{/if}}
+</div>

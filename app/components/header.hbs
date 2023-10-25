@@ -1,16 +1,12 @@
 <AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="dashboard" @appTitle="Loket voor lokale besturen" @contactRoute="">
   <div class="c-header-buttons">
     {{#if @loggedIn}}
-    <AuLink @route="login" @skin="button" @icon="user-check" class="c-header-buttons__login">
-      Afmelden
-    </AuLink>
+    <HeaderAccount />
     {{else}}
-    <AuLink @route="dashboard" @skin="button" @icon="user" class="c-header-buttons__login">
+    <AuLink @route="dashboard.subsidies" @skin="button" @icon="user" class="c-header-buttons__login">
       Aanmelden
     </AuLink>
     {{/if}}
-    <AuButton @icon="circle-question" @iconAlignment="right"  class="c-header-buttons__help">
-      Hulp nodig
-    </AuButton>
+    <HeaderHelp />
   </div>
 </AuMainHeader>
