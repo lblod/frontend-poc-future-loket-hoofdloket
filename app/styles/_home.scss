@@ -80,3 +80,11 @@
     padding: 0;
   }
 }
+
+.c-sidebar-buttons {
+  padding-left: $au-unit-small;
+  padding-top: $au-unit-small;
+  padding-bottom: $au-unit-small;
+  margin-bottom: $au-unit;
+  border-bottom: 1px solid var(--au-gray-200);
+}
