@@ -1,0 +1,52 @@
+.c-layout {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @include mq($until: small) {
+    flex-direction: column;
+  }
+}
+
+.c-layout__main-left {
+  width: 100%;
+
+  @include mq(small) {
+    width: 70%;
+    overflow: auto;
+  }
+}
+
+.c-layout__aside-left {
+  width: 100%;
+
+  @include mq(small) {
+    width: 300px;
+    overflow: auto;
+  }
+}
+
+.c-layout__main-right {
+  width: 100%;
+
+  @include mq(small) {
+    width: calc(100% - 300px);
+    overflow: auto;
+    border-left: 1px solid var(--au-gray-200);
+  }
+}
+
+.c-layout__aside-right {
+  width: 100%;
+
+  @include mq($until: small) {
+    border-top: 1px solid var(--au-gray-200);
+  }
+
+  @include mq(small) {
+    width: 30%;
+    border-left: 1px solid var(--au-gray-200);
+    overflow: auto;
+  }
+}

@@ -11,7 +11,15 @@
     <div class="c-navigation__trigger">
       <AuIcon @icon="tiles" @iconAlignment="left" />
     </div>
-    {{#if (eq this.activeRoute 'dashboard.subsidies')}}
+    {{#if (eq this.activeRoute 'dashboard.index')}}
+    Overzicht
+    {{else if (eq this.activeRoute 'dashboard.search')}}
+    Zoeken
+    {{else if (eq this.activeRoute 'subsidies.index')}}
+    Subsidies
+    {{else if (eq this.activeRoute 'subsidies.my-subsidies')}}
+    Subsidies
+    {{else if (eq this.activeRoute 'subsidies.detail')}}
     Subsidies
     {{else if (eq this.activeRoute 'dashboard.reporting')}}
     Rapporten
@@ -32,7 +40,10 @@
       {{on "click" this.closeDropdown}}
       class="c-navigation__dialog"
     >
-      <AuLink @route="dashboard.subsidies" role="menuitem"><AuIcon @icon="subsidies" />Subsidies</AuLink>
+      <AuLink @route="dashboard.index" role="menuitem">
+        <AuIcon @icon="tiles" />Overzicht
+      </AuLink>
+      <AuLink @route="subsidies" role="menuitem"><AuIcon @icon="subsidies" />Subsidies</AuLink>
       <AuLink @route="dashboard.datasources" role="menuitem"><AuIcon @icon="datasource" />Data bronnen</AuLink>
       <AuLink role="menuitem" @route="dashboard.reporting"><AuIcon @icon="reporting" />Rapporten</AuLink>
     </div>

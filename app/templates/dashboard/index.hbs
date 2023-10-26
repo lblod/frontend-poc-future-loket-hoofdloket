@@ -1,0 +1,55 @@
+<AuMainContainer class="au-u-background-gray-100" as |m|>
+  <m.content>
+    <div class="c-layout">
+      <div class="c-layout__main-left">
+        <div class="au-o-box au-o-flow">
+          <AuCard as |c|>
+            <c.content>
+              <div class="c-navigation-search">
+                <div>
+                  <AuLabel for="search">Trefwoord</AuLabel>
+                  <AuInput id="search" @width="block" />
+                </div>
+                <AuLink @skin="button" @route="dashboard.search" @icon="search">
+                  Zoek
+                </AuLink>
+              </div>
+              <AuHelpText @skin="secondary">
+                <AuIcon @icon="circle-info" @alignment="left" />U kan zoeken doorheen alle modules die beschikbaar zijn.
+              </AuHelpText>
+            </c.content>
+          </AuCard>
+          <AuContent>
+            <AuHeading @level="2" @skin="5">Laatst gebruikt</AuHeading>
+            <div class="au-o-grid au-o-grid--tiny au-u-margin-top-tiny">
+              <div class="au-o-grid__item au-u-1-2@small">
+                <AuLink @route="subsidies" class="au-c-link--box"><AuIcon @icon="subsidies" />Subsidies</AuLink>
+              </div>
+              <div class="au-o-grid__item au-u-1-2@small">
+                <AuLink @route="dashboard.datasources" class="au-c-link--box"><AuIcon @icon="datasource" />Data bronnen</AuLink>
+              </div>
+              <div class="au-o-grid__item au-u-1-2@small">
+                <AuLink @route="dashboard.reporting" class="au-c-link--box"><AuIcon @icon="reporting" />Rapporten</AuLink>
+              </div>
+            </div>
+            <p class="au-u-h-functional">
+              <AuLink @icon="plus" @skin="secondary">Toon alle toepassingen</AuLink>
+            </p>
+          </AuContent>
+        </div>
+       </div>
+      <div class="c-layout__aside-right">
+        <div class="au-o-box au-o-flow">
+          <AuHeading @level="2" @skin="4">Updates</AuHeading>
+          <AuList @divider={{true}} as |ListItem|>
+            {{#each this.news as |item|}}
+            <ListItem>
+              <RichLink @new={{item.new}} @title={{item.title}} @info={{item.date}} @icon={{item.icon}} />
+            </ListItem>
+            {{/each}}
+          </AuList>
+        </div>
+      </div>
+    </div>
+  </m.content>
+</AuMainContainer>

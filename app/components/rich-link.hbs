@@ -1,0 +1,13 @@
+<div class="c-rich-link {{if @new 'c-rich-link--active'}}">
+  <div class="c-rich-link__left">
+    <AuIcon @icon={{@icon}}  />
+  </div>
+  <div class="c-rich-link__right">
+    <AuLink @route={{@route}} @skin={{if @new 'primary' 'secondary'}}>
+      {{@title}}
+    </AuLink>
+    {{#if @info}}
+    <AuHelpText @skin="secondary" class="au-u-margin-top-none">{{@info}}</AuHelpText>
+    {{/if}}
+  </div>
+</div>

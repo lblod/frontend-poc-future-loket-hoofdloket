@@ -1,0 +1,76 @@
+{{page-title "Subsidies"}}
+<LayoutDashboard @loggedIn={{true}}>
+  <NavigationHeader />
+  <AuMainContainer as |m|>
+    <m.sidebar>
+      <div class="au-c-sidebar">
+        <div class="au-c-sidebar__content">
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink @route="subsidies.index">
+                <AuIcon @icon="subsidies" @alignment="left" />
+                Overzicht
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink @route="subsidies.my-subsidies">
+                <AuIcon @icon="folder" @alignment="left" />
+                Mijn subsidies
+              </AuNavigationLink>
+            </li>
+          </ul>
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__section-title">
+              Thema's
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Jeugd
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Sport
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Cultuur
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Vrije tijd
+              </AuNavigationLink>
+            </li>
+          </ul>
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__section-title">
+              Deadline
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Deze maand
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Dit kwartaal
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink>
+                Specifiek
+              </AuNavigationLink>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </m.sidebar>
+    <m.content>  
+      <AuBodyContainer class="au-u-background-gray-100" >
+        {{outlet}}
+      </AuBodyContainer>
+    </m.content>
+  </AuMainContainer>
+</LayoutDashboard>
