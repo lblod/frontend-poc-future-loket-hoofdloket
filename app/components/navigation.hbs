@@ -25,6 +25,10 @@
     Rapporten
     {{else if (eq this.activeRoute 'dashboard.datasources')}}
     Data bronnen
+    {{else if (eq this.activeRoute 'dashboard.messages')}}
+    Berichten
+    {{else if (eq this.activeRoute 'dashboard.newsletter')}}
+    Notificaties
     {{/if}}
   </AuButton>
   {{#if this.dropdownOpen}}
@@ -46,6 +50,7 @@
       <AuLink @route="subsidies" role="menuitem"><AuIcon @icon="subsidies" />Subsidies</AuLink>
       <AuLink @route="dashboard.datasources" role="menuitem"><AuIcon @icon="datasource" />Data bronnen</AuLink>
       <AuLink role="menuitem" @route="dashboard.reporting"><AuIcon @icon="reporting" />Rapporten</AuLink>
+      <AuLink role="menuitem" @route="dashboard.messages"><AuIcon @icon="message" />Berichten</AuLink>
     </div>
   {{/if}}
 </div>

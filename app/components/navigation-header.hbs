@@ -10,10 +10,11 @@
       Zoek
     </AuLink>
   </div>
-  {{/unless}}
-  <AuButton @skin="secondary" class="au-c-button--counter">
+  
+  <AuLink @route="dashboard.newsletter" @skin="button-secondary" class="au-c-button--counter">
     <AuIcon @icon="notification" @iconAlignment="left" />
-    Notificaties
-    <span class="c-counter">2</span>
-  </AuButton>
+    Updates
+    <span class="c-counter">1</span>
+  </AuLink>
+  {{/unless}}
 </div>

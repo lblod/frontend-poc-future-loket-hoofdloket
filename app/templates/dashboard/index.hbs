@@ -40,7 +40,13 @@
        </div>
       <div class="c-layout__aside-right">
         <div class="au-o-box au-o-flow">
-          <AuHeading @level="2" @skin="4">Updates</AuHeading>
+          <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--between au-u-flex--vertical-center au-u-flex--wrap">
+            <AuHeading @level="2" @skin="4">Updates</AuHeading>
+            <AuLink @route="dashboard.newsletter" @skin="button-naked" @icon="settings" class="au-u-padding-none">
+              Nieuwsbrief
+            </AuLink>
+          </div>
+          <AuHr />
           <AuList @divider={{true}} as |ListItem|>
             {{#each this.news as |item|}}
             <ListItem>
