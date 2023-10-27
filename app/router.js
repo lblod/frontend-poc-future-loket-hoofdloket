@@ -18,8 +18,7 @@ Router.map(function () {
     this.route('my-subsidies');
     this.route('detail');
 
-    this.route('subsidy', function () {
-      
-    });
+    this.route('subsidy', function () {});
   });
+  this.route('email');
 });

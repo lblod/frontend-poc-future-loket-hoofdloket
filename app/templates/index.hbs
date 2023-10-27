@@ -20,6 +20,31 @@
               <Item>
                 <AuLink @route="dashboard">Dashboard</AuLink>
               </Item>
+              <Item>
+                <AuLink @route="dashboard.search">Zoek</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="email">Nieuwsbrief</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Subsidies</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="subsidies">Overzicht</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="subsidies.my-subsidies">Mijn subsidies</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="subsidies.detail">Detail</AuLink>
+              </Item>
             </AuList>
           </Card.content>
         </AuCard>
