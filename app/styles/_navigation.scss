@@ -19,7 +19,7 @@
 .c-navigation-header__search {
   @include mq($until: small) {
     order: 3;
-    margin-left: $au-unit - $au-unit-tiny;
+    margin-left: $au-unit-tiny;
     width: 100%;
     padding-top: $au-unit-small;
     border-top: 1px solid var(--au-gray-300);
@@ -66,6 +66,10 @@
   display: flex;
   position: relative;
   margin-left: $au-unit - $au-unit-tiny;
+
+  @include mq($until: $au-main-container-breakpoint) {
+    margin-left: $au-unit-tiny;
+  }
 }
 
 .c-navigation__button {

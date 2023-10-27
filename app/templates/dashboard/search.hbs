@@ -1,7 +1,7 @@
 {{page-title "Search"}}
 <AuMainContainer as |m|>
   <m.sidebar>
-    <div class="au-c-sidebar">
+    <Sidebar>
       <div class="au-c-sidebar__content">
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__section-title">
@@ -49,7 +49,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </Sidebar>
   </m.sidebar>
   <m.content>  
     <AuBodyContainer class="au-u-background-gray-100" >
@@ -109,7 +109,7 @@
               <AuCard @size="small" class="c-overview-card" as |card|>
                 <card.header>
                   <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
-                    <AuLink @route="subsidies.detail" class="au-u-h5 au-u-medium c-overview-card__link">
+                    <AuLink @route="subsidies.detail" class="au-u-h6 au-u-medium c-overview-card__link">
                       {{item.name}}
                     </AuLink>
                     <AuPill @skin="border">
@@ -118,9 +118,8 @@
                   </div>
                 </card.header>
                 <card.content class="au-o-flow">
-                  <p class="au-u-h-functional"><strong>Deadline:</strong> {{item.deadline}}</p>
                   <p class="au-u-h-functional">
-                    <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                    <strong>Deadline:</strong> {{item.deadline}} - <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
                       Meer info 
                     </AuLinkExternal>
                   </p>

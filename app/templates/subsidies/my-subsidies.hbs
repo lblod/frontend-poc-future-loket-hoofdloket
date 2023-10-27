@@ -1,6 +1,5 @@
 {{page-title "MySubsidies"}}
 <AuBodyContainer class="au-u-background-gray-100" >
-  {{outlet}}
   <AuToolbar @border="bottom" @size="medium" as |Group|>
     <Group>
       <AuHeading @skin="5">Lopende Subsidies</AuHeading>
@@ -12,7 +11,7 @@
         <AuCard @size="small" class="c-overview-card" as |card|>
           <card.header>
             <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
-              <AuLink class="au-u-h5 au-u-medium c-overview-card__link">
+              <AuLink class="au-u-h6 au-u-medium c-overview-card__link">
                 Erkenning en subsidiëring van een landelijk georganiseerde jeugdvereniging
               </AuLink>
               <AuPill @skin="success" @draft={{true}}>
@@ -45,7 +44,7 @@
               <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
                 <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
                   <Favorite @active={{item.favorite}} />
-                  <AuLink class="au-u-h5 au-u-medium c-overview-card__link">
+                  <AuLink class="au-u-h6 au-u-medium c-overview-card__link">
                     {{item.name}}
                   </AuLink>
                 </div>
@@ -55,9 +54,8 @@
               </div>
             </card.header>
             <card.content class="au-o-flow">
-              <p class="au-u-h-functional"><strong>Deadline:</strong> {{item.deadline}}</p>
               <p class="au-u-h-functional">
-                <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                <strong>Deadline:</strong> {{item.deadline}} - <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
                   Meer info 
                 </AuLinkExternal>
               </p>

@@ -3,17 +3,17 @@
   <NavigationHeader />
   <AuMainContainer as |m|>
     <m.sidebar>
-      <div class="au-c-sidebar">
-        <div class="au-c-sidebar__content">
+      <Sidebar>
+        <div class="au-c-sidebar__content" tabindex="-1">
           <ul class="au-c-list-navigation">
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink @route="subsidies.index">
+              <AuNavigationLink @route="subsidies.index" role="menuitem">
                 <AuIcon @icon="subsidies" @alignment="left" />
                 Overzicht
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink @route="subsidies.my-subsidies">
+              <AuNavigationLink @route="subsidies.my-subsidies" role="menuitem">
                 <AuIcon @icon="folder" @alignment="left" />
                 Mijn subsidies
               </AuNavigationLink>
@@ -24,22 +24,22 @@
               Thema's
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Jeugd
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Sport
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Cultuur
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Vrije tijd
               </AuNavigationLink>
             </li>
@@ -49,23 +49,23 @@
               Deadline
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Deze maand
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Dit kwartaal
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink>
+              <AuNavigationLink role="menuitem">
                 Specifiek
               </AuNavigationLink>
             </li>
           </ul>
         </div>
-      </div>
+      </Sidebar>
     </m.sidebar>
     <m.content>  
       <AuBodyContainer class="au-u-background-gray-100" >
