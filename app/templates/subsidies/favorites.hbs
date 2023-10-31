@@ -1,0 +1,43 @@
+{{page-title "Favorites"}}
+<AuBodyContainer class="au-u-background-gray-100" >
+  <AuToolbar @border="bottom" @size="medium" as |Group|>
+    <Group>
+      <AuHeading @skin="5">3 favorieten</AuHeading>
+    </Group>
+  </AuToolbar>
+  <AuBodyContainer @scroll={{true}}>
+    <div class="au-o-box au-o-box--small">
+      <AuList as |listitem|>
+        {{#each this.subsidies as |item|}}
+        {{#if (eq item.favorite true)}}
+        <listitem>
+          <AuCard @size="small" class="c-overview-card" as |card|>
+            <card.header>
+              <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
+                <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+                  <Favorite @active={{item.favorite}} />
+                  <AuLink class="au-u-h6 au-u-medium c-overview-card__link">
+                    {{item.name}}
+                  </AuLink>
+                </div>
+                <AuPill @skin="border">
+                  {{item.category}}
+                </AuPill>
+              </div>
+            </card.header>
+            <card.content class="au-o-flow">
+              <p class="au-u-h-functional">
+                <strong>Deadline:</strong> {{item.deadline}} - <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                  Meer info 
+                </AuLinkExternal>
+              </p>
+            </card.content>
+          </AuCard>
+        </listitem>
+        {{/if}}
+        {{/each}}
+      </AuList>
+    </div>
+  </AuBodyContainer>
+  <Pagination />
+</AuBodyContainer>

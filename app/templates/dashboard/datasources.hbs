@@ -1,12 +1,96 @@
 {{page-title "Datasources"}}
 
-<AuToolbar @size="medium" as |Group|>
-  <Group>
-    <AuHeading @skin="4">Data bronnen</AuHeading>
-  </Group>
-</AuToolbar>
-<AuBodyContainer>
-  <div class="au-o-box">
-    
-  </div>
-</AuBodyContainer>
+<AuMainContainer as |m|>
+  <m.sidebar>
+    <div class="au-c-sidebar">
+      <div class="au-c-sidebar__content">
+        <ul class="au-c-list-navigation">
+          <li class="au-c-list-navigation__section-title">
+            Departement
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Jeugd
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Sport
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Cultuur
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Vrije tijd
+            </AuNavigationLink>
+          </li>
+        </ul>
+        <ul class="au-c-list-navigation">
+          <li class="au-c-list-navigation__section-title">
+            Datum
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Deze maand
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Dit kwartaal
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              Specifiek
+            </AuNavigationLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </m.sidebar>
+  <m.content>  
+    <AuBodyContainer class="au-u-background-gray-100" >
+      {{outlet}}
+      <AuToolbar @border="bottom" @size="medium" as |Group|>
+        <Group>
+          <AuHeading @skin="5">Databronnen</AuHeading>
+        </Group>
+        <Group>
+          <AuButton @icon="add" @skin="secondary">
+            Bron toevoegen
+          </AuButton>
+        </Group>
+      </AuToolbar>
+      <AuBodyContainer @scroll={{true}}>
+        <div class="au-o-box au-o-box--small">
+          <AuList as |listitem|>
+            <listitem>
+              <AuCard @size="small" class="c-overview-card" as |card|>
+                <card.header>
+                  <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
+                    <AuLink class="au-u-h5 au-u-medium c-overview-card__link">
+                      Databron titel
+                    </AuLink>
+                    <AuPill @size="small" @skin="border">
+                      Jeugd
+                    </AuPill>
+                  </div>
+                </card.header>
+                <card.content class="au-o-flow">
+                  <p class="au-u-h-functional">
+                    <strong>Datum:</strong> 06 december 2023
+                  </p>
+                </card.content>
+              </AuCard>
+            </listitem>
+          </AuList>
+        </div>
+      </AuBodyContainer>
+      <Pagination />
+    </AuBodyContainer>
+  </m.content>
+</AuMainContainer>

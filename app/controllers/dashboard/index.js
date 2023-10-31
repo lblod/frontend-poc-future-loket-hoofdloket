@@ -9,7 +9,7 @@ export default class DashboardSearchController extends Controller {
       new: true,
     },
     {
-      title: 'This is an important message you want to read',
+      title: 'KLACHT2019.000428 tegen AALTER: opvraging aan bestuur',
       date: '20/10/23',
       icon: 'mail',
       new: false,

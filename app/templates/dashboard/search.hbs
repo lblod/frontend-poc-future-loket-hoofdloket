@@ -109,9 +109,12 @@
               <AuCard @size="small" class="c-overview-card" as |card|>
                 <card.header>
                   <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
-                    <AuLink @route="subsidies.detail" class="au-u-h6 au-u-medium c-overview-card__link">
-                      {{item.name}}
-                    </AuLink>
+                    <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+                      <Favorite @active={{item.favorite}} />
+                      <AuLink @route='subsidies.detail' class="au-u-h6 au-u-medium c-overview-card__link">
+                        {{item.name}}
+                      </AuLink>
+                    </div>
                     <AuPill @skin="border">
                       {{item.category}}
                     </AuPill>

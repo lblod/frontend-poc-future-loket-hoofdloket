@@ -21,6 +21,7 @@ Router.map(function () {
     this.route('detail');
 
     this.route('subsidy', function () {});
+    this.route('favorites');
   });
   this.route('email');
 });
