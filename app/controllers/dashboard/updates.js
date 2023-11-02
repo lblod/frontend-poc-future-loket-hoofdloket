@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 
 export default class DashboardUpdatesController extends Controller {
-  @tracked newsletterModalOpen  = false;
+  @tracked newsletterModalOpen = false;
   @service toaster;
 
   @action openNewsletterModal() {
@@ -17,7 +17,11 @@ export default class DashboardUpdatesController extends Controller {
 
   @action confirmNewsletterModal() {
     this.newsletterModalOpen = false;
-    this.toaster.success('Je nieuwbrief instelling zijn aangepast', 'Wijzingen opgeslagen',{ timeOut: 3000, closable: false });
+    this.toaster.success(
+      'Je nieuwbrief instelling zijn aangepast',
+      'Wijzingen opgeslagen',
+      { timeOut: 3000, closable: false },
+    );
   }
 
   news = [

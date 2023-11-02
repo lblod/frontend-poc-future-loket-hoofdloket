@@ -59,6 +59,10 @@
   }
 }
 
+.au-c-tabs .au-c-link:focus {
+  outline: 0;
+}
+
 .au-c-icon {
   flex: none;
   bottom: -.02ex;
@@ -237,6 +241,7 @@
 }
 
 .c-sidebar-list {
+  border-bottom: 1px solid var(--au-gray-200);
   .au-c-card {
     border-radius: 0;
     background-color: transparent;
@@ -346,8 +351,6 @@
     .c-sidebar-title {
       display: none;
     }
-
-   
   }
 
   @include mq(small) {

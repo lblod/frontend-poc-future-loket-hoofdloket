@@ -1,0 +1,18 @@
+{{page-title "Settings"}}
+
+<LayoutDashboard @loggedIn={{true}}>
+  <NavigationHeader />
+  <AuTabs @reversed={{this.reversed}} as |Tab|>
+    <Tab>
+      <AuLink @route="settings.index">Algemeen</AuLink>
+    </Tab>
+    <Tab>
+      <AuLink  @route="settings.newsletter">Nieuwsbrief</AuLink>
+    </Tab>
+  </AuTabs>
+  <AuBodyContainer @scroll={{true}}>
+    <div class="au-o-box">
+      {{outlet}}
+    </div>
+  </AuBodyContainer>
+</LayoutDashboard>

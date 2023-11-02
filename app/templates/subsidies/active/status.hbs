@@ -1,0 +1,12 @@
+{{page-title "Status"}}
+<AuBodyContainer @scroll={{true}}>
+  <div class="au-o-box">
+    <AuList @divider={{true}} as |ListItem|>
+      {{#each this.news as |item|}}
+      <ListItem>
+        <RichLink @new={{item.new}} @title={{item.title}} @info={{item.date}} @icon={{item.icon}} />
+      </ListItem>
+      {{/each}}
+    </AuList>
+  </div>
+</AuBodyContainer>

@@ -1,0 +1,82 @@
+{{page-title "Request"}}
+<AuBodyContainer>
+  <AuBodyContainer @scroll={{true}}>
+  <div class="au-o-box">
+    <form class="au-c-form">
+      <AuHeading @level="3" @skin="4">Gegevens contactpersoon</AuHeading>
+      <AuHelpText @skin="secondary">Dit is de persoon die gecontacteerd wordt bij de opvolging van dit dossier.</AuHelpText>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+          Voornaam contactpersoon
+        </AuLabel>
+        <AuInput @width="block"/>
+      </AuFormRow>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+          Familienaam contactpersoon
+        </AuLabel>
+        <AuInput @width="block"/>
+      </AuFormRow>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+          Telefoonnummer
+        </AuLabel>
+        <AuInput />
+      </AuFormRow>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+          Mailadres
+        </AuLabel>
+        <AuInput />
+      </AuFormRow>
+      <AuHr />
+      <AuHeading @level="3" @skin="4">Betaling</AuHeading>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+          Rekeningnummer uitbetaling
+        </AuLabel>
+        <AuInput />
+        <AuHelpText @skin="secondary">IBAN: BE00 0000 0000 0000 </AuHelpText>
+      </AuFormRow>
+      <AuHr />
+      <AuHeading @level="3" @skin="4">Aanvraagformulier</AuHeading>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+          Aantal unieke kinderen opgevangen door alle organisatoren tijdens de ganse periode 
+        </AuLabel>
+        <AuInput />
+        <AuHelpText @skin="secondary">Dit is een geheel getal</AuHelpText>
+      </AuFormRow>
+      <AuFormRow>
+        <AuLabel @required={{true}}>
+           Aantal kalenderdagen opvang georganiseerd door alle organisatoren tijdens de ganse periode
+        </AuLabel>
+        <AuInput />
+        <AuHelpText @skin="secondary">Dit is een geheel getal</AuHelpText>
+      </AuFormRow>
+      <AuHr />
+      <AuHeading @level="3" @skin="4">Verklaringen</AuHeading>
+      <AuFormRow>
+        <AuCheckbox>
+           De gegevens over het aantal effectief opgevangen kinderen, zijn correct. 
+        </AuCheckbox>
+      </AuFormRow>
+      <AuFormRow>
+         <AuCheckbox>
+           De organisator heeft de voorwaarden nageleefd, zoals vermeld in het besluit van de Vlaamse Regering van 20 november 2020 tot toekenning van een projectsubsidie ter compensatie van de kosten voor noodopvang van schoolkinderen. 
+        </AuCheckbox>
+      </AuFormRow>
+    </form>
+  </div>
+  </AuBodyContainer>
+
+  <AuToolbar @size="medium" @border="top" as |Group|>
+    <Group>
+      <AuButton @skin="secondary" @disabled={{true}}>Indienen</AuButton>
+      <AuButton @skin="secondary" @disabled={{true}}>Wijzigingen opslaan</AuButton>
+    </Group>
+    <Group>
+      <AuButton @skin="naked" @icon="bin" @alert={{true}}>Verwijder aanvraag</AuButton>
+    </Group>
+  </AuToolbar>
+</AuBodyContainer>

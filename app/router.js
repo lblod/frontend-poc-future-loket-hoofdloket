@@ -22,6 +22,13 @@ Router.map(function () {
 
     this.route('subsidy', function () {});
     this.route('favorites');
+    this.route('active', function () {
+      this.route('request');
+      this.route('status');
+    });
   });
   this.route('email');
+  this.route('settings', function () {
+    this.route('newsletter');
+  });
 });

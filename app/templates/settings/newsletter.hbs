@@ -1,0 +1,82 @@
+{{page-title "Newsletter"}}
+<form class="au-c-form">
+  <AuFieldset as |f|>
+    <f.legend>Hoe vaak wilt u de nieuwsbrief ontvangen?</f.legend>
+    <f.content>
+      <AuControlRadio
+        @label="Elke dag"
+        @name="radios"
+        @value="radioOne"
+        @identifier="radioOne"
+        @checked={{true}}
+        @disabled= {{false}}
+      />
+      <AuControlRadio
+        @label="Elke week"
+        @name="radios"
+        @value="radioTwo"
+        @identifier="radioTwo"
+        @checked={{false}}
+        @disabled= {{false}}
+      />
+      <AuControlRadio
+        @label="Elke maand"
+        @name="radios"
+        @value="radioThree"
+        @identifier="radioThree"
+        @checked={{false}}
+        @disabled= {{false}}
+      />
+      <AuControlRadio
+        @label="Nooit"
+        @name="radios"
+        @value="radioFour"
+        @identifier="radioFour"
+        @checked={{false}}
+        @disabled= {{false}}
+      />
+    </f.content>
+  </AuFieldset>
+  <AuFieldset as |f|>
+    <f.legend>Waarover wil je de nieuwsbrief ontvangen?</f.legend>
+    <f.content>
+      <AuControlCheckbox
+        @label="Subsidies"
+        @name="Checkboxs"
+        @value="CheckboxOne"
+        @identifier="CheckboxOne"
+        @checked={{true}}
+        @disabled= {{false}}
+      />
+      <AuControlCheckbox
+        @label="Berichten"
+        @name="Checkboxs"
+        @value="CheckboxTwo"
+        @identifier="CheckboxTwo"
+        @checked={{true}}
+        @disabled= {{false}}
+      />
+      <AuControlCheckbox
+        @label="Databronnen"
+        @name="Checkboxs"
+        @value="CheckboxThree"
+        @identifier="CheckboxThree"
+        @checked={{true}}
+        @disabled= {{false}}
+      />
+      <AuControlCheckbox
+        @label="Rapportering"
+        @name="Checkboxs"
+        @value="CheckboxFour"
+        @identifier="CheckboxFour"
+        @checked={{true}}
+        @disabled= {{false}}
+      />
+    </f.content>
+  </AuFieldset>
+  <div>
+    <AuButton @disabled={{true}}>
+      Wijzigingen opslaan
+    </AuButton>
+  </div>
+</form>

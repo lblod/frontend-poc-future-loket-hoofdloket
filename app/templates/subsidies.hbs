@@ -13,7 +13,7 @@
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink @route="subsidies.my-subsidies" role="menuitem">
+              <AuNavigationLink @route="subsidies.my-subsidies" role="menuitem" class="{{if (eq this.activeRoute 'subsidies.active') 'active'}}">
                 <AuIcon @icon="folder" @alignment="left" />
                 Mijn subsidies
               </AuNavigationLink>

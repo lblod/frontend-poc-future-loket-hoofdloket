@@ -23,6 +23,14 @@
     Subsidies
     {{else if (eq this.activeRoute 'subsidies.detail')}}
     Subsidies
+    {{else if (eq this.activeRoute 'subsidies.active')}}
+    Subsidies
+    {{else if (eq this.activeRoute 'subsidies.active.index')}}
+    Subsidies
+    {{else if (eq this.activeRoute 'subsidies.active.request')}}
+    Subsidies
+    {{else if (eq this.activeRoute 'subsidies.active.status')}}
+    Subsidies
     {{else if (eq this.activeRoute 'dashboard.reporting')}}
     Rapporten
     {{else if (eq this.activeRoute 'dashboard.datasources')}}
@@ -31,6 +39,10 @@
     Berichten
     {{else if (eq this.activeRoute 'dashboard.updates')}}
     Updates
+    {{else if (eq this.activeRoute 'settings.index')}}
+    Instellingen
+    {{else if (eq this.activeRoute 'settings.newsletter')}}
+    Instellingen
     {{/if}}
   </AuButton>
   {{#if this.dropdownOpen}}

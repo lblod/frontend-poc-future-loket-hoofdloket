@@ -2,6 +2,7 @@
   display: flex;
   height: 100%;
   width: 100%;
+  position: relative;
 
   @include mq($until: small) {
     flex-direction: column;
@@ -41,6 +42,15 @@
     overflow: auto;
     height: 100%;
     border-left: 1px solid var(--au-gray-200);
+  }
+}
+
+.c-layout__main-right--fixed {
+  @include mq(small) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
   }
 }
 
