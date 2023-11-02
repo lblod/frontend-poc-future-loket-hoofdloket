@@ -46,12 +46,10 @@
 }
 
 .c-layout__main-right--fixed {
-  @include mq(small) {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .c-layout__aside-right {

@@ -24,7 +24,7 @@ Router.map(function () {
     this.route('favorites');
     this.route('active', function () {
       this.route('request');
-      this.route('status');
+      this.route('info');
     });
   });
   this.route('email');

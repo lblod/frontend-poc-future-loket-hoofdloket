@@ -62,25 +62,28 @@
             <Favorite @active={{item.favorite}} />
             <AuHeading @skin="3">{{item.name}}</AuHeading>
           </div>
-          <AuHr />
-          <div class="au-o-grid au-o-grid--small au-u-margin-top-none">
-            <div class="au-o-grid__item au-u-1-3@medium">
-              <p class="au-u-h6">
-                <strong>Periode:</strong> {{item.periode}}
-                <AuHelpText @skin="secondary" class="au-u-margin-top-none">
-                  {{item.periode-detail}}
-                </AuHelpText>
-              </p>
-            </div>
-            <div class="au-o-grid__item au-u-1-3@medium">
-              <p class="au-u-h6"><strong>Deadline:</strong> {{item.deadline}}</p>
-            </div>
-            <div class="au-o-grid__item au-u-1-3@medium au-u-text-right@medium">
-              <AuPill @skin="border">
-              {{item.category}}
-            </AuPill>
-            </div>
-          </div>
+          <AuCard @standOut={{true}} as |c|>
+            <c.content>
+              <div class="au-o-grid au-o-grid--small">
+                <div class="au-o-grid__item au-u-1-3@medium">
+                  <p class="au-u-h6">
+                    <strong>Periode:</strong> {{item.periode}}
+                    <AuHelpText @skin="secondary" class="au-u-margin-top-none">
+                      {{item.periode-detail}}
+                    </AuHelpText>
+                  </p>
+                </div>
+                <div class="au-o-grid__item au-u-1-3@medium">
+                  <p class="au-u-h6"><strong>Deadline:</strong> {{item.deadline}}</p>
+                </div>
+                <div class="au-o-grid__item au-u-1-3@medium au-u-text-right@medium">
+                  <AuPill @skin="border">
+                    {{item.category}}
+                  </AuPill>
+                </div>
+              </div>
+            </c.content>
+          </AuCard>
           <p>
             De Vlaamse overheid erkent en subsidieert verenigingen die aan jeugdwerk doen. Jeugdwerk is sociaal-cultureel werk op basis van niet-commerciële doelen voor of door de jeugd van 3 tot en met 30 jaar, in de vrije tijd, onder educatieve begeleiding en ter bevordering van de algemene en integrale ontwikkeling van de jeugd die daaraan deelneemt op vrijwillige basis.
           </p>

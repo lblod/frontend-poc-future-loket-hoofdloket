@@ -27,6 +27,9 @@
                 <AuLink @route="dashboard.updates">Updates</AuLink>
               </Item>
               <Item>
+                <AuLink @route="settings">Instellingen</AuLink>
+              </Item>
+              <Item>
                 <AuLink @route="email">Nieuwsbrief</AuLink>
               </Item>
             </AuList>
@@ -46,7 +49,52 @@
                 <AuLink @route="subsidies.my-subsidies">Mijn subsidies</AuLink>
               </Item>
               <Item>
+                <AuLink @route="subsidies.favorites">Favorieten</AuLink>
+              </Item>
+              <Item>
                 <AuLink @route="subsidies.detail">Detail</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="subsidies.active">Actieve subsidie aanvraag</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Data bronnen</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="dashboard.datasources">Overzicht</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Rapporten</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="dashboard.reporting">Overzicht</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Berichten</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="dashboard.messages">Overzicht</AuLink>
               </Item>
             </AuList>
           </Card.content>

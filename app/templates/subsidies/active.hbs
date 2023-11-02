@@ -62,13 +62,13 @@
       </div>
       <AuTabs @reversed={{this.reversed}} as |Tab|>
         <Tab>
-          <AuLink @route="subsidies.active.index">Info</AuLink>
+          <AuLink @route="subsidies.active.index">Status: <AuPill @skin="success" @draft={{true}} @size="small">Ingediend</AuPill></AuLink>
         </Tab>
         <Tab>
           <AuLink @route="subsidies.active.request">Aanvraag</AuLink>
         </Tab>
         <Tab>
-          <AuLink @route="subsidies.active.status">Status: <AuPill @skin="success" @draft={{true}} @size="small">Ingediend</AuPill></AuLink>
+          <AuLink @route="subsidies.active.info">Info</AuLink>
         </Tab>
       </AuTabs>
       {{outlet}}
