@@ -7,7 +7,7 @@
         <div class="au-c-sidebar__content" tabindex="-1">
           <ul class="au-c-list-navigation">
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink @route="subsidies.index" role="menuitem">
+              <AuNavigationLink @route="subsidies.index" role="menuitem" class="{{if (eq this.activeRoute 'subsidies.detail') 'active'}}">
                 <AuIcon @icon="subsidies" @alignment="left" />
                 Overzicht
               </AuNavigationLink>
@@ -65,9 +65,16 @@
               </AuNavigationLink>
             </li>
             <li class="au-c-list-navigation__item">
-              <AuNavigationLink role="menuitem">
+              {{#if (eq this.dateFilter true)}}
+              <div class="au-c-list-navigation__form">
+                <AuLabel>Specifiek</AuLabel>
+                <AuDateInput/>
+              </div>
+              {{else}}
+              <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}> 
                 Specifiek
               </AuNavigationLink>
+              {{/if}}
             </li>
           </ul>
         </div>

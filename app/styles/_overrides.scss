@@ -25,6 +25,17 @@
   border-top: 1px solid var(--au-gray-300);
 }
 
+.au-c-list-navigation__form {
+  padding-left: $au-unit;
+  padding-right: $au-unit-small;
+  padding-top: $au-unit-small;
+
+  .au-c-input {
+    width: 100% !important;
+    max-width: auto !important;
+  }
+}
+
 .has-tabs {
   padding-bottom: 0;
 
