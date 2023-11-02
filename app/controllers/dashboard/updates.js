@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 
-export default class DashboardSearchController extends Controller {
+export default class DashboardUpdatesController extends Controller {
   @tracked newsletterModalOpen  = false;
   @service toaster;
 
@@ -19,7 +19,7 @@ export default class DashboardSearchController extends Controller {
     this.newsletterModalOpen = false;
     this.toaster.success('Je nieuwbrief instelling zijn aangepast', 'Wijzingen opgeslagen',{ timeOut: 3000, closable: false });
   }
-  
+
   news = [
     {
       title: 'Voor kinderen met een beperking',

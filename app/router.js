@@ -13,8 +13,8 @@ Router.map(function () {
     this.route('datasources');
     this.route('reporting');
     this.route('search');
-    this.route('newsletter');
     this.route('messages');
+    this.route('updates');
   });
   this.route('subsidies', function () {
     this.route('my-subsidies');
