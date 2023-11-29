@@ -1,7 +1,8 @@
 .au-c-list-navigation__link {
   font-size: var(--au-h6);
   text-decoration: none;
-  padding-left: $au-unit;
+  // padding-left: $au-unit;
+  padding: $au-unit-small;
 
   font-weight: var(--au-medium);
   -webkit-font-smoothing: antialiased;
@@ -10,11 +11,11 @@
 
 .au-c-list-navigation__section-title {
   width: 100%;
-  padding-left: $au-unit;
+  // padding-left: $au-unit;
   color: var(--au-gray-700);
   border-bottom: 0;
+  padding: $au-unit-small;
   padding-bottom: 0;
-  padding-top: $au-unit-small * 1.3
 }
 
 .au-c-list-navigation + .au-c-list-navigation {
@@ -286,10 +287,11 @@
   position: relative;
   flex-basis: auto;
   background-color: var(--au-gray-100);
-  border-right: 1px solid var(--au-gray-300);
+  border-right: 1px solid var(--au-gray-200);
 
   @include mq($au-main-container-breakpoint) {
     flex-basis: 200px;
+    border-right: 0;
   }
 }
 
@@ -300,11 +302,18 @@
 }
 
 .au-c-sidebar {
-  border-right: 0;
-  background-color: var(--au-gray-200);
+  @include mq($au-main-container-breakpoint) {
+    margin: $au-unit-small;
+    margin-right: 0;
+    border-radius: $au-radius;
+    border: 1px solid var(--au-gray-300);
+    height: calc(100% - #{$au-unit});
+    background-color: var(--au-gray-200);
+  }
 
   @include mq($until: $au-main-container-breakpoint) {
     display: none;
+    margin: 0;
 
     &.au-c-sidebar--open {
       display: block;
@@ -333,6 +342,7 @@
     border: 0;
     padding-left: 0;
     padding-right: 0;
+    margin-left: $au-unit-tiny;
 
     .au-c-icon {
       width: 1.4em;
@@ -362,4 +372,13 @@
 
 .c-sidebar-back {
   padding: $au-unit-tiny $au-unit-tiny;
+}
+
+.au-c-fieldset-legend {
+  font-family: var(--au-font);
+  font-size: 1.4rem !important;
+  line-height: var(--au-global-line-height);
+  font-weight: var(--au-medium);
+  color: var(--au-gray-700);
+  text-transform: uppercase;
 }

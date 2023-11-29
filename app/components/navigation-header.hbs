@@ -1,21 +1,7 @@
 <div class="c-navigation-header">
   <Navigation />
-  {{#unless (eq this.activeRoute 'dashboard.index')}}
-  <div class="c-navigation-search c-navigation-header__search">
-    <div>
-      <AuLabel for="search" class="au-u-hidden-visually">Trefwoord</AuLabel>
-      <AuInput id="search" @width="block" value={{if (eq this.activeRoute 'dashboard.search') 'zoekterm'}} />
-    </div>
-    <AuLink @skin="button" @route="dashboard.search" @icon="search">
-      Zoek
-    </AuLink>
-  </div>
-  {{/unless}}
-  
-  <AuLink @route="dashboard.updates" @skin="button-secondary" class="au-c-button--counter">
+  <AuLink @route="dashboard.updates" @skin="button-secondary">
     <AuIcon @icon="notification" @iconAlignment="left" />
-    Updates
-    <span class="c-counter">1</span>
+    Notificaties
   </AuLink>
-  
 </div>

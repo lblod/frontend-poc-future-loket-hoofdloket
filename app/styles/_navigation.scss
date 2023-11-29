@@ -10,6 +10,10 @@
 
 
   @include mq(small) {
+    padding-bottom: 0;
+    padding-top: $au-unit-tiny;
+    align-items: baseline;
+
     > *:first-child {
       flex-grow: 1;
     }
@@ -30,7 +34,6 @@
   display: flex;
   align-items: flex-end;
   gap: $au-unit-tiny;
-  // min-width: 400px;
   flex-grow: 1;
   
   > div {
@@ -65,15 +68,36 @@
 .c-navigation {
   display: flex;
   position: relative;
-  margin-left: $au-unit - $au-unit-tiny;
 
-  @include mq($until: $au-main-container-breakpoint) {
+  @include mq($until: small) {
     margin-left: $au-unit-tiny;
   }
 }
 
+.c-navigation__mobile {
+  margin-left: $au-unit-tiny;
+
+  @include mq(small) {
+    display: none;
+  }
+}
+
+.c-navigation__tabs {
+  .au-c-tabs {
+    border-bottom: 0;
+  }
+
+  .au-c-tabs-list__item .au-c-link  {
+    padding-bottom: $au-unit-small + $au-unit-tiny;
+  }
+
+  @include mq($until: small) {
+    display: none;
+  }
+}
+
 .c-navigation__button {
-  font-size: var(--au-h4);
+  font-size: var(--au-h5);
   line-height: 1.25;
   padding: 0;
   height: auto;
@@ -100,7 +124,6 @@
   width: 3.75rem;
   height: 3.75rem;
   border-radius: var(--au-radius);
-  margin-right: $au-unit-tiny;
   transition: color var(--au-transition), background-color var(--au-transition);
 
   .au-c-icon {

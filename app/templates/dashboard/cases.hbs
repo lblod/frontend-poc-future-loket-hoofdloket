@@ -1,8 +1,22 @@
-{{page-title "Search"}}
+{{page-title "Cases"}}
 <AuMainContainer as |m|>
   <m.sidebar>
-    <Sidebar>
+    <div class="au-c-sidebar">
       <div class="au-c-sidebar__content">
+        <ul class="au-c-list-navigation">
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink @route="dashboard.cases">
+              <AuIcon @icon="subsidies" @alignment="left" />
+              Overzicht
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink>
+              <AuIcon @icon="folder" @alignment="left" />
+              Mijn subsidies
+            </AuNavigationLink>
+          </li>
+        </ul>
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__section-title">
             Thema's
@@ -49,59 +63,45 @@
           </li>
         </ul>
       </div>
-    </Sidebar>
+    </div>
   </m.sidebar>
   <m.content>  
     <AuBodyContainer class="au-u-background-gray-100" >
+      {{outlet}}
       <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
+          <AuHeading @skin="5">Lopende Subsidies</AuHeading>
+        </Group>
+      </AuToolbar>
+      <div class="au-o-box au-o-box--small">
+        <AuList as |listitem|>
+          <listitem>
+            <AuCard @size="small" class="c-overview-card" as |card|>
+              <card.header>
+                <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
+                  <AuLink class="au-u-h5 au-u-medium c-overview-card__link">
+                    Erkenning en subsidiëring van een landelijk georganiseerde jeugdvereniging
+                  </AuLink>
+                  <AuPill @skin="success" @draft={{true}}>
+                    Ingediend
+                  </AuPill>
+                </div>
+              </card.header>
+            </AuCard>
+          </listitem>
+        </AuList>
+        <p class="au-u-h-functional">
+          <AuLink @skin="button-naked" @icon="clock-rewind" @iconAlignment="left" class="c-card-link">
+            Historiek
+          </AuLink>
+        </p>
+      </div>
+      <AuToolbar @border="bottom" @size="medium" as |Group|>
+        <Group>
+          <AuHeading @skin="5">234 subsidies beschikbaar</AuHeading>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
-        {{!-- <AuTable>
-          <:header>
-            <tr>
-              <th>Titel subsidie</th>
-              <th>Periode</th>
-              <th>Aanvragen tot</th>
-              <th>Categorie</th>
-              <th class="c-row-end"></th>
-            </tr>
-          </:header>
-          <:body>
-            {{#each this.subsidies as |item|}}
-            <tr class="c-clickable-row">
-              <td>
-                <strong>{{item.name}}</strong><br/>
-                <AuLinkExternal @icon="external-link" @iconAlignment="right" @href={{item.link}} class="c-external">
-                  Meer info
-                </AuLinkExternal>
-              </td>
-              <td>
-                {{item.periode}}
-                <AuHelpText @skin="secondary">
-                  {{item.periode-detail}}
-                </AuHelpText>
-              </td>
-              
-              <td>
-                {{item.deadline}}
-              </td>
-              <td>
-                <AuPill @size="small">
-                  {{item.category}}
-                </AuPill>
-              </td>
-              <td class="c-row-end">
-                <AuButton @skin="naked" @icon="chevron-right" @hideText={{true}} class="c-row-action">
-                  Subsidieaanvraag starten
-                </AuButton>
-              </td>
-            </tr>
-            {{/each}}
-          </:body>
-        </AuTable> --}}
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
             {{#each this.subsidies as |item|}}
@@ -110,8 +110,8 @@
                 <card.header>
                   <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-                      <Favorite @active={{item.favorite}} />
-                      <AuLink @route='cases.detail' class="au-u-h6 au-u-medium c-overview-card__link">
+                      <Favorite />
+                      <AuLink class="au-u-h5 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLink>
                     </div>
@@ -121,8 +121,9 @@
                   </div>
                 </card.header>
                 <card.content class="au-o-flow">
+                  <p class="au-u-h-functional"><strong>Deadline:</strong> {{item.deadline}}</p>
                   <p class="au-u-h-functional">
-                    <strong>Deadline:</strong> {{item.deadline}} - <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                    <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
                       Meer info 
                     </AuLinkExternal>
                   </p>

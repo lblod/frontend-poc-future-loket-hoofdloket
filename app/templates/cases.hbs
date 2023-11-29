@@ -1,0 +1,89 @@
+{{page-title "Mijn dossiers"}}
+<LayoutDashboard @loggedIn={{true}}>
+  <NavigationHeader />
+  <AuMainContainer as |m|>
+    <m.sidebar>
+      <Sidebar>
+        <div class="au-c-sidebar__content" tabindex="-1">
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink @route="cases.index" role="menuitem" class="{{if (eq this.activeRoute 'cases.detail') 'active'}}">
+                <AuIcon @icon="subsidies" @alignment="left" />
+                Overzicht
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink @route="cases.my-cases" role="menuitem" class="{{if (or (eq this.activeRoute 'cases.active.index')(eq this.activeRoute 'cases.active.request')(eq this.activeRoute 'cases.active.info')) 'active'}}">
+                <AuIcon @icon="folder" @alignment="left" />
+                Mijn dossiers
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink @route="cases.favorites" role="menuitem">
+                <AuIcon @icon="star-filled" @alignment="left" />
+                Favorieten
+              </AuNavigationLink>
+            </li>
+          </ul>
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__section-title">
+              Thema's
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink role="menuitem">
+                Jeugd
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink role="menuitem">
+                Sport
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink role="menuitem">
+                Cultuur
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink role="menuitem">
+                Vrije tijd
+              </AuNavigationLink>
+            </li>
+          </ul>
+          <ul class="au-c-list-navigation">
+            <li class="au-c-list-navigation__section-title">
+              Deadline
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink role="menuitem">
+                Deze maand
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              <AuNavigationLink role="menuitem">
+                Dit kwartaal
+              </AuNavigationLink>
+            </li>
+            <li class="au-c-list-navigation__item">
+              {{#if (eq this.dateFilter true)}}
+              <div class="au-c-list-navigation__form">
+                <AuLabel>Specifiek</AuLabel>
+                <AuDateInput/>
+              </div>
+              {{else}}
+              <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}> 
+                Specifiek
+              </AuNavigationLink>
+              {{/if}}
+            </li>
+          </ul>
+        </div>
+      </Sidebar>
+    </m.sidebar>
+    <m.content>  
+      <AuBodyContainer class="au-u-background-gray-100" >
+        {{outlet}}
+      </AuBodyContainer>
+    </m.content>
+  </AuMainContainer>
+</LayoutDashboard>

@@ -1,70 +1,90 @@
 <div class="c-navigation" ...attributes>
-  <AuButton
-    {{this.reference}}
-    aria-haspopup="true"
-    aria-expanded="{{if this.dropdownOpen 'true' 'false'}}"
-    class="c-navigation__button"
-    @skin="naked"
-    type="button"
-    {{on "click" this.toggleDropdown}}
-  >
-    <div class="c-navigation__trigger">
-      <AuIcon @icon="tiles" @iconAlignment="left" />
-    </div>
-    {{#if (eq this.activeRoute 'dashboard.index')}}
-    Overzicht
-    {{else if (eq this.activeRoute 'dashboard.search')}}
-    Zoeken
-    {{else if (eq this.activeRoute 'subsidies.index')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.my-subsidies')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.favorites')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.detail')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.active')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.active.index')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.active.request')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'subsidies.active.info')}}
-    Subsidies
-    {{else if (eq this.activeRoute 'dashboard.reporting')}}
-    Rapporten
-    {{else if (eq this.activeRoute 'dashboard.datasources')}}
-    Data bronnen
-    {{else if (eq this.activeRoute 'dashboard.messages')}}
-    Berichten
-    {{else if (eq this.activeRoute 'dashboard.updates')}}
-    Updates
-    {{else if (eq this.activeRoute 'settings.index')}}
-    Instellingen
-    {{else if (eq this.activeRoute 'settings.newsletter')}}
-    Instellingen
-    {{/if}}
-  </AuButton>
-  {{#if this.dropdownOpen}}
-    <div
-      id="account" 
-      role="menu"
-      {{focus-trap
-        shouldSelfFocus=true
-        focusTrapOptions=(hash
-          clickOutsideDeactivates=this.clickOutsideDeactivates
-        )
-      }}
-      {{on "click" this.closeDropdown}}
-      class="c-navigation__dialog"
+  <div class="c-navigation__mobile">
+    <AuButton
+      {{this.reference}}
+      aria-haspopup="true"
+      aria-expanded="{{if this.dropdownOpen 'true' 'false'}}"
+      class="c-navigation__button"
+      @skin="naked"
+      type="button"
+      {{on "click" this.toggleDropdown}}
     >
-      <AuLink @route="dashboard.index" role="menuitem">
-        <AuIcon @icon="tiles" />Overzicht
-      </AuLink>
-      <AuLink @route="subsidies" role="menuitem"><AuIcon @icon="subsidies" />Subsidies</AuLink>
-      <AuLink @route="dashboard.datasources" role="menuitem"><AuIcon @icon="datasource" />Data bronnen</AuLink>
-      <AuLink role="menuitem" @route="dashboard.reporting"><AuIcon @icon="reporting" />Rapporten</AuLink>
-      <AuLink role="menuitem" @route="dashboard.messages"><AuIcon @icon="message" />Berichten</AuLink>
-    </div>
-  {{/if}}
+      <div class="c-navigation__trigger">
+        <AuIcon @icon="tiles" @iconAlignment="left" />
+      </div>
+      {{#if (eq this.activeRoute 'dashboard.index')}}
+      Overzicht
+      {{else if (eq this.activeRoute 'dashboard.search')}}
+      Zoeken
+      {{else if (eq this.activeRoute 'cases.index')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.my-cases')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.favorites')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.detail')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.active')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.active.index')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.active.request')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'cases.active.info')}}
+      Dossiers
+      {{else if (eq this.activeRoute 'dashboard.reporting')}}
+      Rapporten
+      {{else if (eq this.activeRoute 'dashboard.data')}}
+      Mijn gegevens
+      {{else if (eq this.activeRoute 'dashboard.messages')}}
+      Berichten
+      {{else if (eq this.activeRoute 'dashboard.updates')}}
+      Updates
+      {{else if (eq this.activeRoute 'settings.index')}}
+      Instellingen
+      {{else if (eq this.activeRoute 'settings.newsletter')}}
+      Instellingen
+      {{/if}}
+    </AuButton>
+    {{#if this.dropdownOpen}}
+      <div
+        id="account" 
+        role="menu"
+        {{focus-trap
+          shouldSelfFocus=true
+          focusTrapOptions=(hash
+            clickOutsideDeactivates=this.clickOutsideDeactivates
+          )
+        }}
+        {{on "click" this.closeDropdown}}
+        class="c-navigation__dialog"
+      >
+        <AuLink @route="dashboard.index" role="menuitem">
+          <AuIcon @icon="tiles" />Overzicht
+        </AuLink>
+        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers</AuLink>
+        <AuLink @route="dashboard.data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
+        <AuLink role="menuitem" @route="dashboard.messages"><AuIcon @icon="message" />Berichten</AuLink>
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="c-navigation__tabs">
+    <AuTabs @reversed={{this.reversed}} as |Tab|>
+      <Tab>
+        <AuLink @route="dashboard.index" role="menuitem">
+          <AuIcon @icon="tiles" />Overzicht
+        </AuLink>
+      </Tab>
+      <Tab>
+        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers</AuLink>
+      </Tab>
+      <Tab>
+        <AuLink @route="dashboard.data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
+      </Tab>
+      <Tab>
+        <AuLink role="menuitem" @route="dashboard.messages"><AuIcon @icon="message" />Berichten</AuLink>
+      </Tab>
+    </AuTabs>
+  </div>
 </div>
