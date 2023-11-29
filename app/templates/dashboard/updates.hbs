@@ -1,183 +1,83 @@
 {{page-title "Updates"}}
 
 <AuMainContainer as |m|>
-  <m.sidebar>
-    <div class="au-c-sidebar">
-      <div class="au-c-sidebar__content">
-        <ul class="au-c-list-navigation">
-          <li class="au-c-list-navigation__section-title">
-            Type
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Subsidie
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Bericht
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Rapport
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Databron
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Activiteit
-            </AuNavigationLink>
-          </li>
-        </ul>
-        <ul class="au-c-list-navigation">
-          <li class="au-c-list-navigation__section-title">
-            Datum
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Deze maand
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Dit kwartaal
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Specifiek
-            </AuNavigationLink>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </m.sidebar>
   <m.content>  
     <AuBodyContainer class="au-u-background-gray-100" >
-      {{outlet}}
-      <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group>
-          <AuHeading @skin="5">Updates</AuHeading>
-        </Group>
-        <Group>
-          <AuButton @skin="naked" @icon="settings" class="au-u-padding-none" {{on 'click' this.openNewsletterModal}}>
-            Nieuwsbrief
-          </AuButton>
-        </Group>
-      </AuToolbar>
-      <AuBodyContainer @scroll={{true}}>
-        <div class="au-o-box">
-          <AuList @divider={{true}} as |ListItem|>
-            {{#each this.news as |item|}}
-            <ListItem>
-              <RichLink @new={{item.new}} @title={{item.title}} @info={{item.date}} @icon={{item.icon}} />
-            </ListItem>
-            {{/each}}
-          </AuList>
-        </div>
-      </AuBodyContainer>
-      <Pagination />
+      <div class="au-o-box">
+        <form class="au-c-form">
+          <AuFieldset as |f|>
+            <f.legend>Hoe vaak wilt u de nieuwsbrief ontvangen?</f.legend>
+            <f.content>
+              <AuControlRadio
+                @label="Elke dag"
+                @name="radios"
+                @value="radioOne"
+                @identifier="radioOne"
+                @checked={{true}}
+                @disabled= {{false}}
+              />
+              <AuControlRadio
+                @label="Elke week"
+                @name="radios"
+                @value="radioTwo"
+                @identifier="radioTwo"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlRadio
+                @label="Elke maand"
+                @name="radios"
+                @value="radioThree"
+                @identifier="radioThree"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlRadio
+                @label="Nooit"
+                @name="radios"
+                @value="radioFour"
+                @identifier="radioFour"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+            </f.content>
+          </AuFieldset>
+          <AuFieldset as |f|>
+            <f.legend>Waarover wil je de nieuwsbrief ontvangen?</f.legend>
+            <f.content>
+              <AuControlCheckbox
+                @label="Subsidies"
+                @name="Checkboxs"
+                @value="CheckboxOne"
+                @identifier="CheckboxOne"
+                @checked={{true}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Berichten"
+                @name="Checkboxs"
+                @value="CheckboxTwo"
+                @identifier="CheckboxTwo"
+                @checked={{true}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Mijn gegevens"
+                @name="Checkboxs"
+                @value="CheckboxThree"
+                @identifier="CheckboxThree"
+                @checked={{true}}
+                @disabled= {{false}}
+              />
+            </f.content>
+          </AuFieldset>
+          <div>
+            <AuButton @disabled={{true}}>
+              Wijzigingen opslaan
+            </AuButton>
+          </div>
+        </form>
+      </div>
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>
-
-{{!-- Newsletter --}}
-<AuModal
-  @modalOpen={{this.newsletterModalOpen}}
-  @closeModal={{this.closeNewsletterModal}}
->
-  <:title>Nieuwsbrief</:title>
-  <:body>
-    <form class="au-c-form">
-      <AuFieldset as |f|>
-        <f.legend>Hoe vaak wilt u de nieuwsbrief ontvangen?</f.legend>
-        <f.content>
-          <AuControlRadio
-            @label="Elke dag"
-            @name="radios"
-            @value="radioOne"
-            @identifier="radioOne"
-            @checked={{true}}
-            @disabled= {{false}}
-          />
-          <AuControlRadio
-            @label="Elke week"
-            @name="radios"
-            @value="radioTwo"
-            @identifier="radioTwo"
-            @checked={{false}}
-            @disabled= {{false}}
-          />
-          <AuControlRadio
-            @label="Elke maand"
-            @name="radios"
-            @value="radioThree"
-            @identifier="radioThree"
-            @checked={{false}}
-            @disabled= {{false}}
-          />
-          <AuControlRadio
-            @label="Nooit"
-            @name="radios"
-            @value="radioFour"
-            @identifier="radioFour"
-            @checked={{false}}
-            @disabled= {{false}}
-          />
-        </f.content>
-      </AuFieldset>
-      <AuFieldset as |f|>
-        <f.legend>Waarover wil je de nieuwsbrief ontvangen?</f.legend>
-        <f.content>
-          <AuControlCheckbox
-            @label="Subsidies"
-            @name="Checkboxs"
-            @value="CheckboxOne"
-            @identifier="CheckboxOne"
-            @checked={{true}}
-            @disabled= {{false}}
-          />
-          <AuControlCheckbox
-            @label="Berichten"
-            @name="Checkboxs"
-            @value="CheckboxTwo"
-            @identifier="CheckboxTwo"
-            @checked={{true}}
-            @disabled= {{false}}
-          />
-          <AuControlCheckbox
-            @label="Databronnen"
-            @name="Checkboxs"
-            @value="CheckboxThree"
-            @identifier="CheckboxThree"
-            @checked={{true}}
-            @disabled= {{false}}
-          />
-          <AuControlCheckbox
-            @label="Rapportering"
-            @name="Checkboxs"
-            @value="CheckboxFour"
-            @identifier="CheckboxFour"
-            @checked={{true}}
-            @disabled= {{false}}
-          />
-        </f.content>
-      </AuFieldset>
-    </form>
-  </:body>
-  <:footer>
-    <div class="au-u-flex au-u-flex--between">
-      <AuButton @skin="naked" {{on 'click' this.closeNewsletterModal}}>  
-        Annuleer
-      </AuButton>
-      <AuButton {{on 'click' this.confirmNewsletterModal}}>
-        Wijzigingen opslaan
-      </AuButton>
-    </div>
-  </:footer>
-</AuModal>
