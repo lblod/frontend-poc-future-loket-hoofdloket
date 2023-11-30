@@ -57,12 +57,11 @@
   margin-bottom: -$au-unit-tiny;
   transition: background-color var(--au-transition), border var(--au-transition);
   padding-inline: $au-unit-tiny * 1.5;
-  border-left: 2px solid var(--au-blue-700);
-  margin-left: $au-unit-tiny * .5;
-
-  .au-c-button--counter:hover & {
-    border-left: 2px solid var(--au-blue-900);
-  }
+  margin-left: $au-unit-tiny * .25;
+  border-radius: 100%;
+  font-size: 1.3rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .c-navigation {

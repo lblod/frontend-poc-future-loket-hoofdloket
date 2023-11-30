@@ -27,7 +27,7 @@
 }
 
 .au-c-list-navigation__form {
-  padding-left: $au-unit;
+  padding-left: $au-unit-small;
   padding-right: $au-unit-small;
   padding-top: $au-unit-small;
 
@@ -35,6 +35,19 @@
     width: 100% !important;
     max-width: auto !important;
   }
+}
+
+.c-list-navigation__counter {
+  font-size: 1.2rem;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 1.7rem;
+  color: var(--au-gray-800);
+  background-color: var(--au-gray-300);
 }
 
 .has-tabs {
@@ -165,6 +178,19 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+.c-overview-card__header {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  margin-bottom: $au-unit-tiny;
+
+  @include mq(small) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: $au-unit-tiny;
   }
 }
 
@@ -381,4 +407,14 @@
   font-weight: var(--au-medium);
   color: var(--au-gray-700);
   text-transform: uppercase;
+}
+
+.c-content-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: $au-radius;
+  border: 1px solid var(--au-gray-200);
 }

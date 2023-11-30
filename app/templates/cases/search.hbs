@@ -1,7 +1,24 @@
+{{page-title "Zoeken"}}
 <AuMainContainer as |m|>
   <m.sidebar>
     <Sidebar>
-      <div class="au-c-sidebar__content" tabindex="-1">
+      <div class="au-c-sidebar__content">
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend>Zoekterm</f.legend>
+            <f.content>
+              <span class="au-c-pill-container">
+                <span class="au-c-pill au-c-pill--default">
+                  test zoek
+                </span>
+                <LinkTo @route="cases.index" class="au-c-pill-action  au-c-pill--default">
+                  <AuIcon @icon="cross" />
+                  <span class="au-u-hidden-visually">close</span>
+                </LinkTo>
+              </span>
+            </f.content>
+          </AuFieldset>
+        </div>
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__section-title">
             In te dienen
@@ -104,12 +121,12 @@
   </m.sidebar>
   <m.content>  
     <AuBodyContainer class="au-u-background-gray-100" >
-      <AuToolbar @border="bottom" @size="small" as |Group|>
+       <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
           <div class="c-navigation-search">
             <div>
               <AuLabel for="search">Trefwoord</AuLabel>
-              <AuInput id="search" @width="block" />
+              <AuInput id="search" @width="block" value="test zoek" />
             </div>
             <AuLink @skin="button" @route="cases.search" @icon="search">
               Zoek
@@ -117,11 +134,11 @@
           </div>
           </Group>
       </AuToolbar>
-      {{!-- <AuToolbar @border="bottom" @size="medium" as |Group|>
+      <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
+          <p class="au-u-h6">2346 resultaten voor <strong>'test zoek'</strong></p>
         </Group>
-      </AuToolbar> --}}
+      </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>

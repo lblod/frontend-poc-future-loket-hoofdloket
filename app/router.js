@@ -15,20 +15,21 @@ Router.map(function () {
     this.route('search');
     this.route('messages');
     this.route('updates');
+    this.route('favorites');
   });
   this.route('cases', function () {
-    this.route('my-cases');
-    this.route('detail');
-
-    this.route('case', function () {});
-    this.route('favorites');
-    this.route('active', function () {
-      this.route('request');
-      this.route('info');
-    });
+    this.route('search');
   });
   this.route('email');
   this.route('settings', function () {
     this.route('newsletter');
+  });
+  this.route('updates');
+  this.route('messages', function () {
+    this.route('search');
+  });
+  this.route('data', function () {
+    this.route('search');
+    this.route('detail');
   });
 });

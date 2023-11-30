@@ -1,0 +1,117 @@
+{{page-title "Notificaties"}}
+<LayoutDashboard @loggedIn={{true}}>
+  <NavigationHeader />
+  <AuMainContainer as |m|>
+    <m.content>  
+      <AuBodyContainer class="au-u-background-gray-100 au-o-box" >
+        <div class="au-o-box c-content-center">
+          <form class="au-c-form">
+            <AuFieldset as |f|>
+              <f.legend>Hoe vaak wilt u de nieuwsbrief ontvangen?</f.legend>
+              <f.content>
+                <AuControlRadio
+                  @label="Elke dag"
+                  @name="radios"
+                  @value="radioOne"
+                  @identifier="radioOne"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+                <AuControlRadio
+                  @label="Elke week"
+                  @name="radios"
+                  @value="radioTwo"
+                  @identifier="radioTwo"
+                  @checked={{false}}
+                  @disabled= {{false}}
+                />
+                <AuControlRadio
+                  @label="Elke maand"
+                  @name="radios"
+                  @value="radioThree"
+                  @identifier="radioThree"
+                  @checked={{false}}
+                  @disabled= {{false}}
+                />
+                <AuControlRadio
+                  @label="Nooit"
+                  @name="radios"
+                  @value="radioFour"
+                  @identifier="radioFour"
+                  @checked={{false}}
+                  @disabled= {{false}}
+                />
+              </f.content>
+            </AuFieldset>
+            <AuFieldset as |f|>
+              <f.legend>Waarover wil je de nieuwsbrief ontvangen?</f.legend>
+              <f.content>
+                <AuControlCheckbox
+                  @label="Mijn dossiers"
+                  @name="Checkboxs"
+                  @value="CheckboxOne"
+                  @identifier="CheckboxOne"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+                <AuControlCheckbox
+                  @label="Mijn gegevens"
+                  @name="Checkboxs"
+                  @value="CheckboxThree"
+                  @identifier="CheckboxThree"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+                <AuControlCheckbox
+                  @label="Berichten"
+                  @name="Checkboxs"
+                  @value="CheckboxTwo"
+                  @identifier="CheckboxTwo"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+              </f.content>
+            </AuFieldset>
+            <AuFieldset as |f|>
+              <f.legend>Welke onderwerpen?</f.legend>
+              <f.content>
+                <AuControlCheckbox
+                  @label="Subsidies"
+                  @name="Checkboxs"
+                  @value="Subsidies"
+                  @identifier="Subsidies"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+                <AuControlCheckbox
+                  @label="Premies"
+                  @name="Checkboxs"
+                  @value="Premies"
+                  @identifier="Premies"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+                <AuControlCheckbox
+                  @label="Vergunningen"
+                  @name="Checkboxs"
+                  @value="Vergunningen"
+                  @identifier="Vergunningen"
+                  @checked={{true}}
+                  @disabled= {{false}}
+                />
+              </f.content>
+            </AuFieldset>
+            <div>
+              <AuButton>
+                Wijzigingen opslaan
+              </AuButton>
+            </div>
+          </form>
+        </div>
+      </AuBodyContainer>
+    </m.content>
+  </AuMainContainer>
+</LayoutDashboard>
+
+
+

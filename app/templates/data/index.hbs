@@ -1,0 +1,73 @@
+<AuMainContainer as |m|>
+  <m.sidebar>
+    <Sidebar>
+      <div class="au-c-sidebar__content" tabindex="-1">
+        <ul class="au-c-list-navigation">
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Personen
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Financieel
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink @route="data.index" role="menuitem">
+              Protocol
+            </AuNavigationLink>
+          </li>
+        </ul>
+      </div>
+    </Sidebar>
+  </m.sidebar>
+  <m.content>  
+    <AuBodyContainer class="au-u-background-gray-100" >
+      <AuToolbar @border="bottom" @size="small" as |Group|>
+        <Group class="au-u-1-1">
+          <div class="c-navigation-search">
+            <div>
+              <AuLabel for="search">Trefwoord</AuLabel>
+              <AuInput id="search" @width="block" />
+            </div>
+            <AuLink @skin="button" @route="data.search" @icon="search">
+              Zoek
+            </AuLink>
+          </div>
+          </Group>
+      </AuToolbar>
+      {{!-- <AuToolbar @border="bottom" @size="medium" as |Group|>
+        <Group>
+          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
+        </Group>
+      </AuToolbar> --}}
+      <AuBodyContainer @scroll={{true}}>
+        <div class="au-o-box au-o-box--small">
+          <AuList as |listitem|>
+            {{#each this.data as |item|}}
+            <listitem>
+              <AuCard @size="small" class="c-overview-card" as |card|>
+                <card.header class="au-u-padding-bottom-none">
+                  <div class="c-overview-card__header">
+                    <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+                      <AuLink @route="data.detail" class="au-u-h6 au-u-medium c-overview-card__link">
+                        {{item.name}}
+                      </AuLink>
+                    </div>
+                  </div>
+                </card.header>
+                <card.content>
+                  <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
+                  <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
+                </card.content>
+              </AuCard>
+            </listitem>
+            {{/each}}
+          </AuList>
+        </div>
+      </AuBodyContainer>
+      <Pagination />
+    </AuBodyContainer>
+  </m.content>
+</AuMainContainer>

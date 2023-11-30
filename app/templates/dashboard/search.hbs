@@ -1,129 +1,198 @@
-{{page-title "Search"}}
 <AuMainContainer as |m|>
   <m.sidebar>
     <Sidebar>
       <div class="au-c-sidebar__content">
         <ul class="au-c-list-navigation">
-          <li class="au-c-list-navigation__section-title">
-            Thema's
-          </li>
           <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Jeugd
+            <AuNavigationLink @route="dashboard.index" role="menuitem">
+              <AuIcon @icon="tiles" @alignment="left" />
+              Overzicht
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Sport
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Cultuur
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Vrije tijd
+            <AuNavigationLink @route="dashboard.favorites" role="menuitem">
+              <AuIcon @icon="star-filled" @alignment="left" />
+              Favorieten
             </AuNavigationLink>
           </li>
         </ul>
-        <ul class="au-c-list-navigation">
-          <li class="au-c-list-navigation__section-title">
-            Deadline
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Deze maand
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Dit kwartaal
-            </AuNavigationLink>
-          </li>
-          <li class="au-c-list-navigation__item">
-            <AuNavigationLink>
-              Specifiek
-            </AuNavigationLink>
-          </li>
-        </ul>
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend>Zoekterm</f.legend>
+            <f.content>
+              <span class="au-c-pill-container">
+                <span class="au-c-pill au-c-pill--default">
+                  test zoek
+                </span>
+                <LinkTo @route="dashboard.index" class="au-c-pill-action  au-c-pill--default">
+                  <AuIcon @icon="cross" />
+                  <span class="au-u-hidden-visually">close</span>
+                </LinkTo>
+              </span>
+            </f.content>
+          </AuFieldset>
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend>Type</f.legend>
+            <f.content>
+              <AuControlCheckbox
+                @label="Subsidies"
+                @name="Checkboxs"
+                @value="Subsidies"
+                @identifier="Subsidies"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Premies"
+                @name="Checkboxs"
+                @value="Premies"
+                @identifier="Premies"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Vergunningen"
+                @name="Checkboxs"
+                @value="Vergunningen"
+                @identifier="Vergunningen"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+            </f.content>
+          </AuFieldset>
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend>Thematisch</f.legend>
+            <f.content>
+              <AuControlCheckbox
+                @label="Jeugd"
+                @name="Checkboxs"
+                @value="Jeugd"
+                @identifier="Jeugd"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Cultuur"
+                @name="Checkboxs"
+                @value="Cultuur"
+                @identifier="Cultuur"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Sport"
+                @name="Checkboxs"
+                @value="Sport"
+                @identifier="Sport"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+            </f.content>
+          </AuFieldset>
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend>Deadline</f.legend>
+            <f.content>
+              <AuControlCheckbox
+                @label="Deze maand"
+                @name="Checkboxs"
+                @value="Deze maand"
+                @identifier="Deze maand"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Dit kwartaal"
+                @name="Checkboxs"
+                @value="Dit kwartaal"
+                @identifier="Dit kwartaal"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+            </f.content>
+          </AuFieldset>
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend>Aanbieder</f.legend>
+            <f.content>
+              <AuControlCheckbox
+                @label="ABB"
+                @name="Checkboxs"
+                @value="ABB"
+                @identifier="ABB"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+              <AuControlCheckbox
+                @label="Opgroeien"
+                @name="Checkboxs"
+                @value="Opgroeien"
+                @identifier="Opgroeien"
+                @checked={{false}}
+                @disabled= {{false}}
+              />
+            </f.content>
+          </AuFieldset>
+        </div>
+        
       </div>
     </Sidebar>
   </m.sidebar>
   <m.content>  
     <AuBodyContainer class="au-u-background-gray-100" >
+       <AuToolbar @border="bottom" @size="small" as |Group|>
+        <Group class="au-u-1-1">
+          <div class="c-navigation-search">
+            <div>
+              <AuLabel for="search">Trefwoord</AuLabel>
+              <AuInput id="search" @width="block" value="test zoek" />
+            </div>
+            <AuLink @skin="button" @route="dashboard.search" @icon="search">
+              Zoek
+            </AuLink>
+          </div>
+          </Group>
+      </AuToolbar>
       <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
+          <p class="au-u-h6">2346 resultaten voor <strong>'test zoek'</strong></p>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
-        {{!-- <AuTable>
-          <:header>
-            <tr>
-              <th>Titel subsidie</th>
-              <th>Periode</th>
-              <th>Aanvragen tot</th>
-              <th>Categorie</th>
-              <th class="c-row-end"></th>
-            </tr>
-          </:header>
-          <:body>
-            {{#each this.subsidies as |item|}}
-            <tr class="c-clickable-row">
-              <td>
-                <strong>{{item.name}}</strong><br/>
-                <AuLinkExternal @icon="external-link" @iconAlignment="right" @href={{item.link}} class="c-external">
-                  Meer info
-                </AuLinkExternal>
-              </td>
-              <td>
-                {{item.periode}}
-                <AuHelpText @skin="secondary">
-                  {{item.periode-detail}}
-                </AuHelpText>
-              </td>
-              
-              <td>
-                {{item.deadline}}
-              </td>
-              <td>
-                <AuPill @size="small">
-                  {{item.category}}
-                </AuPill>
-              </td>
-              <td class="c-row-end">
-                <AuButton @skin="naked" @icon="chevron-right" @hideText={{true}} class="c-row-action">
-                  Subsidieaanvraag starten
-                </AuButton>
-              </td>
-            </tr>
-            {{/each}}
-          </:body>
-        </AuTable> --}}
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
             {{#each this.subsidies as |item|}}
             <listitem>
               <AuCard @size="small" class="c-overview-card" as |card|>
-                <card.header>
-                  <div class="au-u-flex au-u-flex--between au-u-flex--vertical-center au-u-flex--spaced">
+                <card.header class="au-u-padding-bottom-none">
+                  <div class="c-overview-card__header">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
                       <Favorite @active={{item.favorite}} />
-                      <AuLink @route='cases.detail' class="au-u-h6 au-u-medium c-overview-card__link">
+                      <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
-                      </AuLink>
+                      </AuLinkExternal>
                     </div>
-                    <AuPill @skin="border">
-                      {{item.category}}
-                    </AuPill>
+                    <div class="au-u-flex au-u-flex--spaced-tiny">
+                      {{#if item.deadline}}
+                      <AuPill @skin="warning">Deadline: {{item.deadline}}</AuPill>
+                      {{/if}}
+                      <AuPill @skin="border">
+                        {{item.type}}
+                      </AuPill>
+                    </div>
                   </div>
                 </card.header>
-                <card.content class="au-o-flow">
-                  <p class="au-u-h-functional">
-                    <strong>Deadline:</strong> {{item.deadline}} - <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Meer info 
+                <card.content>
+                  <p class="au-u-h-functional au-u-margin-bottom-tiny">Gemeentebesturen zijn verplicht om hun mandaten door te geven aan de Vlaamse Overheid.</p>
+                  <p class="au-u-h-functional au-u-margin-top-tiny">
+                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                      Naar de {{item.type}}
                     </AuLinkExternal>
                   </p>
                 </card.content>

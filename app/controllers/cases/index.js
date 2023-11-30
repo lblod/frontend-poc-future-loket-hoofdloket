@@ -1,6 +1,14 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class CasesController extends Controller {
+  @tracked dateFilter = false;
+
+  @action toggleDateFilter() {
+    this.dateFilter = !this.dateFilter;
+  }
+
   subsidies = [
     {
       name: 'Lokaal Energie- en Klimaatpact 2.0',
@@ -10,6 +18,7 @@ export default class CasesController extends Controller {
       deadline: '06 december 2023',
       category: 'Milieu',
       favorite: true,
+      type: 'Subsidie',
     },
     {
       name: 'Lokaal Energie- en Klimaatpact 1.0',
@@ -19,6 +28,7 @@ export default class CasesController extends Controller {
       deadline: '06 december 2023',
       category: 'Milieu',
       favorite: true,
+      type: 'Subsidie',
     },
     {
       name: 'Opknapwerken slaapplekken Oekraïne',
@@ -28,23 +38,24 @@ export default class CasesController extends Controller {
       deadline: '31 mei 2024',
       category: 'Sociaal',
       favorite: false,
+      type: 'Subsidie',
     },
     {
       name: 'Subsidie voor Hoppinpunten',
       periode: 'Oproep',
       'periode-detail': 'Aanvragen doorlopend mogelijk',
       link: 'https://www.vlaanderen.be/subsidies-voor-de-aanleg-of-herinrichting-van-een-hoppinpunt',
-      deadline: 'Aanvragen doorlopend mogelijk',
       category: 'Sociaal',
+      type: 'Subsidie',
     },
     {
       name: 'Subsidie voor het toegankelijk aanleggen of herinrichten van haltes en de uitrusting van haltes',
       periode: 'Oproep',
       'periode-detail': 'Aanvragen doorlopend mogelijk',
       link: 'https://www.vlaanderen.be/subsidies-voor-het-toegankelijk-aanleggen-of-herinrichten-van-haltes-en-de-uitrusting-van-haltes',
-      deadline: 'Aanvragen doorlopend mogelijk',
       category: 'Infrastructuur',
       favorite: true,
+      type: 'Subsidie',
     },
     {
       name: 'Lokaal Energie- en Klimaatpact 2.0',
@@ -54,6 +65,7 @@ export default class CasesController extends Controller {
       deadline: '06 december 2023',
       category: 'Milieu',
       favorite: false,
+      type: 'Subsidie',
     },
     {
       name: 'Lokaal Energie- en Klimaatpact 1.0',
@@ -63,6 +75,7 @@ export default class CasesController extends Controller {
       deadline: '06 december 2023',
       category: 'Milieu',
       favorite: false,
+      type: 'Subsidie',
     },
     {
       name: 'Opknapwerken slaapplekken Oekraïne',
@@ -72,24 +85,25 @@ export default class CasesController extends Controller {
       deadline: '31 mei 2024',
       category: 'Sociaal',
       favorite: false,
+      type: 'Subsidie',
     },
     {
       name: 'Subsidie voor Hoppinpunten',
       periode: 'Oproep',
       'periode-detail': 'Aanvragen doorlopend mogelijk',
       link: 'https://www.vlaanderen.be/subsidies-voor-de-aanleg-of-herinrichting-van-een-hoppinpunt',
-      deadline: 'Aanvragen doorlopend mogelijk',
       category: 'Sociaal',
       favorite: false,
+      type: 'Subsidie',
     },
     {
       name: 'Subsidie voor het toegankelijk aanleggen of herinrichten van haltes en de uitrusting van haltes',
       periode: 'Oproep',
       'periode-detail': 'Aanvragen doorlopend mogelijk',
       link: 'https://www.vlaanderen.be/subsidies-voor-het-toegankelijk-aanleggen-of-herinrichten-van-haltes-en-de-uitrusting-van-haltes',
-      deadline: 'Aanvragen doorlopend mogelijk',
       category: 'Infrastructuur',
       favorite: false,
+      type: 'Subsidie',
     },
   ];
 }

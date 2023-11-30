@@ -15,31 +15,19 @@
       {{#if (eq this.activeRoute 'dashboard.index')}}
       Overzicht
       {{else if (eq this.activeRoute 'dashboard.search')}}
-      Zoeken
+      Overzicht
+      {{else if (eq this.activeRoute 'dashboard.favorites')}}
+      Overzicht
       {{else if (eq this.activeRoute 'cases.index')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.my-cases')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.favorites')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.detail')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.active')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.active.index')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.active.request')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'cases.active.info')}}
-      Dossiers
-      {{else if (eq this.activeRoute 'dashboard.reporting')}}
-      Rapporten
-      {{else if (eq this.activeRoute 'dashboard.data')}}
+      Mijn dossiers <span class="c-counter">2</span>
+      {{else if (eq this.activeRoute 'cases.search')}}
+      Mijn dossiers <span class="c-counter">2</span>
+      {{else if (eq this.activeRoute 'data.index')}}
       Mijn gegevens
-      {{else if (eq this.activeRoute 'dashboard.messages')}}
-      Berichten
-      {{else if (eq this.activeRoute 'dashboard.updates')}}
-      Updates
+      {{else if (eq this.activeRoute 'messages.index')}}
+      Berichten <span class="c-counter">3</span>
+      {{else if (eq this.activeRoute 'updates')}}
+      Notificaties
       {{else if (eq this.activeRoute 'settings.index')}}
       Instellingen
       {{else if (eq this.activeRoute 'settings.newsletter')}}
@@ -62,9 +50,9 @@
         <AuLink @route="dashboard.index" role="menuitem">
           <AuIcon @icon="tiles" />Overzicht
         </AuLink>
-        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers</AuLink>
-        <AuLink @route="dashboard.data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
-        <AuLink role="menuitem" @route="dashboard.messages"><AuIcon @icon="message" />Berichten</AuLink>
+        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
+        <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
+        <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink>
       </div>
     {{/if}}
   </div>
@@ -72,18 +60,18 @@
   <div class="c-navigation__tabs">
     <AuTabs @reversed={{this.reversed}} as |Tab|>
       <Tab>
-        <AuLink @route="dashboard.index" role="menuitem">
+        <AuLink @route="dashboard" role="menuitem">
           <AuIcon @icon="tiles" />Overzicht
         </AuLink>
       </Tab>
       <Tab>
-        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers</AuLink>
+        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
       </Tab>
       <Tab>
-        <AuLink @route="dashboard.data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
+        <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
       </Tab>
       <Tab>
-        <AuLink role="menuitem" @route="dashboard.messages"><AuIcon @icon="message" />Berichten</AuLink>
+        <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink>
       </Tab>
     </AuTabs>
   </div>
