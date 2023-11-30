@@ -94,7 +94,7 @@
                         {{item.name}}
                       </AuLink>
                       {{!-- <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p> --}}
-                      <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
+                      <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Verzonden op {{item.date}}</p>
                     </card.header>
                   </AuCard>
                 </listitem>
@@ -114,7 +114,8 @@
                     Archiveer
                   </AuButton>
                 </div>
-                <AuHeading @level="2" @skin="4">
+                <AuHr />
+                <AuHeading @level="2" @skin="4" class="au-u-margin-top">
                   1. Begin en einde van het schooljaar
                 </AuHeading>
                 <p>

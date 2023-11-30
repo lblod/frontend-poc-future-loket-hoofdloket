@@ -21,19 +21,92 @@
                 <AuLink @route="dashboard">Overzicht</AuLink>
               </Item>
               <Item>
-                <AuLink @route="cases">Mijn dossiers</AuLink>
+                <AuLink @route="cases">Mijn dossier</AuLink>
               </Item>
               <Item>
-                <AuLink @route="dashboard.data">Mijn gegevens</AuLink>
+                <AuLink @route="data">Mijn gegevens</AuLink>
               </Item>
               <Item>
-                <AuLink @route="dashboard.messages">Berichten</AuLink>
+                <AuLink @route="messages">Berichten</AuLink>
               </Item>
               <Item>
-                <AuLink @route="dashboard.updates">Notificaties</AuLink>
+                <AuLink @route="updates">Notificaties</AuLink>
               </Item>
               <Item>
                 <AuLink @route="email">Nieuwsbrief</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Overzicht</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="dashboard">Overzicht</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="dashboard.favorites">Favorieten</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="dashboard.search">Zoek</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Mijn dossiers</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="cases">Overzicht</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="cases.search">Zoek</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Mijn gegevens</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="data">Overzicht</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="data.search">Zoek</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="data.detail">Detail</AuLink>
+              </Item>
+            </AuList>
+          </Card.content>
+        </AuCard>
+        <AuCard as |Card|>
+          <Card.header>
+            <AuHeading @level="2" @skin="3">Berichten</AuHeading>
+            <AuHr />
+          </Card.header>
+          <Card.content>
+            <AuList @divider={{true}} as |Item|>
+              <Item>
+                <AuLink @route="messages">Overzicht</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="messages.search">Zoek</AuLink>
+              </Item>
+              <Item>
+                <AuLink @route="messages.detail">Detail</AuLink>
               </Item>
             </AuList>
           </Card.content>
