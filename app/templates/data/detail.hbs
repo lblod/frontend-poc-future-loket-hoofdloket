@@ -67,8 +67,11 @@
               {{#each this.data as |item index|}}
               {{#if (eq index 1)}}
               <AuContent>
-                <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+                <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny au-u-flex--between">
                   <AuHeading @skin="3">{{item.name}}</AuHeading>
+                  <AuButton @skin="secondary" @icon="external-link" @iconAlignment="right">
+                    Bewerk
+                  </AuButton>
                 </div>
                 <AuHr />
                 <p>
@@ -100,11 +103,6 @@
                     Marie
                   </Item>
                 </AuList>
-                <p>
-                  <AuButton @icon="external-link" @iconAlignment="right">
-                    Bewerk
-                  </AuButton>
-                </p>
               </AuContent>
               {{/if}}
               {{/each}}
