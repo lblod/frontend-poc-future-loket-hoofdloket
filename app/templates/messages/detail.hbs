@@ -1,0 +1,176 @@
+{{page-title "Detail"}}
+<AuMainContainer as |m|>
+  <m.sidebar>
+    <Sidebar>
+      <div class="au-c-sidebar__content" tabindex="-1">
+        <ul class="au-c-list-navigation">
+          <li class="au-c-list-navigation__section-title">
+            Periode
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Deze maand
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Dit kwartaal
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Dit jaar
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            {{#if (eq this.dateFilter true)}}
+            <div class="au-c-list-navigation__form">
+              <AuLabel>Specifiek</AuLabel>
+              <AuDateInput/>
+            </div>
+            {{else}}
+            <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}> 
+              Specifiek
+            </AuNavigationLink>
+            {{/if}}
+          </li>
+        </ul>
+        <ul class="au-c-list-navigation">
+          <li class="au-c-list-navigation__section-title">
+            Thema/type
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Omzendbrief
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Notificatie
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Richtlijn
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
+            <AuNavigationLink role="menuitem">
+              Klacht
+            </AuNavigationLink>
+          </li>
+        </ul>
+      </div>
+    </Sidebar>
+  </m.sidebar>
+  <m.content>  
+    <AuBodyContainer class="au-u-background-gray-100" >
+      <AuToolbar @border="bottom" @size="small" as |Group|>
+        <Group class="au-u-1-1">
+          <div class="c-navigation-search">
+            <div>
+              <AuLabel for="search">Trefwoord</AuLabel>
+              <AuInput id="search" @width="block" />
+            </div>
+            <AuLink @skin="button" @route="messages.search" @icon="search">
+              Zoek
+            </AuLink>
+          </div>
+          </Group>
+      </AuToolbar>
+      <AuBodyContainer class="au-u-background-gray-100">
+        <div class="c-layout">
+          <div class="c-layout__aside-left c-layout__aside-left--detail">
+            <div class="c-sidebar-back">
+              <AuLink @skin="button-naked" @route="messages.index" @icon="hierarchical-back">Terug naar overzicht</AuLink>
+            </div>
+            <div class="c-sidebar-list">
+              <AuList as |listitem|>
+                {{#each this.data as |item index|}}
+                <listitem>
+                  <AuCard @size="small" class="c-overview-card {{if (eq index 0) 'c-overview-card--active'}}" as |card|>
+                    <card.header>
+                      <AuLink @route='messages.detail' class="au-u-h-functional au-u-medium c-overview-card__link">
+                        {{item.name}}
+                      </AuLink>
+                      {{!-- <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p> --}}
+                      <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
+                    </card.header>
+                  </AuCard>
+                </listitem>
+                {{/each}}
+              </AuList>
+            </div>
+          </div>
+          <div class="c-layout__main-right au-u-background-white">
+            <div class="au-o-box">
+              {{#each this.data as |item index|}}
+              {{#if (eq index 0)}}
+              <AuContent>
+                <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny au-u-flex--between">
+                  <AuHeading @skin="3">{{item.name}}</AuHeading>
+                  <AuButton @skin="secondary">
+                    <AuIcon @icon="box" />
+                    Archiveer
+                  </AuButton>
+                </div>
+                <AuHeading @level="2" @skin="4">
+                  1. Begin en einde van het schooljaar
+                </AuHeading>
+                <p>
+                  Het schooljaar begint op 1 september en eindigt op 31 augustus.
+                </p>
+                <AuHeading @level="2" @skin="4">
+                  2. Vastgelegde vakantieperiodes en vakantiedagen
+                </AuHeading>
+                <p>
+                  Er zijn volgende vakantieperiodes en vakantiedagen:
+                </p>
+                <ul>
+                  <li>herfstvakantie (begint de maandag van de week waarin 1 november valt en duurt 1 week; valt 1 november op een zondag, dan begint de herfstvakantie op 2 november);</li>
+                  <li>
+                    11 november;
+                  </li>
+                  <li>
+                    kerstvakantie (begint de maandag van de week waarin 25 december valt en duurt 2 weken; valt 25 december op een zaterdag of zondag, dan begint de kerstvakantie de maandag na 25 december);
+                  </li>
+                  <li>
+                    krokusvakantie (begint de zevende maandag voor Pasen en duurt 1 week);
+                  </li>
+                  <li>
+                    paasvakantie (begint de eerste maandag van april en duurt 2 weken; valt Pasen in de maand maart, dan begint de paasvakantie de maandag na Pasen, valt Pasen na 15 april, dan begint de paasvakantie de tweede maandag voor Pasen);
+                  </li>
+                  <li>
+                    Paasmaandag;
+                  </li>
+                  <li>
+                    1 mei;
+                  </li>
+                  <li>
+                    Hemelvaartsdag en de dag erna;
+                  </li>
+                  <li>
+                    Pinkstermaandag;
+                  </li>
+                  <li>
+                    zomervakantie (1 juli tot en met 31 augustus).
+                  </li>
+                </ul>
+                <p>De exacte data van de vakantieperiodes voor de komende schooljaren vindt u op: <AuLinkExternal>https://onderwijs.vlaanderen.be/nl/schoolvakanties</AuLinkExternal>.</p>
+                <p>Voor vakantiedagen die in een vakantieperiode vallen is er geen compensatie.</p>
+                <p>Tijdens voornoemde vakantieperiodes en vakantiedagen is de school niet verplicht om in opvang te voorzien.</p>
+              </AuContent>
+              {{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </AuBodyContainer>
+    </AuBodyContainer>
+  </m.content>
+</AuMainContainer>
+
+
+
+
+

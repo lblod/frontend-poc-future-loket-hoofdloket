@@ -56,7 +56,7 @@
       </AuToolbar>
       <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoek test'</strong></p>
+          <p class="au-u-h6">3 resultaten voor <strong>'zoek test'</strong></p>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
@@ -68,7 +68,7 @@
                 <card.header class="au-u-padding-bottom-none">
                   <div class="c-overview-card__header">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-                      <AuLink class="au-u-h6 au-u-medium c-overview-card__link">
+                      <AuLink @route="data.detail" class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLink>
                     </div>
@@ -84,7 +84,7 @@
           </AuList>
         </div>
       </AuBodyContainer>
-      <Pagination />
+      {{!-- <Pagination /> --}}
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>

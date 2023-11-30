@@ -15,7 +15,7 @@
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
-            <AuNavigationLink @route="data.index" role="menuitem">
+            <AuNavigationLink @route="data.detail" role="menuitem">
               Protocol
             </AuNavigationLink>
           </li>
@@ -38,37 +38,84 @@
           </div>
           </Group>
       </AuToolbar>
-      {{!-- <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
-        </Group>
-      </AuToolbar> --}}
-      <AuBodyContainer @scroll={{true}}>
-        <div class="au-o-box au-o-box--small">
-          <AuList as |listitem|>
-            {{#each this.data as |item|}}
-            <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
-                <card.header class="au-u-padding-bottom-none">
-                  <div class="c-overview-card__header">
-                    <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-                      <AuLink @route="data.detail" class="au-u-h6 au-u-medium c-overview-card__link">
+      <AuBodyContainer class="au-u-background-gray-100">
+        <div class="c-layout">
+          <div class="c-layout__aside-left c-layout__aside-left--detail">
+            <div class="c-sidebar-back">
+              <AuLink @skin="button-naked" @route="data.index" @icon="hierarchical-back">Terug naar overzicht</AuLink>
+            </div>
+            <div class="c-sidebar-list">
+              <AuList as |listitem|>
+                {{#each this.data as |item index|}}
+                <listitem>
+                  <AuCard @size="small" class="c-overview-card {{if (eq index 1) 'c-overview-card--active'}}" as |card|>
+                    <card.header>
+                      <AuLink @route='data.detail' class="au-u-h-functional au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLink>
-                    </div>
-                  </div>
-                </card.header>
-                <card.content>
-                  <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
-                  <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
-                </card.content>
-              </AuCard>
-            </listitem>
-            {{/each}}
-          </AuList>
+                      {{!-- <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p> --}}
+                      <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
+                    </card.header>
+                  </AuCard>
+                </listitem>
+                {{/each}}
+              </AuList>
+            </div>
+          </div>
+          <div class="c-layout__main-right au-u-background-white">
+            <div class="au-o-box">
+              {{#each this.data as |item index|}}
+              {{#if (eq index 1)}}
+              <AuContent>
+                <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+                  <AuHeading @skin="3">{{item.name}}</AuHeading>
+                </div>
+                <p>
+                  {{item.description}}
+                </p>
+                <AuList
+                  @divider={{true}}
+                  as |Item|
+                >
+                  <Item>
+                    Pieter
+                  </Item>
+                  <Item>
+                    Alexia
+                  </Item>
+                  <Item>
+                    Hannes
+                  </Item>
+                  <Item>
+                    Véronique
+                  </Item>
+                  <Item>
+                    Aad
+                  </Item>
+                  <Item>
+                    Felix
+                  </Item>
+                  <Item>
+                    Marie
+                  </Item>
+                </AuList>
+                <p>
+                  <AuButton @icon="external-link" @iconAlignment="right">
+                    Bewerk
+                  </AuButton>
+                </p>
+              </AuContent>
+              {{/if}}
+              {{/each}}
+            </div>
+          </div>
         </div>
       </AuBodyContainer>
-      <Pagination />
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>
+
+
+
+
+

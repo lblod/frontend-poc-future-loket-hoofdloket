@@ -9,12 +9,7 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('login');
   this.route('dashboard', function () {
-    this.route('cases');
-    this.route('data');
-    this.route('reporting');
     this.route('search');
-    this.route('messages');
-    this.route('updates');
     this.route('favorites');
   });
   this.route('cases', function () {
@@ -27,6 +22,7 @@ Router.map(function () {
   this.route('updates');
   this.route('messages', function () {
     this.route('search');
+    this.route('detail');
   });
   this.route('data', function () {
     this.route('search');

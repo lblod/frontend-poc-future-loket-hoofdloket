@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class CasesDetailController extends Controller {
+export default class DataDetailController extends Controller {
   @tracked dateFilter = false;
 
   @action toggleDateFilter() {
