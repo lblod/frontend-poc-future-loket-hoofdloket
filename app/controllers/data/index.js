@@ -11,19 +11,31 @@ export default class DataController extends Controller {
 
   data = [
     {
+      name: 'Primaire Contactgegevens',
+      description: 'Alle contactgegevens',
+      date: '22/11/2023',
+      person: 'Pieter',
+    },
+    {
       name: 'Financiële gegevens',
       description: 'Alle financiële gegevens',
       date: '22/11/2023',
       person: 'Pieter',
     },
     {
-      name: 'Leden provincieraad',
-      description: 'Overzicht van alle leden van de provincieraad',
+      name: 'Leden gemeenteraad',
+      description: 'Overzicht van alle leden van de gemeenteraad',
       date: '22/11/2023',
       person: 'Pieter',
     },
     {
-      name: 'Protocollen met erediensten',
+      name: 'Protocol tussen Agentschap Zorg en Gezondheid en het gemeentebestuur voor de elektronische melding van persoonsgegevens',
+      description: 'Afspraken met anderen',
+      date: '22/11/2023',
+      person: 'Pieter',
+    },
+    {
+      name: 'Protocol tussen gemeentebestuur en politiezone voor de elektronische mededeling van persoonsgegevens',
       description: 'Afspraken met anderen',
       date: '22/11/2023',
       person: 'Pieter',

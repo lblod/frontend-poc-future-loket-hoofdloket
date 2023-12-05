@@ -11,7 +11,15 @@ export default class MessagesController extends Controller {
 
   data = [
     {
+      name: 'Oproep gebruik TikTok bij lokale besturen',
+      date: '22/11/2023',
+    },
+    {
       name: 'Nieuwe omzendbrief kinderopvang',
+      date: '22/11/2023',
+    },
+    {
+      name: 'Resultaten Cyber-Audit van uw gemeente',
       date: '22/11/2023',
     },
     {

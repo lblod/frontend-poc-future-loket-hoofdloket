@@ -5,6 +5,11 @@
       <div class="au-c-sidebar__content" tabindex="-1">
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__item">
+            <AuNavigationLink @route="data.detail" role="menuitem">
+              Alle gegevens
+            </AuNavigationLink>
+          </li>
+          <li class="au-c-list-navigation__item">
             <AuNavigationLink role="menuitem">
               Personen
             </AuNavigationLink>
@@ -15,7 +20,7 @@
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
-            <AuNavigationLink @route="data.detail" role="menuitem">
+            <AuNavigationLink role="menuitem">
               Protocol
             </AuNavigationLink>
           </li>
@@ -48,7 +53,7 @@
               <AuList as |listitem|>
                 {{#each this.data as |item index|}}
                 <listitem>
-                  <AuCard @size="small" class="c-overview-card {{if (eq index 1) 'c-overview-card--active'}}" as |card|>
+                  <AuCard @size="small" class="c-overview-card {{if (eq index 2) 'c-overview-card--active'}}" as |card|>
                     <card.header>
                       <AuLink @route='data.detail' class="au-u-h-functional au-u-medium c-overview-card__link">
                         {{item.name}}
@@ -65,7 +70,7 @@
           <div class="c-layout__main-right au-u-background-white">
             <div class="au-o-box">
               {{#each this.data as |item index|}}
-              {{#if (eq index 1)}}
+              {{#if (eq index 2)}}
               <AuContent>
                 <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny au-u-flex--between">
                   <AuHeading @skin="3">{{item.name}}</AuHeading>
@@ -82,25 +87,13 @@
                   as |Item|
                 >
                   <Item>
-                    Pieter
+                    <strong>Jan Jannssens</strong> – gemeenteraadslid <AuPill class="au-u-margin-left-tiny">CD&V</AuPill>
                   </Item>
                   <Item>
-                    Alexia
+                    <strong>Miet Claes</strong> – gemeenteraadslid <AuPill class="au-u-margin-left-tiny">Vooruit</AuPill>
                   </Item>
                   <Item>
-                    Hannes
-                  </Item>
-                  <Item>
-                    Véronique
-                  </Item>
-                  <Item>
-                    Aad
-                  </Item>
-                  <Item>
-                    Felix
-                  </Item>
-                  <Item>
-                    Marie
+                    <strong>Piet De Praetere</strong> – gemeenteraadslid <AuPill class="au-u-margin-left-tiny">Lijst Burgemeester</AuPill>
                   </Item>
                 </AuList>
               </AuContent>

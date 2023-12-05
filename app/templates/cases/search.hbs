@@ -151,19 +151,36 @@
                       <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLinkExternal>
+                      {{#if (eq item.status 'Goedgekeurd')}}
+                      <AuPill @skin="success" @size="small" >
+                        {{item.status}}
+                      </AuPill>
+                      {{else if (eq item.status 'In behandeling')}}
+                      <AuPill @skin="ongoing"  @size="small" >
+                        {{item.status}}
+                      </AuPill>
+                      {{else if (eq item.status 'Wachten op antwoord')}}
+                      <AuPill @skin="default"  @size="small" >
+                        {{item.status}}
+                      </AuPill>
+                      {{else}}
+                      <AuPill @skin="border"  @size="small" >
+                        {{item.status}}
+                      </AuPill>
+                      {{/if}}
                     </div>
                     <div class="au-u-flex au-u-flex--spaced-tiny">
                       {{#if item.deadline}}
-                      <AuPill @skin="warning">Deadline: {{item.deadline}}</AuPill>
+                      <AuPill @skin="warning" @size="small">Deadline: {{item.deadline}}</AuPill>
                       {{/if}}
-                      <AuPill @skin="border" >
+                      <AuPill @skin="border"  @size="small">
                         {{item.type}}
                       </AuPill>
                     </div>
                   </div>
                 </card.header>
                 <card.content>
-                  <p class="au-u-h-functional au-u-margin-bottom-tiny">Gemeentebesturen zijn verplicht om hun mandaten door te geven aan de Vlaamse Overheid.</p>
+                  <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
                      <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
                       Ga verder met de {{item.type}}
