@@ -13,11 +13,11 @@
         <AuIcon @icon="tiles" @iconAlignment="left" />
       </div>
       {{#if (eq this.activeRoute 'dashboard.index')}}
-      Overzicht
+      Alle diensten
       {{else if (eq this.activeRoute 'dashboard.search')}}
-      Overzicht
+      Alle diensten
       {{else if (eq this.activeRoute 'dashboard.favorites')}}
-      Overzicht
+      Alle diensten
       {{else if (eq this.activeRoute 'cases.index')}}
       Mijn dossiers <span class="c-counter">2</span>
       {{else if (eq this.activeRoute 'cases.search')}}
@@ -56,7 +56,7 @@
         class="c-navigation__dialog"
       >
         <AuLink @route="dashboard.index" role="menuitem">
-          <AuIcon @icon="tiles" />Overzicht
+          <AuIcon @icon="tiles" />Alle diensten
         </AuLink>
         <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
         <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
@@ -69,7 +69,7 @@
     <AuTabs @reversed={{this.reversed}} as |Tab|>
       <Tab>
         <AuLink @route="dashboard" role="menuitem">
-          <AuIcon @icon="tiles" />Overzicht
+          <AuIcon @icon="tiles" />Alle diensten
         </AuLink>
       </Tab>
       <Tab>
