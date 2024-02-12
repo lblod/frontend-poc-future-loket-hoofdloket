@@ -52,14 +52,14 @@
                 @checked={{false}}
                 @disabled= {{false}}
               />
-              <AuControlCheckbox
+              {{!-- <AuControlCheckbox
                 @label="Vergunningen"
                 @name="Checkboxs"
                 @value="Vergunningen"
                 @identifier="Vergunningen"
                 @checked={{false}}
                 @disabled= {{false}}
-              />
+              /> --}}
             </f.content>
           </AuFieldset>
         </div>
@@ -140,11 +140,11 @@
             </f.content>
           </AuFieldset>
         </div>
-        
+
       </div>
     </Sidebar>
   </m.sidebar>
-  <m.content>  
+  <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
        <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
@@ -167,7 +167,7 @@
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
-            {{#each this.subsidies as |item|}}
+            {{#each this.product as |item|}}
             <listitem>
               <AuCard @size="small" class="c-overview-card" as |card|>
                 <card.header class="au-u-padding-bottom-none">
@@ -183,6 +183,40 @@
                       <AuPill @skin="warning" @size="small">Deadline: {{item.deadline}}</AuPill>
                       {{/if}}
                       <AuPill @skin="border" @size="small">
+                        {{item.categorie}}
+                      </AuPill>
+                    </div>
+                  </div>
+                </card.header>
+                <card.content>
+                  <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
+                  <p class="au-u-h-functional au-u-margin-top-tiny">
+                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                      Naar de tool
+                    </AuLinkExternal>
+                  </p>
+                </card.content>
+              </AuCard>
+            </listitem>
+            {{/each}}
+            {{#each this.subsidies as |item|}}
+            <listitem>
+              <AuCard @size="small" class="c-overview-card" as |card|>
+                <card.header class="au-u-padding-bottom-none">
+                  <div class="c-overview-card__header">
+                    <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+                      <Favorite @active={{item.favorite}} />
+                      <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
+                        {{item.name}}
+                      </AuLinkExternal>
+                    </div>
+                    <div class="au-u-flex au-u-flex--spaced-tiny">
+                      {{#if item.deadline}}
+                      <AuPill @skin="warning" @size="small">Deadline: {{item.deadline}}</AuPill>
+                      {{else}}
+                      <AuPill @skin="neutral" @size="small">Doorlopend inschrijven</AuPill>
+                      {{/if}}
+                      <AuPill @skin="border" @size="small">
                         {{item.type}}
                       </AuPill>
                     </div>
@@ -192,7 +226,7 @@
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
                      <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Naar de {{item.type}}
+                      Naar de subsidie
                     </AuLinkExternal>
                   </p>
                 </card.content>
@@ -202,7 +236,7 @@
           </AuList>
         </div>
       </AuBodyContainer>
-      <Pagination />
+      {{!-- <Pagination /> --}}
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>

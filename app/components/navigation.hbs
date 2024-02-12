@@ -44,7 +44,7 @@
     </AuButton>
     {{#if this.dropdownOpen}}
       <div
-        id="account" 
+        id="account"
         role="menu"
         {{focus-trap
           shouldSelfFocus=true
@@ -59,8 +59,8 @@
           <AuIcon @icon="tiles" />Alle diensten
         </AuLink>
         <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
-        <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
-        <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink>
+        {{!-- <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink> --}}
+        {{!-- <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink> --}}
       </div>
     {{/if}}
   </div>
@@ -75,12 +75,12 @@
       <Tab>
         <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
       </Tab>
-      <Tab>
+      {{!-- <Tab>
         <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
-      </Tab>
-      <Tab>
+      </Tab> --}}
+      {{!-- <Tab>
         <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink>
-      </Tab>
+      </Tab> --}}
     </AuTabs>
   </div>
 </div>

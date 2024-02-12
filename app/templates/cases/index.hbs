@@ -8,7 +8,7 @@
           </li>
           <li class="au-c-list-navigation__item">
             <AuNavigationLink role="menuitem">
-              Nieuwste updates <span class="c-list-navigation__counter">5</span>
+              Nieuwste updates <span class="c-list-navigation__counter">4</span>
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
@@ -93,7 +93,7 @@
               <AuDateInput/>
             </div>
             {{else}}
-            <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}> 
+            <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}>
               Specifiek
             </AuNavigationLink>
             {{/if}}
@@ -102,7 +102,7 @@
       </div>
     </Sidebar>
   </m.sidebar>
-  <m.content>  
+  <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
       <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
@@ -134,15 +134,15 @@
                       <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLinkExternal>
-                      {{#if (eq item.status 'Goedgekeurd')}}
+                      {{#if (eq item.status 'Actief - Aanvraag uitbetaling')}}
                       <AuPill @skin="success" @size="small" >
                         {{item.status}}
                       </AuPill>
-                      {{else if (eq item.status 'In behandeling')}}
+                      {{else if (eq item.status 'Actief')}}
                       <AuPill @skin="ongoing"  @size="small" >
                         {{item.status}}
                       </AuPill>
-                      {{else if (eq item.status 'Wachten op antwoord')}}
+                      {{else if (eq item.status 'Actief')}}
                       <AuPill @skin="default"  @size="small" >
                         {{item.status}}
                       </AuPill>
@@ -157,7 +157,7 @@
                       <AuPill @skin="warning"  @size="small">Deadline: {{item.deadline}}</AuPill>
                       {{/if}}
                       <AuPill @skin="border"  @size="small" >
-                        {{item.type}}
+                        {{item.theme}}
                       </AuPill>
                     </div>
                   </div>
@@ -166,7 +166,7 @@
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
                      <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Ga verder met de {{item.type}}
+                      Ga verder met de subsidie
                     </AuLinkExternal>
                   </p>
                 </card.content>
@@ -176,7 +176,7 @@
           </AuList>
         </div>
       </AuBodyContainer>
-      <Pagination />
+      {{!-- <Pagination /> --}}
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>
