@@ -1,5 +1,6 @@
 export const subsidiesData = [
     {
+      "favorite": "true",
       "name": "Subsidies vervoer op maat",
       "description": "Lokale besturen kunnen subsidies aanvragen in het kader van vervoer op maat.",
       "Verdere beschrijving": "",
@@ -39,9 +40,12 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-31",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
+      "favorite": "true",
       "name": "Roerend cultureel erfgoed: Projectsubsidie voor een fysische ingreep op een topstuk (Decreet Bescherming Roerend Cultureel Erfgoed 2003)",
       "description": "De Vlaamse overheid vindt het belangrijk dat voorwerpen en verzamelingen die in de Topstukkenlijst zijn opgenomen, optimaal beschermd worden en in goede conditie overgedragen kunnen worden aan toekomstige generaties. Daarvoor zijn soms restauratie- en conservatiewerkzaamheden nodig, waarvoor u een projectsubsidie kunt aanvragen: de zogenaamde restauratiesubsidies.",
       "Verdere beschrijving": "Deze dienst is actief.",
@@ -81,9 +85,12 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
+      "favorite": "true",
       "name": "Jeugd: Werkingssubsidie voor een intergemeentelijk samenwerkingsverband voor jeugdwerk en jeugdbeleid (Jeugddecreet 2023)",
       "description": "Deze dienst is in voorbereiding.",
       "Verdere beschrijving": "",
@@ -123,7 +130,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuurwerk: Werkingssubsidie voor een intergemeentelijk samenwerkingsverband voor een bovenlokaal netwerk vrijetijdsparticipatie (Decreet Bovenlokale Cultuurwerking)",
@@ -165,7 +174,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuurwerk: Werkingssubsidie voor een intergemeentelijk samenwerkingsverband voor bovenlokale cultuurwerking (Decreet Bovenlokale Cultuurwerking)",
@@ -207,7 +218,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Projectsubsidie voor het Vlaams Energiebedrijf voor het begeleiden van energiescans voor jeugdwerkinfrastructuur (Uitgavendecreet)",
@@ -249,7 +262,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuurwerk: Projectsubsidie voor een kleinschalig bovenlokaal cultuurproject via een tijdelijk reglement (Decreet Bovenlokale Cultuurwerking 2018)",
@@ -291,7 +306,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuurwerk: Projectsubsidie voor een internationaal of interregionaal cultureel intitiatief (Uitgavendecreet)",
@@ -333,7 +350,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuurwerk: Projectsubsidie voor een cultureel samenwerkingsinitiatief tussen Vlaanderen en een ander land (Uitgavendecreet)",
@@ -375,7 +394,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "België (BE), Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Roerend cultureel erfgoed: Projectsubsidie voor het doorgeven van vakmanschap in een meester-leerlingtraject (Uitgavendecreet)",
@@ -417,7 +438,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Jeugd: Investeringssubsidie voor het uitvoeren van aanbevolen quickwinmaatregelen (Uitgavendecreet)",
@@ -459,7 +482,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor toegankelijkheid (Programmadecreet 1998)",
@@ -501,7 +526,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor een kunstenwerkplaats (Programmadecreet 1998)",
@@ -543,7 +570,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Jeugd: Investeringssubsidie voor het realiseren van kwaliteitsvolle basisvoorzieningen en inrichting van  jeugdinfrastructuur (Uitgavendecreet)",
@@ -585,7 +614,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor jeugdinfrastructuur met bovenlokaal belang (Programmadecreet 1998)",
@@ -627,7 +658,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor het verwerven, bouwen, uitbreiden of verbouwen van grote cultuur- of jeugdinfrastructuur (Programmadecreet 1998)",
@@ -669,7 +702,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor energiezuinigheid (Programmadecreet 1998)",
@@ -711,7 +746,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor het bouwen, uitbreiden of verbouwen van cultuur- of jeugdinfrastructuur met bovenlokaal belang in het kader van de sectorale prioriteiten (Programmadecreet 1998)",
@@ -753,7 +790,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Participatiebeleid: Werkingssubsidie voor een lokaal netwerk dat de vrijetijdsparticipatie van personen in armoede bevordert (Participatiedecreet 2008)",
@@ -795,7 +834,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor het bouwen, uitbreiden of verbouwen van cultuur- of jeugdinfrastructuur met bovenlokaal belang in het kader van de sectorale prioriteiten (Programmadecreet 2020)",
@@ -837,7 +878,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor het verwerven, bouwen, uitbreiden of verbouwen van cultuur- of jeugdinfrastructuur van strategisch belang (Programmadecreet 2020)",
@@ -879,7 +922,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Roerend cultureel erfgoed: Garantie voor eventuele schade aan inkomende bruiklenen voor tijdelijke tentoonstellingen met een internationale uitstraling (Decreet Indemniteit 2022)",
@@ -921,7 +966,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Roerend cultureel erfgoed: Projectsubsidie voor een internationaal, landelijk of bovenlokaal initiatief  (Cultureelerfgoeddecreet 2021)",
@@ -963,7 +1010,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Programmadecreet van 19 december 1998: Investeringssubsidie Energiecoaching en Quick Wins",
@@ -1005,7 +1054,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor het verwerven, bouwen, uitbreiden of verbouwen van cultuur- of jeugdinfrastructuur met bovenlokaal belang (Uitgavendecreet)",
@@ -1047,7 +1098,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor een muziekeducatieve vereniging (Programmadecreet 1998)",
@@ -1089,7 +1142,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor een muziekclub (Programmadecreet 1998)",
@@ -1131,7 +1186,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor een kunstencentrum (Programmadecreet 1998)",
@@ -1173,7 +1230,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cultuur en Jeugd: Investeringssubsidie voor een cultureel erfgoeddepot (Programmadecreet 1998)",
@@ -1215,7 +1274,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Jeugdtoerisme: Tewerkstellingssubsidie voor een hostel of een jeugdverblijf met comfortclassificatie comfort (Decreet Jeugdverblijven en Hostels 2022)",
@@ -1257,7 +1318,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Jeugdtoerisme: Werkingssubsidie voor een hostel of een jeugdverblijf (Decreet Jeugdverblijven en Hostels 2022)",
@@ -1299,7 +1362,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Roerend cultureel erfgoed: Projectsubsidie voor het verbeteren van de bewaaromstandigheden van een topstuk (Decreet Bescherming Roerend Cultureel Erfgoed 2003)",
@@ -1341,7 +1406,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "STEM–partnerschappen: ontwikkelen van STEM-trajecten",
@@ -1383,7 +1450,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie Levend Water",
@@ -1425,7 +1494,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Versterking kleine gemeenten met faciliteiten",
@@ -1467,7 +1538,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie voor een erkende onroerenderfgoedgemeente",
@@ -1509,7 +1582,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Call groene stroom: 2023 call 3",
@@ -1551,7 +1626,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie voor investeringen in fietssnelwegen",
@@ -1593,7 +1670,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Procedure groene warmte, restwarmte en energie-efficiënte stadsverwarming",
@@ -1635,7 +1714,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Vergoeding voor OCMW's ter ondersteuning van personeel- en werkingskosten voor noodkoopwoningen",
@@ -1677,7 +1758,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Ondersteuning van renovatie van noodkoopwoningen via OCMW met renteloze noodkooplening",
@@ -1719,7 +1802,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie Circulair water",
@@ -1761,7 +1846,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Aankoop en transformatie handelspanden en bedrijfsruimten in de kern",
@@ -1803,7 +1890,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie voor investeringen in energiebesparende maatregelen specifiek bij zwembaden",
@@ -1845,7 +1934,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie voor investeringen in fietsinfrastructuur (Kopenhagenplan)",
@@ -1887,7 +1978,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidies voor crematoria, gebouwen erediensten en gebouwen niet-confessionele dienstverlening (gesubsidieerde infrastructuur)",
@@ -1929,7 +2022,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidies voor klimaatacties ter uitvoering van LEKP 1.0 en 2.0",
@@ -1971,7 +2066,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidies aan gemeenten voor het verbeteren van de verkeersveiligheid van schoolomgevingen",
@@ -2013,7 +2110,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "City of Things",
@@ -2055,7 +2154,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Brussels Hoofdstedelijk Gewest (BE1), Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidies in het kader van preventie van radicalisering",
@@ -2097,7 +2198,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Regierol lokale sociale economie",
@@ -2139,7 +2242,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie voor klimaatacties ter uitvoering van het LEKP 1.0",
@@ -2181,7 +2286,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Programma Innovatieve Overheidsopdrachten (PIO)",
@@ -2223,7 +2330,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidies voor de opbouw van opvangcapaciteit naar aanleiding van de Oekraïnecrisis",
@@ -2265,7 +2374,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Subsidie ter versterking van de energiecellen van de OCMW’s",
@@ -2307,7 +2418,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": " Subsidies aan gemeenten voor het verbeteren van de verkeersveiligheid van schoolroutes op gemeentewegen",
@@ -2349,7 +2462,9 @@ export const subsidiesData = [
       "Conceptnummer": "",
       "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
       "Laatst ontvangen": "2024-01-30",
-      "Contactgegevens": ""
+      "Contactgegevens": "",
+      "filter": "subsidies",
+      "filterTheme": "financieel"
     },
     {
       "name": "Cofinanciering van ICT-veiligheidsaudits bij lokale besturen (ABB)",

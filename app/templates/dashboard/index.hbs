@@ -21,16 +21,28 @@
             <f.legend>Type</f.legend>
             <f.content>
               <AuControlCheckbox
+                @label="Tools"
+                @name="Checkbox1"
+                @value="tools"
+                @identifier="tools"
+                @checked={{this.filters.tools}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'tools'}}
+              />
+              <AuControlCheckbox
                 @label="Subsidies"
-                @name="Checkboxs"
+                @name="Checkbox2"
                 @value="Subsidies"
                 @identifier="Subsidies"
                 @checked={{false}}
                 @disabled= {{false}}
+                @checked={{this.filters.tools}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'subsidies'}}
               />
-              <AuControlCheckbox
+              {{!-- <AuControlCheckbox
                 @label="Premies"
-                @name="Checkboxs"
+                @name="Checkbox3"
                 @value="Premies"
                 @identifier="Premies"
                 @checked={{false}}
@@ -38,12 +50,12 @@
               />
               <AuControlCheckbox
                 @label="Vergunningen"
-                @name="Checkboxs"
+                @name="Checkbox4"
                 @value="Vergunningen"
                 @identifier="Vergunningen"
                 @checked={{false}}
                 @disabled= {{false}}
-              />
+              /> --}}
             </f.content>
           </AuFieldset>
         </div>
@@ -52,29 +64,31 @@
             <f.legend>Thematisch</f.legend>
             <f.content>
               <AuControlCheckbox
-                @label="Jeugd"
-                @name="Checkboxs"
-                @value="Jeugd"
-                @identifier="Jeugd"
-                @checked={{false}}
-                @disabled= {{false}}
+                @label="Burger en Overheid"
+                @name="CheckboxB1"
+                @value="Burger en Overheid"
+                @identifier="Burger en Overheid"
+                @checked={{this.filters.burger}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'burger'}}
               />
               <AuControlCheckbox
-                @label="Cultuur"
-                @name="Checkboxs"
-                @value="Cultuur"
-                @identifier="Cultuur"
-                @checked={{false}}
-                @disabled= {{false}}
+                @label="Financieel voordeel"
+                @name="CheckboxB2"
+                @value="Financieel voordeel"
+                @identifier="Financieel voordeel"
+                @checked={{this.filters.financieel}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'financieel'}}
               />
-              <AuControlCheckbox
+              {{!-- <AuControlCheckbox
                 @label="Sport"
-                @name="Checkboxs"
+                @name="CheckboxA3"
                 @value="Sport"
                 @identifier="Sport"
                 @checked={{false}}
                 @disabled= {{false}}
-              />
+              /> --}}
             </f.content>
           </AuFieldset>
         </div>
@@ -151,39 +165,7 @@
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
-            {{#each this.product as |item|}}
-            <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
-                <card.header class="au-u-padding-bottom-none">
-                  <div class="c-overview-card__header">
-                    <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-                      <Favorite @active={{true}} />
-                      <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
-                        {{item.name}}
-                      </AuLinkExternal>
-                    </div>
-                    <div class="au-u-flex au-u-flex--spaced-tiny">
-                      {{#if item.deadline}}
-                      <AuPill @skin="warning" @size="small">Deadline: {{item.deadline}}</AuPill>
-                      {{/if}}
-                      <AuPill @skin="border" @size="small">
-                        {{item.categorie}}
-                      </AuPill>
-                    </div>
-                  </div>
-                </card.header>
-                <card.content>
-                  <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
-                  <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Naar de tool
-                    </AuLinkExternal>
-                  </p>
-                </card.content>
-              </AuCard>
-            </listitem>
-            {{/each}}
-            {{#each this.subsidies as |item|}}
+            {{#each this.filteredResults as |item|}}
             <listitem>
               <AuCard @size="small" class="c-overview-card" as |card|>
                 <card.header class="au-u-padding-bottom-none">
@@ -191,18 +173,26 @@
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
                       <Favorite @active={{item.favorite}} />
                       <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
-                        {{item.name}}
+                        {{item.name}} {{item.filter}}
                       </AuLinkExternal>
                     </div>
                     <div class="au-u-flex au-u-flex--spaced-tiny">
+                      {{#if item.type}}
                       {{#if item.deadline}}
                       <AuPill @skin="warning" @size="small">Deadline: {{item.deadline}}</AuPill>
                       {{else}}
-                      <AuPill @skin="neutral" @size="small">Doorlopend inschrijven</AuPill>
+                      <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
                       {{/if}}
+                      {{/if}}
+                      {{#if item.categorie}}
+                      <AuPill @skin="border" @size="small">
+                        {{item.categorie}}
+                      </AuPill>
+                      {{else}}
                       <AuPill @skin="border" @size="small">
                         {{item.type}}
                       </AuPill>
+                      {{/if}}
                     </div>
                   </div>
                 </card.header>
@@ -210,12 +200,23 @@
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
                      <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Naar de subsidie
+                      Naar de {{#if item.categorie}}tool{{else}}subsidie{{/if}}
                     </AuLinkExternal>
                   </p>
                 </card.content>
               </AuCard>
             </listitem>
+            {{else}}
+            <AuAlert
+              @title="Niet gevonden wat je zocht?"
+              @skin={{this.skin}}
+              @icon="circle-question"
+              @size={{this.size}}
+              @closable={{this.closable}}
+              @onClose={{this.onClose}}
+            >
+              <p>Laat ons weten welke diensten je mist op <a href="#!" class="c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
+            </AuAlert>
             {{/each}}
           </AuList>
         </div>

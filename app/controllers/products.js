@@ -1,5 +1,6 @@
 export const productData = [
   {
+    "favorite": "true",
     "name": "Publieke mandatendatabank",
     "description": "Raadpleeg en hergebruik de gegevens van lokale mandatarissen in deze publiek toegankelijke mandatendatabank",
     "Startdatum dienstverlening": "",
@@ -36,7 +37,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "2024-01-30",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Lokale Producten-en Dienstencatalogus",
@@ -75,9 +78,12 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
+    "favorite": "true",
     "name": "Beheer van mandatarissen",
     "description": "Hou de mandatarissen binnen de gemeenten, OCMW's, disctricten en provincies bij",
     "Startdatum dienstverlening": "",
@@ -114,7 +120,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Beheer van leidinggevenden",
@@ -153,9 +161,12 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
+    "favorite": "true",
     "name": "Beheer van personeelsaantallen",
     "description": "Hou hier de personeelsaantallen voor uw bestuur bij (aantal werknemers en voltijds equivalenten)",
     "Startdatum dienstverlening": "",
@@ -192,9 +203,12 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
+    "favorite": "true",
     "name": "BBC-DR",
     "description": "Bezorg de digitale rapporten aan de Vlaamse Regering over de beleids- en beheerscyclus",
     "Startdatum dienstverlening": "",
@@ -231,7 +245,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Bestuurlijk Toezicht",
@@ -270,7 +286,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Berichtencentrum",
@@ -309,7 +327,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Subsidiebeheer",
@@ -348,7 +368,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Databank Erediensten",
@@ -387,7 +409,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Organisaties Erediensten",
@@ -426,7 +450,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Verenigingen",
@@ -465,7 +491,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Contact- en Organisatiegegevens",
@@ -504,7 +532,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "Vlaams Gewest (BE2)",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Publieke leidinggevendendatabank",
@@ -543,7 +573,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Publieke Besluitendatabank",
@@ -582,7 +614,9 @@ export const productData = [
     "Conceptnummer": "",
     "Geografische toepassingsgebieden": "",
     "Laatst ontvangen": "",
-    "Contactgegevens": ""
+    "Contactgegevens": "",
+    "filter": "tools",
+    "filterTheme": "burger"
   },
   {
     "name": "Lokaal Beslist",

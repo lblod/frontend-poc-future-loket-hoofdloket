@@ -23,14 +23,14 @@
               <Item>
                 <AuLink @route="cases">Mijn dossier</AuLink>
               </Item>
-              <Item>
+              {{!-- <Item>
                 <AuLink @route="data">Mijn gegevens</AuLink>
-              </Item>
-              <Item>
+              </Item> --}}
+              {{!-- <Item>
                 <AuLink @route="messages">Berichten</AuLink>
-              </Item>
+              </Item> --}}
               <Item>
-                <AuLink @route="updates">Notificaties</AuLink>
+                <AuLink @route="updates">Instellingen</AuLink>
               </Item>
               <Item>
                 <AuLink @route="email">Nieuwsbrief</AuLink>
@@ -73,7 +73,7 @@
             </AuList>
           </Card.content>
         </AuCard>
-        <AuCard as |Card|>
+        {{!-- <AuCard as |Card|>
           <Card.header>
             <AuHeading @level="2" @skin="3">Mijn gegevens</AuHeading>
             <AuHr />
@@ -91,8 +91,8 @@
               </Item>
             </AuList>
           </Card.content>
-        </AuCard>
-        <AuCard as |Card|>
+        </AuCard> --}}
+        {{!-- <AuCard as |Card|>
           <Card.header>
             <AuHeading @level="2" @skin="3">Berichten</AuHeading>
             <AuHr />
@@ -110,7 +110,7 @@
               </Item>
             </AuList>
           </Card.content>
-        </AuCard>
+        </AuCard> --}}
       </div>
     </section>
   </m.content>
