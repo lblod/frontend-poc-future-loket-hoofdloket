@@ -19,9 +19,10 @@ export default class DashboardSearchController extends Controller {
     const isFirstGroupActive = this.filters.tools || this.filters.subsidies;
     // Check if any filter in the second group is active
     const isSecondGroupActive = this.filters.burger || this.filters.financieel;
+    const isThirdGroupActive = this.filters.month || this.filters.quart;
   
     // If no filters are active in both groups, return all results
-    if (!isFirstGroupActive && !isSecondGroupActive) {
+    if (!isFirstGroupActive && !isSecondGroupActive && !isThirdGroupActive) {
       return this.results;
     }
   
@@ -35,9 +36,13 @@ export default class DashboardSearchController extends Controller {
       const matchesSecondGroup = !isSecondGroupActive || 
         (this.filters.burger && item.filterTheme === 'burger') || 
         (this.filters.financieel && item.filterTheme === 'financieel');
+
+      const matchesThirdGroup = !isThirdGroupActive || 
+        (this.filters.month && item.deadline === 'burger') || 
+        (this.filters.quart && item.deadline === 'financieel');
   
       // An item is included only if it matches active filters in both groups
-      return matchesFirstGroup && matchesSecondGroup;
+      return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup;
     });
   }
 

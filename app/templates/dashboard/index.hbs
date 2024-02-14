@@ -101,16 +101,18 @@
                 @name="Checkboxs"
                 @value="Deze maand"
                 @identifier="Deze maand"
-                @checked={{false}}
-                @disabled= {{false}}
+                @checked={{this.filters.month}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'month'}}
               />
               <AuControlCheckbox
                 @label="Dit kwartaal"
                 @name="Checkboxs"
                 @value="Dit kwartaal"
                 @identifier="Dit kwartaal"
-                @checked={{false}}
-                @disabled= {{false}}
+                @checked={{this.filters.quart}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'quart'}}
               />
             </f.content>
           </AuFieldset>
@@ -215,7 +217,7 @@
               @closable={{this.closable}}
               @onClose={{this.onClose}}
             >
-              <p>Laat ons weten welke diensten je mist op <a href="#!" class="c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
+              <p>Laat ons weten welke diensten je mist op <a href="#!" class="au-c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
             </AuAlert>
             {{/each}}
           </AuList>
