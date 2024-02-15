@@ -12,7 +12,7 @@ export default class DashboardSearchController extends Controller {
     financieel: false,
   };
 
-  results = [...productData, ...subsidiesData];
+  results = [...productData, ...subsidiesData].sort((a, b) => a.name.localeCompare(b.name));
 
   get filteredResults() {
     // Check if any filter in the first group is active

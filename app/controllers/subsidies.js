@@ -2423,7 +2423,7 @@ export const subsidiesData = [
       "filterTheme": "financieel"
     },
     {
-      "name": " Subsidies aan gemeenten voor het verbeteren van de verkeersveiligheid van schoolroutes op gemeentewegen",
+      "name": "Subsidies aan gemeenten voor het verbeteren van de verkeersveiligheid van schoolroutes op gemeentewegen",
       "description": "U kunt als gemeente een subsidie aanvragen voor projecten die de verkeersveiligheid van schoolroutes op gemeentewegen verbeteren. De subsidie is gericht op snel uitvoerbare maatregelen zoals verkeerssignalisatie en kleine infrastructurele maatregelen.",
       "Verdere beschrijving": "",
       "Startdatum dienstverlening": "",

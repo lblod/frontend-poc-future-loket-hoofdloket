@@ -32,7 +32,7 @@ export default class DashboardFavoritesController extends Controller {
     );
   }
 
-  results = [...productData, ...subsidiesData];
+  results = [...productData, ...subsidiesData].sort((a, b) => a.name.localeCompare(b.name));
 
   get filteredResults() {
     // Check if any filter in the first group is active
