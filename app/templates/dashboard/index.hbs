@@ -169,11 +169,7 @@
           <AuList as |listitem|>
             {{#each @model as |publicService|}}
               {{!-- TODO: item.favorite --}}
-              {{!-- TODO: item.categorie --}}
-              {{!-- TODO: item.deadline --}}
-              {{!-- TODO: item.description --}}
-              {{!-- TODO: item.link --}}
-              {{!-- TODO: item.type --}}
+              {{!-- TODO: item.link: publicService.seeAlso.url --}}
               {{!-- TODO: sanitize publicService.description --}}
               <listitem>
               <AuCard @size="small" class="c-overview-card" as |card|>
@@ -186,32 +182,35 @@
                       </AuLinkExternal>
                     </div>
                     <div class="au-u-flex au-u-flex--spaced-tiny">
+                      {{#if publicService.endDate}}
+                        <AuPill @skin="warning" @size="small">Deadline: {{format-date publicService.endDate}}</AuPill>
+                      {{else}}
+                        <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
+                      {{/if}}
+                      {{#if publicService.thematicAreas}}
+                        {{#each publicService.thematicAreas as |theme|}}
+                          <AuPill @skin="border" @size="small">
+                            {{theme.label}}
+                          </AuPill>
+                        {{/each}}
+                      {{/if}}
                       {{#if publicService.type}}
-                      {{#if publicService.deadline}}
-                      <AuPill @skin="warning" @size="small">Deadline: {{publicService.deadline}}</AuPill>
-                      {{else}}
-                      <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
-                      {{/if}}
-                      {{/if}}
-                      {{#if publicService.categorie}}
-                      <AuPill @skin="border" @size="small">
-                        {{publicService.categorie}}
-                      </AuPill>
-                      {{else}}
-                      <AuPill @skin="border" @size="small">
-                        {{publicService.type}}
-                      </AuPill>
+                        <AuPill @skin="border" @size="small">
+                          {{publicService.type.label}}
+                        </AuPill>
                       {{/if}}
                     </div>
                   </div>
                 </card.header>
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{{publicService.description.default}}}</p>
-                  <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{publicService.link}} class="c-external">
-                      Naar de {{#if publicService.categorie}}tool{{else}}subsidie{{/if}}
-                    </AuLinkExternal>
-                  </p>
+                  {{#if publicService.link}}
+                    <p class="au-u-h-functional au-u-margin-top-tiny">
+                      <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{publicService.link}} class="c-external">
+                        Naar de {{#if publicService.type}}tool{{else}}subsidie{{/if}}
+                      </AuLinkExternal>
+                    </p>
+                  {{/if}}
                 </card.content>
               </AuCard>
             </listitem>
