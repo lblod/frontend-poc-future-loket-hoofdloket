@@ -9,11 +9,16 @@ const { CONCEPT_SCHEMES } = constants;
 export default class DashboardSearchController extends Controller {
   serviceTypeConceptScheme = CONCEPT_SCHEMES.SERVICE_TYPE;
   themeConceptScheme = CONCEPT_SCHEMES.THEME;
+  deadlineOptions = [
+    { label: 'Deze maand', value: 'month' },
+    { label: 'Dit kwartaal', value: 'quarter' },
+  ];
 
   @tracked page = 0;
   @tracked size = 25;
   @tracked types = [];
   @tracked themes = [];
+  @tracked deadline = [];
 
   @tracked newsletterModalOpen = false;
   @service toaster;
@@ -43,6 +48,11 @@ export default class DashboardSearchController extends Controller {
   @action
   updateServiceTypeFilter(types) {
     this.types = types.map((record) => record.id);
+  }
+
+  @action
+  updateDeadlineFilter(values) {
+    this.deadline = values;
   }
 
   @action

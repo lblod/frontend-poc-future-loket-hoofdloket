@@ -34,49 +34,17 @@
           <AuFieldset as |f|>
             <f.legend>Deadline</f.legend>
             <f.content>
-              <AuControlCheckbox
-                @label="Deze maand"
-                @name="Checkboxs"
-                @value="Deze maand"
-                @identifier="Deze maand"
-                @checked={{this.filters.month}}
-                @disabled={{false}}
-              />
-              <AuControlCheckbox
-                @label="Dit kwartaal"
-                @name="Checkboxs"
-                @value="Dit kwartaal"
-                @identifier="Dit kwartaal"
-                @checked={{this.filters.quart}}
-                @disabled={{false}}
-              />
+              <AuCheckboxGroup
+                @name="deadline"
+                @selected={{this.deadline}}
+                @onChange={{this.updateDeadlineFilter}} as |Group|>
+                {{#each this.deadlineOptions as |opt|}}
+                  <Group.Checkbox @value={{opt.value}}>{{opt.label}}</Group.Checkbox>
+                {{/each}}
+              </AuCheckboxGroup>
             </f.content>
           </AuFieldset>
         </div>
-        {{!-- <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Aanbieder</f.legend>
-            <f.content>
-              <AuControlCheckbox
-                @label="ABB"
-                @name="Checkboxs"
-                @value="ABB"
-                @identifier="ABB"
-                @checked={{false}}
-                @disabled= {{false}}
-              />
-              <AuControlCheckbox
-                @label="Opgroeien"
-                @name="Checkboxs"
-                @value="Opgroeien"
-                @identifier="Opgroeien"
-                @checked={{false}}
-                @disabled= {{false}}
-              />
-            </f.content>
-          </AuFieldset>
-        </div> --}}
-
       </div>
     </Sidebar>
   </m.sidebar>

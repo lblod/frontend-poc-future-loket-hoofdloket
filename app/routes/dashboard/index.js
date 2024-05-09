@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import { startOfMonth, endOfMonth, startOfQuarter, endOfQuarter } from 'date-fns';
 import constants from '../../config/constants';
 
 const { TARGET_AUDIENCES, EXECUTING_AUTHORITY_LEVELS } = constants;
@@ -18,6 +19,9 @@ export default class DashboardIndexRoute extends Route {
       refreshModel: true
     },
     types: {
+      refreshModel: true
+    },
+    deadline: {
       refreshModel: true
     },
   };
@@ -55,6 +59,17 @@ export default class DashboardIndexRoute extends Route {
         params.types.map((id) => this.store.findRecord('concept', id))
       );
       queryOptions['filter[type][:id:]'] = this.typeRecords.map((c) => c.id).join(',');
+    }
+
+    if (params.deadline.length) {
+      const now = new Date();
+      if (params.deadline.includes('quarter')) {
+        queryOptions['filter[:gte:end-date]'] = startOfQuarter(now).toISOString();
+        queryOptions['filter[:lte:end-date]'] = endOfQuarter(now).toISOString();
+      } else if (params.deadline.includes('month')) {
+        queryOptions['filter[:gte:end-date]'] = startOfMonth(now).toISOString();
+        queryOptions['filter[:lte:end-date]'] = endOfMonth(now).toISOString();
+      }
     }
 
     return this.store.query('public-service', queryOptions);
