@@ -13,7 +13,13 @@ export default class DashboardIndexRoute extends Route {
     },
     size: {
       refreshModel: true
-    }
+    },
+    themes: {
+      refreshModel: true
+    },
+    types: {
+      refreshModel: true
+    },
   };
 
   async model(params) {
@@ -27,7 +33,7 @@ export default class DashboardIndexRoute extends Route {
       this.store.findRecordByUri('concept', EXECUTING_AUTHORITY_LEVELS.PROVINCE)
     ]);
 
-    return this.store.query('public-service', {
+    const queryOptions = {
       include: 'type,thematic-areas',
       page: {
         number: params.page,
@@ -35,6 +41,28 @@ export default class DashboardIndexRoute extends Route {
       },
       'filter[target-audiences][:id:]': targetAudiences.map((c) => c.id).join(','),
       'filter[executing-authority-levels][:id:]': executingAuthorityLevels.map((c) => c.id).join(',')
-    });
+    };
+
+    if (params.themes.length) {
+      this.themeRecords = await Promise.all(
+        params.themes.map((id) => this.store.findRecord('concept', id))
+      );
+      queryOptions['filter[thematic-areas][:id:]'] = this.themeRecords.map((c) => c.id).join(',');
+    }
+
+    if (params.types.length) {
+      this.typeRecords = await Promise.all(
+        params.types.map((id) => this.store.findRecord('concept', id))
+      );
+      queryOptions['filter[type][:id:]'] = this.typeRecords.map((c) => c.id).join(',');
+    }
+
+    return this.store.query('public-service', queryOptions);
+  }
+
+  setupController(controller) {
+    super.setupController(...arguments);
+    controller.themeRecords = this.themeRecords || [];
+    controller.typeRecords = this.typeRecords || [];
   }
 }

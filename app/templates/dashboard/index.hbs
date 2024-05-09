@@ -17,80 +17,18 @@
           </li>
         </ul>
         <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Type</f.legend>
-            <f.content>
-              <AuControlCheckbox
-                @label="Tools"
-                @name="Checkbox1"
-                @value="tools"
-                @identifier="tools"
-                @checked={{this.filters.tools}}
-                @disabled={{false}}
-                @onChange={{fn this.updateFilter 'tools'}}
-              />
-              <AuControlCheckbox
-                @label="Subsidies"
-                @name="Checkbox2"
-                @value="Subsidies"
-                @identifier="Subsidies"
-                @checked={{false}}
-                @disabled= {{false}}
-                @checked={{this.filters.tools}}
-                @disabled={{false}}
-                @onChange={{fn this.updateFilter 'subsidies'}}
-              />
-              {{!-- <AuControlCheckbox
-                @label="Premies"
-                @name="Checkbox3"
-                @value="Premies"
-                @identifier="Premies"
-                @checked={{false}}
-                @disabled= {{false}}
-              />
-              <AuControlCheckbox
-                @label="Vergunningen"
-                @name="Checkbox4"
-                @value="Vergunningen"
-                @identifier="Vergunningen"
-                @checked={{false}}
-                @disabled= {{false}}
-              /> --}}
-            </f.content>
-          </AuFieldset>
+          <ConceptSchemeFilter
+            @label="Type"
+            @conceptScheme={{this.serviceTypeConceptScheme}}
+            @selected={{this.typeRecords}}
+            @onChange={{this.updateServiceTypeFilter}} />
         </div>
         <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Thematisch</f.legend>
-            <f.content>
-              <AuControlCheckbox
-                @label="Burger en Overheid"
-                @name="CheckboxB1"
-                @value="Burger en Overheid"
-                @identifier="Burger en Overheid"
-                @checked={{this.filters.burger}}
-                @disabled={{false}}
-                @onChange={{fn this.updateFilter 'burger'}}
-              />
-              <AuControlCheckbox
-                @label="Financieel voordeel"
-                @name="CheckboxB2"
-                @value="Financieel voordeel"
-                @identifier="Financieel voordeel"
-                @checked={{this.filters.financieel}}
-                @disabled={{false}}
-                @onChange={{fn this.updateFilter 'financieel'}}
-              />
-              {{!-- <AuControlCheckbox
-                @label="Sport"
-                @name="CheckboxA3"
-                @value="Sport"
-                @identifier="Sport"
-                @checked={{false}}
-                @disabled= {{false}}
-              /> --}}
-            </f.content>
-          </AuFieldset>
+          <ConceptSchemeFilter
+            @label="Thematisch"
+            @conceptScheme={{this.themeConceptScheme}}
+            @selected={{this.themeRecords}}
+            @onChange={{this.updateThemeFilter}} />
         </div>
         <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
@@ -103,7 +41,6 @@
                 @identifier="Deze maand"
                 @checked={{this.filters.month}}
                 @disabled={{false}}
-                @onChange={{fn this.updateFilter 'month'}}
               />
               <AuControlCheckbox
                 @label="Dit kwartaal"
@@ -112,7 +49,6 @@
                 @identifier="Dit kwartaal"
                 @checked={{this.filters.quart}}
                 @disabled={{false}}
-                @onChange={{fn this.updateFilter 'quart'}}
               />
             </f.content>
           </AuFieldset>
