@@ -229,7 +229,13 @@
           </AuList>
         </div>
       </AuBodyContainer>
-      {{!-- <Pagination /> --}}
+
+      <Pagination
+        @page={{this.page}}
+        @size={{this.size}}
+        @total={{this.model.meta.count}}
+        @onChange={{this.setPage}}
+        @onChangeSize={{this.setPageSize}} />
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>

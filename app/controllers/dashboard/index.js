@@ -7,7 +7,7 @@ const { subsidiesData } = require('../subsidies');
 
 export default class DashboardSearchController extends Controller {
   @tracked page = 0;
-  @tracked size = 20;
+  @tracked size = 25;
 
   @tracked filters = {
     tools: false,
@@ -81,5 +81,16 @@ export default class DashboardSearchController extends Controller {
       ...this.filters,
       [filterName]: !this.filters[filterName],
     };
+  }
+
+  @action
+  setPage(page) {
+    this.page = page;
+  }
+
+  @action
+  setPageSize(size) {
+    this.size = size;
+    this.setPage(0);
   }
 }
