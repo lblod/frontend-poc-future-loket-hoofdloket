@@ -54,6 +54,12 @@ export default class DashboardSearchController extends Controller {
   }
 
   @action
+  resetSearch() {
+    this.searchTermBuffer = null;
+    this.searchTerm = null;
+  }
+
+  @action
   updateThemeFilter(themes) {
     this.themes = themes.map((record) => record.id);
   }
