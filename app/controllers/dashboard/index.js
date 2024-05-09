@@ -51,27 +51,32 @@ export default class DashboardSearchController extends Controller {
   search(event) {
     event.preventDefault();
     this.searchTerm = this.searchTermBuffer;
+    this.setPage(0);
   }
 
   @action
   resetSearch() {
     this.searchTermBuffer = null;
     this.searchTerm = null;
+    this.setPage(0);
   }
 
   @action
   updateThemeFilter(themes) {
     this.themes = themes.map((record) => record.id);
+    this.setPage(0);
   }
 
   @action
   updateServiceTypeFilter(types) {
     this.types = types.map((record) => record.id);
+    this.setPage(0);
   }
 
   @action
   updateDeadlineFilter(values) {
     this.deadline = values;
+    this.setPage(0);
   }
 
   @action
