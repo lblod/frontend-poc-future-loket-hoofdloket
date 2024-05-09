@@ -16,6 +16,8 @@ export default class DashboardSearchController extends Controller {
 
   @tracked page = 0;
   @tracked size = 25;
+  @tracked searchTerm;
+  @tracked searchTermBuffer;
   @tracked types = [];
   @tracked themes = [];
   @tracked deadline = [];
@@ -38,6 +40,17 @@ export default class DashboardSearchController extends Controller {
       'Wijzingen opgeslagen',
       { timeOut: 3000, closable: false },
     );
+  }
+
+  @action
+  updateSearchTermBuffer(event) {
+    this.searchTermBuffer = event.target.value;
+  }
+
+  @action
+  search(event) {
+    event.preventDefault();
+    this.searchTerm = this.searchTermBuffer;
   }
 
   @action

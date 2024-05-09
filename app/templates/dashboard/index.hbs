@@ -51,23 +51,31 @@
   <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
        <AuToolbar @border="bottom" @size="small" as |Group|>
-        <Group class="au-u-1-1">
-          <div class="c-navigation-search">
-            <div>
-              <AuLabel for="search">Trefwoord</AuLabel>
-              <AuInput id="search" @width="block" />
-            </div>
-            <AuLink @skin="button" @route="dashboard.search" @icon="search">
-              Zoek
-            </AuLink>
-          </div>
-          </Group>
-      </AuToolbar>
-      {{!-- <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
-        </Group>
-      </AuToolbar> --}}
+         <Group class="au-u-1-1">
+           <form {{on "submit" this.search}} class="c-navigation-search">
+             <div>
+               <AuLabel for="search">Trefwoord</AuLabel>
+               <AuInput
+                 id="search"
+                 value={{this.searchTermBuffer}}
+                 @width="block"
+                 {{on "input" this.updateSearchTermBuffer}} />
+             </div>
+             <AuButton
+               type="submit"
+               @icon="search">
+               Zoek
+             </AuButton>
+           </form>
+         </Group>
+       </AuToolbar>
+       {{#if this.searchTerm}}
+         <AuToolbar @border="bottom" @size="medium" as |Group|>
+           <Group>
+             <p class="au-u-h6">{{@model.meta.count}} resultaten voor <strong>'{{this.searchTerm}}'</strong></p>
+           </Group>
+         </AuToolbar>
+       {{/if}}
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>

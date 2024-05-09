@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import { isPresent } from '@ember/utils';
 import { startOfMonth, endOfMonth, startOfQuarter, endOfQuarter } from 'date-fns';
 import constants from '../../config/constants';
 
@@ -13,6 +14,9 @@ export default class DashboardIndexRoute extends Route {
       refreshModel: true
     },
     size: {
+      refreshModel: true
+    },
+    searchTerm: {
       refreshModel: true
     },
     themes: {
@@ -47,6 +51,11 @@ export default class DashboardIndexRoute extends Route {
       'filter[executing-authority-levels][:id:]': executingAuthorityLevels.map((c) => c.id).join(',')
     };
 
+    this.searchTerm = params.searchTerm;
+    if (isPresent(params.searchTerm)) {
+      queryOptions['filter'] = params.searchTerm;
+    }
+
     if (params.themes.length) {
       this.themeRecords = await Promise.all(
         params.themes.map((id) => this.store.findRecord('concept', id))
@@ -79,5 +88,6 @@ export default class DashboardIndexRoute extends Route {
     super.setupController(...arguments);
     controller.themeRecords = this.themeRecords || [];
     controller.typeRecords = this.typeRecords || [];
+    controller.searchTermBuffer = this.searchTerm;
   }
 }
