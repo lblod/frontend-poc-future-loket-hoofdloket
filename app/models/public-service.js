@@ -21,4 +21,6 @@ export default class PublicServiceModel extends Model {
   competentAuthorityLevels;
   @hasMany('concept', { async: true, inverse: null })
   executingAuthorityLevels;
+  @hasMany('website', { async: true, inverse: 'publicService' })
+  websites
 }

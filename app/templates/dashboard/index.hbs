@@ -110,9 +110,19 @@
                     <div class="c-overview-card__header">
                       <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
                         <Favorite @active={{publicService.favorite}} />
-                        <AuLinkExternal href={{publicService.link}} class="au-u-h6 au-u-medium c-overview-card__link">
-                          {{publicService.name.default}}
-                        </AuLinkExternal>
+                        {{#if publicService.websites}}
+                          {{#each publicService.websites as |website index|}}
+                            {{#if (eq index 0)}}
+                              <AuLinkExternal href={{website.url}} class="au-u-h6 au-u-medium c-overview-card__link">
+                                {{publicService.name.default}}
+                              </AuLinkExternal>
+                            {{/if}}
+                          {{/each}}
+                        {{else}}
+                          <div class="au-u-h6 au-u-medium">
+                            {{publicService.name.default}}
+                          </div>
+                        {{/if}}
                       </div>
                       <div class="au-u-flex au-u-flex--spaced-tiny">
                         {{#if publicService.endDate}}
@@ -137,13 +147,13 @@
                   </card.header>
                   <card.content>
                     <p class="au-u-h-functional au-u-margin-bottom-tiny">{{{publicService.description.default}}}</p>
-                    {{#if publicService.link}}
+                    {{#each publicService.websites as |website|}}
                       <p class="au-u-h-functional au-u-margin-top-tiny">
-                        <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{publicService.link}} class="c-external">
-                          Naar de {{#if publicService.type}}tool{{else}}subsidie{{/if}}
+                        <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{website.url}} class="c-external">
+                          {{website.title.default}}
                         </AuLinkExternal>
                       </p>
-                    {{/if}}
+                    {{/each}}
                   </card.content>
                 </AuCard>
               </listitem>
