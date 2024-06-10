@@ -1,0 +1,54 @@
+{{!-- TODO: item.favorite --}}
+{{!-- TODO: sanitize publicService.description --}}
+
+<AuCard @size="small" class="c-overview-card" as |card|>
+  <card.header class="au-u-padding-bottom-none">
+    <div class="c-overview-card__header">
+      <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+        <Favorite @active={{@model.favorite}} />
+        {{#if @model.websites}}
+          {{#each @model.websites as |website index|}}
+            {{#if (eq index 0)}}
+              <AuLinkExternal href={{website.url}} class="au-u-h6 au-u-medium c-overview-card__link">
+                {{@model.name.default}}
+              </AuLinkExternal>
+            {{/if}}
+          {{/each}}
+        {{else}}
+          <div class="au-u-h6 au-u-medium">
+            {{@model.name.default}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="au-u-flex au-u-flex--spaced-tiny">
+        {{#if @model.endDate}}
+          <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
+        {{else}}
+          <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
+        {{/if}}
+        {{#if @model.thematicAreas}}
+          {{#each @model.thematicAreas as |theme|}}
+            <AuPill @skin="border" @size="small">
+              {{theme.label}}
+            </AuPill>
+          {{/each}}
+        {{/if}}
+        {{#if @model.type}}
+          <AuPill @skin="border" @size="small">
+            {{@model.type.label}}
+          </AuPill>
+        {{/if}}
+      </div>
+    </div>
+  </card.header>
+  <card.content>
+    <p class="au-u-h-functional au-u-margin-bottom-tiny">{{{@model.description.default}}}</p>
+    {{#each @model.websites as |website|}}
+      <p class="au-u-h-functional au-u-margin-top-tiny">
+        <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{website.url}} class="c-external">
+          {{website.title.default}}
+        </AuLinkExternal>
+      </p>
+    {{/each}}
+  </card.content>
+</AuCard>

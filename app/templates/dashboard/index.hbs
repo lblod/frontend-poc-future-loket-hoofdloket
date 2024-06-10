@@ -101,61 +101,8 @@
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
             {{#each @model as |publicService|}}
-              {{!-- TODO: item.favorite --}}
-              {{!-- TODO: item.link: publicService.seeAlso.url --}}
-              {{!-- TODO: sanitize publicService.description --}}
               <listitem>
-                <AuCard @size="small" class="c-overview-card" as |card|>
-                  <card.header class="au-u-padding-bottom-none">
-                    <div class="c-overview-card__header">
-                      <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-                        <Favorite @active={{publicService.favorite}} />
-                        {{#if publicService.websites}}
-                          {{#each publicService.websites as |website index|}}
-                            {{#if (eq index 0)}}
-                              <AuLinkExternal href={{website.url}} class="au-u-h6 au-u-medium c-overview-card__link">
-                                {{publicService.name.default}}
-                              </AuLinkExternal>
-                            {{/if}}
-                          {{/each}}
-                        {{else}}
-                          <div class="au-u-h6 au-u-medium">
-                            {{publicService.name.default}}
-                          </div>
-                        {{/if}}
-                      </div>
-                      <div class="au-u-flex au-u-flex--spaced-tiny">
-                        {{#if publicService.endDate}}
-                          <AuPill @skin="warning" @size="small">Deadline: {{format-date publicService.endDate}}</AuPill>
-                        {{else}}
-                          <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
-                        {{/if}}
-                        {{#if publicService.thematicAreas}}
-                          {{#each publicService.thematicAreas as |theme|}}
-                            <AuPill @skin="border" @size="small">
-                              {{theme.label}}
-                            </AuPill>
-                          {{/each}}
-                        {{/if}}
-                        {{#if publicService.type}}
-                          <AuPill @skin="border" @size="small">
-                            {{publicService.type.label}}
-                          </AuPill>
-                        {{/if}}
-                      </div>
-                    </div>
-                  </card.header>
-                  <card.content>
-                    <p class="au-u-h-functional au-u-margin-bottom-tiny">{{{publicService.description.default}}}</p>
-                    {{#each publicService.websites as |website|}}
-                      <p class="au-u-h-functional au-u-margin-top-tiny">
-                        <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{website.url}} class="c-external">
-                          {{website.title.default}}
-                        </AuLinkExternal>
-                      </p>
-                    {{/each}}
-                  </card.content>
-                </AuCard>
+                <IpdcServiceCard @model={{publicService}} />
               </listitem>
             {{else}}
               <AuAlert
