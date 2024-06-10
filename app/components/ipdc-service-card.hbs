@@ -20,24 +20,37 @@
           </div>
         {{/if}}
       </div>
-      <div class="au-u-flex au-u-flex--spaced-tiny">
-        {{#if @model.endDate}}
-          <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
-        {{else}}
-          <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
-        {{/if}}
-        {{#if @model.thematicAreas}}
-          {{#each @model.thematicAreas as |theme|}}
+      <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-center">
+        <div>
+          {{#if @model.endDate}}
+            <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
+          {{else}}
+            <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
+          {{/if}}
+          {{#if @model.thematicAreas}}
+            {{#each @model.thematicAreas as |theme|}}
+              <AuPill @skin="border" @size="small">
+                {{theme.label}}
+              </AuPill>
+            {{/each}}
+          {{/if}}
+          {{#if @model.type}}
             <AuPill @skin="border" @size="small">
-              {{theme.label}}
+              {{@model.type.label}}
             </AuPill>
-          {{/each}}
-        {{/if}}
-        {{#if @model.type}}
-          <AuPill @skin="border" @size="small">
-            {{@model.type.label}}
-          </AuPill>
-        {{/if}}
+          {{/if}}
+        </div>
+        <div>
+          <AuLink
+            @icon="circle-info"
+            @route="external"
+            @query={{hash resource=@model.uri}}
+            @hideText={{true}}
+            class="au-u-word-break-all"
+          >
+            Info
+          </AuLink>
+        </div>
       </div>
     </div>
   </card.header>

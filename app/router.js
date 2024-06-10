@@ -1,5 +1,6 @@
 import EmberRouter from '@ember/routing/router';
 import config from 'loket/config/environment';
+import { fallbackRoute, externalRoute } from 'ember-metis';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -27,4 +28,7 @@ Router.map(function () {
     this.route('search');
     this.route('detail');
   });
+
+  externalRoute(this);
+  fallbackRoute(this);
 });

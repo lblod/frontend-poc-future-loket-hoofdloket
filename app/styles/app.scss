@@ -18,3 +18,8 @@
 @import "_rich-link";
 @import "_select";
 @import "_overrides";
+
+
+.au-c-app > div.au-o-layout.au-o-layout--large {
+  overflow-y: auto;
+}
