@@ -55,7 +55,7 @@
     "ember-data": "~5.3.0",
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
-    "ember-metis": "^0.10.0",
+    "ember-metis": "^0.11.0",
     "ember-modifier": "^4.1.0",
     "ember-mu-transform-helpers": "https://github.com/mu-semtech/ember-mu-transform-helpers.git#feature/better-language-support",
     "ember-page-title": "^8.0.0",
