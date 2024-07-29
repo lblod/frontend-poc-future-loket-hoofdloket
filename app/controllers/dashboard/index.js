@@ -49,27 +49,47 @@ export default class DashboardSearchController extends Controller {
   
     // If no filters are active in both groups, return all results
     if (!isFirstGroupActive && !isSecondGroupActive && !isThirdGroupActive) {
-      return this.results;
+      return this.results.sort((a, b) => {
+        if (a.deadline && b.deadline) {
+          return new Date(a.deadline) - new Date(b.deadline);
+        }
+        if (a.deadline && !b.deadline) return -1;
+        if (!a.deadline && b.deadline) return 1;
+        if (a.deadline === '' && b.deadline !== '') return -1;
+        if (a.deadline !== '' && b.deadline === '') return 1;
+        return 0;
+      });
     }
   
-    return this.results.filter((item) => {
-      // If the first group is active, check if the item matches any of the active filters in this group
-      const matchesFirstGroup = !isFirstGroupActive || 
-        (this.filters.tools && item.filter === 'tools') || 
-        (this.filters.subsidies && item.filter === 'subsidies');
-  
-      // If the second group is active, check if the item matches any of the active filters in this group
-      const matchesSecondGroup = !isSecondGroupActive || 
-        (this.filters.burger && item.filterTheme === 'burger') || 
-        (this.filters.financieel && item.filterTheme === 'financieel');
+    return this.results
+      .filter((item) => {
+        // If the first group is active, check if the item matches any of the active filters in this group
+        const matchesFirstGroup = !isFirstGroupActive || 
+          (this.filters.tools && item.filter === 'tools') || 
+          (this.filters.subsidies && item.filter === 'subsidies');
+    
+        // If the second group is active, check if the item matches any of the active filters in this group
+        const matchesSecondGroup = !isSecondGroupActive || 
+          (this.filters.burger && item.filterTheme === 'burger') || 
+          (this.filters.financieel && item.filterTheme === 'financieel');
 
-      const matchesThirdGroup = !isThirdGroupActive || 
-        (this.filters.month && item.deadline === 'burger') || 
-        (this.filters.quart && item.deadline === 'financieel');
-  
-      // An item is included only if it matches active filters in both groups
-      return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup;
-    });
+        const matchesThirdGroup = !isThirdGroupActive || 
+          (this.filters.month && item.deadline === 'burger') || 
+          (this.filters.quart && item.deadline === 'financieel');
+    
+        // An item is included only if it matches active filters in both groups
+        return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup;
+      })
+      .sort((a, b) => {
+        if (a.deadline && b.deadline) {
+          return new Date(a.deadline) - new Date(b.deadline);
+        }
+        if (a.deadline && !b.deadline) return -1;
+        if (!a.deadline && b.deadline) return 1;
+        if (a.deadline === '' && b.deadline !== '') return -1;
+        if (a.deadline !== '' && b.deadline === '') return 1;
+        return 0;
+      });
   }
 
   @action

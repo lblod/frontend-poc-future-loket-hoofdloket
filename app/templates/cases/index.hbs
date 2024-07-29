@@ -165,9 +165,9 @@
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Ga verder met de subsidie
-                    </AuLinkExternal>
+                    <span class="au-c-link au-c-link--external" aria-hidden="true">
+                      Ga verder met de subsidie <AuIcon @icon="external" />
+                    </span>
                   </p>
                 </card.content>
               </AuCard>

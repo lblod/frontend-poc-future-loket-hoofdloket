@@ -159,11 +159,35 @@
           </div>
           </Group>
       </AuToolbar>
-      {{!-- <AuToolbar @border="bottom" @size="medium" as |Group|>
+      <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
+          <p class="au-u-h6">2346 items</p>
         </Group>
-      </AuToolbar> --}}
+        <Group>
+          <select
+            name="amount"
+            id="amount"
+            class="c-select"
+          >
+            <option
+              value="10"
+              selected="selected"
+            >
+              Deadline
+            </option>
+            <option
+              value="20"
+            >
+              A-Z (oplopend)
+            </option>
+            <option
+              value="50"
+            >
+              Z-A (aflopend)
+            </option>
+          </select>
+        </Group>
+      </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
@@ -201,9 +225,10 @@
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                    <span class="au-c-link au-c-link--external" aria-hidden="true">
                       Naar de {{#if item.categorie}}tool{{else}}subsidie{{/if}}
-                    </AuLinkExternal>
+                      <AuIcon @icon="external" />
+                    </span>
                   </p>
                 </card.content>
               </AuCard>

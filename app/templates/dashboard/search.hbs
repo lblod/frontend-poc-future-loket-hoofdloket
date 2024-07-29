@@ -18,22 +18,6 @@
         </ul>
         <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
-            <f.legend>Zoekterm</f.legend>
-            <f.content>
-              <span class="au-c-pill-container">
-                <span class="au-c-pill au-c-pill--default">
-                  test zoek
-                </span>
-                <LinkTo @route="dashboard.index" class="au-c-pill-action  au-c-pill--default">
-                  <AuIcon @icon="cross" />
-                  <span class="au-u-hidden-visually">close</span>
-                </LinkTo>
-              </span>
-            </f.content>
-          </AuFieldset>
-        </div>
-        <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
             <f.legend>Type</f.legend>
             <f.content>
               <AuControlCheckbox
@@ -162,7 +146,7 @@
   </m.sidebar>
   <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
-       <AuToolbar @border="bottom" @size="small" as |Group|>
+      <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
           <div class="c-navigation-search">
             <div>
@@ -178,6 +162,30 @@
       <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
           <p class="au-u-h6">2346 resultaten voor <strong>'test zoek'</strong></p>
+        </Group>
+        <Group>
+          <select
+            name="amount"
+            id="amount"
+            class="c-select"
+          >
+            <option
+              value="10"
+              selected="selected"
+            >
+              Deadline
+            </option>
+            <option
+              value="20"
+            >
+              A-Z (oplopend)
+            </option>
+            <option
+              value="50"
+            >
+              Z-A (aflopend)
+            </option>
+          </select>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
@@ -217,9 +225,10 @@
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                    <span class="au-c-link au-c-link--external" aria-hidden="true">
                       Naar de {{#if item.categorie}}tool{{else}}subsidie{{/if}}
-                    </AuLinkExternal>
+                      <AuIcon @icon="external" />
+                    </span>
                   </p>
                 </card.content>
               </AuCard>
