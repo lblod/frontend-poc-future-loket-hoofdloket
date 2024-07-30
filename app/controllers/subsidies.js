@@ -376,7 +376,6 @@ export const subsidiesData = [
       "Uitvoerende bestuursniveau’s": "Vlaamse overheid",
       "Uitvoerende organisaties": "https://wegwijs.vlaanderen.be/#/organisations/OVO000067",
       "Talen dienstverlening": "",
-      "link": "https://www.vlaanderen.be/cjm/nl/cultuur/bovenlokale-cultuur/subsidies/projectsubsidie-voor-kleinschalige-bovenlokale-cultuurprojecten",
       "Regelgeving": "Jaarlijks Decreet houdende de uitgavenbegroting van de Vlaamse Gemeenschap",
       "Links naar Vlaamse codex": "",
       "Productnummer": "2684",
