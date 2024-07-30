@@ -188,14 +188,14 @@
 
 .c-overview-card__header {
   display: flex;
-  align-items: center;
   flex-direction: column;
   margin-bottom: $au-unit-tiny;
+  gap: $au-unit-tiny;
 
   @include mq(small) {
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    gap: $au-unit-tiny;
   }
 }
 

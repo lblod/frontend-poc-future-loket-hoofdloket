@@ -202,14 +202,20 @@
           <AuList as |listitem|>
             {{#each this.filteredResults as |item|}}
             <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
+              <AuCard @size="small" class="c-overview-card {{if item.link 'c-overview-card--link'}}" as |card|>
                 <card.header class="au-u-padding-bottom-none">
                   <div class="c-overview-card__header">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
                       <Favorite @active={{item.favorite}} />
+                      {{#if item.link}}
                       <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLinkExternal>
+                      {{else}}
+                      <p class="au-u-h6 au-u-medium">
+                        {{item.name}}
+                      </p>
+                      {{/if}}
                     </div>
                     <div class="au-u-flex au-u-flex--spaced-tiny">
                       {{#if item.type}}
@@ -233,12 +239,14 @@
                 </card.header>
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
+                  {{#if item.link}}
                   <p class="au-u-h-functional au-u-margin-top-tiny">
                     <span class="au-c-link au-c-link--external" aria-hidden="true">
                       Naar de {{#if item.categorie}}tool{{else}}subsidie{{/if}}
                       <AuIcon @icon="external" />
                     </span>
                   </p>
+                  {{/if}}
                 </card.content>
               </AuCard>
             </listitem>
