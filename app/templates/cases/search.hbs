@@ -112,6 +112,7 @@
               <AuLabel for="search">Trefwoord</AuLabel>
               <AuInput id="search" @width="block" value="test zoek" />
             </div>
+            <AuLink @skin="button-secondary" @icon="cross" @route="dashboard" @hideText="true">Reset</AuLink>
             <AuLink @skin="button" @route="cases.search" @icon="search">
               Zoek
             </AuLink>
@@ -119,17 +120,8 @@
           </Group>
       </AuToolbar>
       <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group class="au-u-flex au-u-flex--vertical-center">
-          <p class="au-u-h6">2346 resultaten voor</p>
-          <span class="au-c-pill-container">
-            <span class="au-c-pill au-c-pill--default">
-              test zoek
-            </span>
-            <LinkTo @route="dashboard.index" class="au-c-pill-action  au-c-pill--default">
-              <AuIcon @icon="cross" />
-              <span class="au-u-hidden-visually">close</span>
-            </LinkTo>
-          </span>
+        <Group class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-small au-u-flex--wrap">
+          <p class="au-u-h6">2346 resultaten voor <strong>"test zoek"</strong></p>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
