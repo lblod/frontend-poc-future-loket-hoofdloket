@@ -164,9 +164,10 @@
           <p class="au-u-h6">2346 items</p>
         </Group>
         <Group>
+          <AuLabel for="sorting">Gesorteerd op:</AuLabel>
           <select
-            name="amount"
-            id="amount"
+            name="sorting"
+            id="sorting"
             class="c-select"
           >
             <option
@@ -237,6 +238,8 @@
                       <AuIcon @icon="external" />
                     </span>
                   </p>
+                  {{else}}
+                  <AuAlert @skin="info" @size="tiny" class="au-u-margin-bottom-none">Dit subsidie is nog niet actief. Meer info op de <AuLinkExternal>site van cultuurwerk</AuLinkExternal>.</AuAlert>
                   {{/if}}
                 </card.content>
               </AuCard>
