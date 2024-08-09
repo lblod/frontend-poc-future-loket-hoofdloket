@@ -10,9 +10,24 @@ export default class DashboardSearchController extends Controller {
     subsidies: false,
     burger: false,
     financieel: false,
+    month: false,
+    quart: false,
   };
 
+  @tracked sortBy = 'deadline';
+
   results = [...productData, ...subsidiesData].sort((a, b) => a.name.localeCompare(b.name));
+
+  sortByDeadline(a, b) {
+    if (a.deadline && b.deadline) {
+      return new Date(a.deadline) - new Date(b.deadline);
+    }
+    if (a.deadline && !b.deadline) return -1;
+    if (!a.deadline && b.deadline) return 1;
+    if (a.deadline === '' && b.deadline !== '') return -1;
+    if (a.deadline !== '' && b.deadline === '') return 1;
+    return 0;
+  }
 
   get filteredResults() {
     // Check if any filter in the first group is active
@@ -23,16 +38,7 @@ export default class DashboardSearchController extends Controller {
   
     // If no filters are active in both groups, return all results
     if (!isFirstGroupActive && !isSecondGroupActive && !isThirdGroupActive) {
-      return this.results.sort((a, b) => {
-        if (a.deadline && b.deadline) {
-          return new Date(a.deadline) - new Date(b.deadline);
-        }
-        if (a.deadline && !b.deadline) return -1;
-        if (!a.deadline && b.deadline) return 1;
-        if (a.deadline === '' && b.deadline !== '') return -1;
-        if (a.deadline !== '' && b.deadline === '') return 1;
-        return 0;
-      });
+      return this.results.slice();
     }
   
     return this.results
@@ -53,17 +59,21 @@ export default class DashboardSearchController extends Controller {
     
         // An item is included only if it matches active filters in both groups
         return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup;
-      })
-      .sort((a, b) => {
-        if (a.deadline && b.deadline) {
-          return new Date(a.deadline) - new Date(b.deadline);
-        }
-        if (a.deadline && !b.deadline) return -1;
-        if (!a.deadline && b.deadline) return 1;
-        if (a.deadline === '' && b.deadline !== '') return -1;
-        if (a.deadline !== '' && b.deadline === '') return 1;
-        return 0;
       });
+  }
+
+  get sortedResults() {
+    const results = this.filteredResults;
+    
+    switch (this.sortBy) {
+      case 'nameAsc':
+        return results.slice().sort((a, b) => a.name.localeCompare(b.name));
+      case 'nameDesc':
+        return results.slice().sort((a, b) => b.name.localeCompare(a.name));
+      case 'deadline':
+      default:
+        return results.slice().sort(this.sortByDeadline);
+    }
   }
 
   @action
@@ -72,5 +82,10 @@ export default class DashboardSearchController extends Controller {
       ...this.filters,
       [filterName]: !this.filters[filterName],
     };
+  }
+
+  @action
+  updateSorting(event) {
+    this.sortBy = event.target.value;
   }
 }

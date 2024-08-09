@@ -170,21 +170,15 @@
             name="sorting"
             id="sorting"
             class="c-select"
+            {{on "change" this.updateSorting}}
           >
-            <option
-              value="10"
-              selected="selected"
-            >
+            <option value="deadline" selected={{eq this.sortBy "deadline"}}>
               Deadline
             </option>
-            <option
-              value="20"
-            >
+            <option value="nameAsc" selected={{eq this.sortBy "nameAsc"}}>
               A-Z (oplopend)
             </option>
-            <option
-              value="50"
-            >
+            <option value="nameDesc" selected={{eq this.sortBy "nameDesc"}}>
               Z-A (aflopend)
             </option>
           </select>
@@ -193,7 +187,7 @@
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
-            {{#each this.filteredResults as |item|}}
+            {{#each this.sortedResults as |item|}}
             {{#if item.favorite}}
             <listitem>
               <AuCard @size="small" class="c-overview-card {{if item.link 'c-overview-card--link'}}" as |card|>
