@@ -112,7 +112,7 @@
               <AuLabel for="search">Trefwoord</AuLabel>
               <AuInput id="search" @width="block" value="test zoek" />
             </div>
-            <AuLink @skin="button-secondary" @icon="cross" @route="dashboard" @hideText="true">Reset</AuLink>
+            <AuLink @skin="button-secondary" @icon="cross" @route="cases" @hideText="true">Reset</AuLink>
             <AuLink @skin="button" @route="cases.search" @icon="search">
               Zoek
             </AuLink>
@@ -129,7 +129,7 @@
           <AuList as |listitem|>
             {{#each this.subsidies as |item|}}
             <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
+              <AuCard @size="small" class="c-overview-card c-overview-card--link" as |card|>
                 <card.header class="au-u-padding-bottom-none">
                   <div class="c-overview-card__header">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
