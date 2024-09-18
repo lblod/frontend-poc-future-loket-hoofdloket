@@ -18,7 +18,9 @@ export default class DashboardFavoritesController extends Controller {
   @tracked sortBy = 'deadline';
   @service toaster;
 
-  results = [...productData, ...subsidiesData].sort((a, b) => a.name.localeCompare(b.name));
+  results = [...productData, ...subsidiesData].sort((a, b) =>
+    a.name.localeCompare(b.name),
+  );
 
   sortByDeadline(a, b) {
     if (a.deadline && b.deadline) {
@@ -35,31 +37,34 @@ export default class DashboardFavoritesController extends Controller {
     const isFirstGroupActive = this.filters.tools || this.filters.subsidies;
     const isSecondGroupActive = this.filters.burger || this.filters.financieel;
     const isThirdGroupActive = this.filters.month || this.filters.quart;
-  
+
     if (!isFirstGroupActive && !isSecondGroupActive && !isThirdGroupActive) {
       return this.results;
     }
-  
+
     return this.results.filter((item) => {
-      const matchesFirstGroup = !isFirstGroupActive || 
-        (this.filters.tools && item.filter === 'tools') || 
+      const matchesFirstGroup =
+        !isFirstGroupActive ||
+        (this.filters.tools && item.filter === 'tools') ||
         (this.filters.subsidies && item.filter === 'subsidies');
-  
-      const matchesSecondGroup = !isSecondGroupActive || 
-        (this.filters.burger && item.filterTheme === 'burger') || 
+
+      const matchesSecondGroup =
+        !isSecondGroupActive ||
+        (this.filters.burger && item.filterTheme === 'burger') ||
         (this.filters.financieel && item.filterTheme === 'financieel');
 
-      const matchesThirdGroup = !isThirdGroupActive || 
-        (this.filters.month && item.deadline === 'burger') || 
+      const matchesThirdGroup =
+        !isThirdGroupActive ||
+        (this.filters.month && item.deadline === 'burger') ||
         (this.filters.quart && item.deadline === 'financieel');
-  
+
       return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup;
     });
   }
 
   get sortedResults() {
     const results = this.filteredResults;
-    
+
     switch (this.sortBy) {
       case 'nameAsc':
         return results.slice().sort((a, b) => a.name.localeCompare(b.name));

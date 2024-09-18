@@ -1,0 +1,174 @@
+<AuMainContainer as |m|>
+    <m.sidebar>
+        <Sidebar>
+            <div class="au-c-sidebar__content" tabindex="-1">
+                <ul class="au-c-list-navigation">
+                    <li class="au-c-list-navigation__section-title">
+                        In te dienen
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Nieuwste updates <span class="c-list-navigation__counter">4</span>
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Deadline verstreken <span class="c-list-navigation__counter">3</span>
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Archief
+                        </AuNavigationLink>
+                    </li>
+                </ul>
+                <ul class="au-c-list-navigation">
+                    <li class="au-c-list-navigation__section-title">
+                        Type
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Subsidies
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Premies
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Vergunningen
+                        </AuNavigationLink>
+                    </li>
+                </ul>
+                <ul class="au-c-list-navigation">
+                    <li class="au-c-list-navigation__section-title">
+                        Thema's
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Jeugd
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Sport
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Cultuur
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Vrije tijd
+                        </AuNavigationLink>
+                    </li>
+                </ul>
+                <ul class="au-c-list-navigation">
+                    <li class="au-c-list-navigation__section-title">
+                        Deadline
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Deze maand
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Dit kwartaal
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        <AuNavigationLink role="menuitem">
+                            Dit jaar
+                        </AuNavigationLink>
+                    </li>
+                    <li class="au-c-list-navigation__item">
+                        {{#if (eq this.dateFilter true)}}
+                        <div class="au-c-list-navigation__form">
+                            <AuLabel>Specifiek</AuLabel>
+                            <AuDateInput />
+                        </div>
+                        {{else}}
+                        <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}>
+                            Specifiek
+                        </AuNavigationLink>
+                        {{/if}}
+                    </li>
+                </ul>
+            </div>
+        </Sidebar>
+    </m.sidebar>
+    <m.content>
+        <AuBodyContainer class="au-u-background-gray-100">
+            {{!-- Container with back button? --}}
+            <AuBodyContainer @scroll={{true}}>
+                <div class="au-o-box au-o-box--small dossier-container">
+                    <div class="au-u-flex au-u-flex--between au-u-margin-bottom-small">
+                        <div class="au-u-flex au-u-flex--column">
+                            <h1 class="au-u-h3">{{ this.subsidies.[0].name }}</h1>
+                            <p class="au-u-h-functional au-u-muted">{{ this.subsidies.[0].id }}</p>
+                        </div>
+                        <AuButton
+                            @icon="external-link"
+                        >
+                            Ga verder met de subsidie
+                        </AuButton>
+                    </div>
+
+                    <div class="au-u-flex au-u-flex--column au-u-flex--spaced-small">
+                        <div class="au-u-flex au-u-flex--spaced-small">
+                            <div class="info-container">
+                                <p>Dienst</p>
+                                <p>{{ this.subsidies.[0].theme }}</p>
+                            </div>
+                            <div class="info-container">
+                                <p>Aanbieder</p>
+                                <p>{{ this.subsidies.[0].provider }}</p>
+                            </div>
+                        </div>
+
+                        <div class="info-container">
+                            <p>Beschrijving</p>
+                            <p>{{ this.subsidies.[0].description }}</p>
+                        </div>
+
+                        <div class="au-u-flex au-u-flex--spaced-small">
+                            <div class="info-container">
+                                <p>Deadline</p>
+                                <p>{{ this.subsidies.[0].deadline }}</p>
+                            </div>
+                            <div class="info-container">
+                                <p>Wijzigingsdatum</p>
+                                <p>{{ this.subsidies.[0].lastUpdate }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="au-u-padding-small au-u-margin-bottom-small card__footer">
+                        <Timeline />
+                        <p class="au-u-h-functional au-u-margin-bottom-none au-u-margin-top-small ">
+                            <span class="au-u-bold">Details</span>
+                            {{this.subsidies.[0].details}}
+                        </p>
+                        <p class="au-u-h-functional au-u-margin-bottom-none">
+                            <span class="au-u-bold">Action</span>
+                            {{this.subsidies.[0].action}}
+                        </p>
+                    </div>
+
+                    <AuAlert
+                        @title="Wil je dat je collega's meedoen?"
+                        @skin="warning"
+                        @size="tiny"
+                    >
+                        <p>Neem contact op met de verantwoordelijke voor het gebruikersbeheer van jouw gemeente, om anderen toegang te geven tot dit dossier.</p>
+                    </AuAlert>
+                </div>
+            </AuBodyContainer>
+        </AuBodyContainer>
+    </m.content>
+</AuMainContainer>

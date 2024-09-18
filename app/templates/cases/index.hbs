@@ -130,64 +130,29 @@
               <AuCard @size="small" class="c-overview-card c-overview-card--link" as |card|>
                 <card.header class="au-u-padding-bottom-none ">
                   <div class="c-overview-card__header au-u-flex--vertical-start">
-                    <div class="au-u-flex au-u-flex--column">
-                      <div class="au-u-flex au-u-flex--spaced-tiny">
-                        <p class="au-u-muted">{{ item.id }}</p>
-                        <span class="au-u-muted">•</span>
-                        <p class="au-u-muted">{{ item.theme }}</p>
-                        <span class="au-u-muted">•</span>
-                        <p class="au-u-muted">{{ item.provider }}</p>
-                      </div>
+                    <div class="au-u-flex au-u-flex au-u-flex--vertical-baseline au-u-flex--spaced-tiny">
                       <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLinkExternal>
-                      {{!-- {{#if (eq item.status 'Actief - Aanvraag uitbetaling')}}
-                      <AuPill @skin="success" @size="small" >
-                        {{item.status}}
-                      </AuPill>
-                      {{else if (eq item.status 'Actief')}}
-                      <AuPill @skin="ongoing"  @size="small" >
-                        {{item.status}}
-                      </AuPill>
-                      {{else if (eq item.status 'Actief')}}
-                      <AuPill @skin="default"  @size="small" >
-                        {{item.status}}
-                      </AuPill>
-                      {{else}}
-                      <AuPill @skin="border"  @size="small" >
-                        {{item.status}}
-                      </AuPill>
-                      {{/if}} --}}
+                      <p class="au-u-muted">{{ item.id }}</p>
                     </div>
+                    <AuPill @skin="link" @icon="clock" @size="small">
+                        Behandeling - <span style="font-weight: 400">Klaar voor beslissing</span>
+                    </AuPill>
+                  </div>
+                </card.header>
+                <card.content>
+                  <p class="au-u-h-functional au-u-margin-bottom-none">{{item.description}}</p>
+                  <div class="au-u-flex au-u-flex--vertical-baseline au-u-flex--spaced-small au-u-margin-top-small">
+                    <AuButton
+                      @skin="secondary">
+                      Meer details
+                    </AuButton>
                     <p class="au-u-h-functional">
                       <span class="au-c-link au-c-link--external" aria-hidden="true">
                         Ga verder met de subsidie <AuIcon @icon="external" />
                       </span>
                     </p>
-                  </div>
-                </card.header>
-                <card.content>
-                  <p class="au-u-h-functional au-u-margin-bottom-none">{{item.description}}</p>
-                  <div class="au-u-padding-small card__footer">
-                    <p class="au-u-h-functional au-u-margin-bottom-none au-u-margin-top-none ">
-                      <span class="au-u-bold">Details</span>
-                      {{item.details}}
-                    </p>
-                    <p class="au-u-h-functional au-u-margin-bottom-tiny">
-                      <span class="au-u-bold">Action</span>
-                      {{item.action}}
-                    </p>
-                    <div class="au-u-flex au-u-flex--between au-u-flex--wrap">
-                      <Timeline />
-                      <div class="au-u-flex au-u-flex--spaced-tiny">
-                        <AuPill @skin="link" @size="small">
-                            Wijzigingsdatum: {{ item.lastUpdate }}
-                        </AuPill>
-                        <AuPill @skin="warning" @size="small">
-                            Deadline: {{ item.deadline }}
-                        </AuPill>
-                      </div>
-                    </div>
                   </div>
                 </card.content>
               </AuCard>
