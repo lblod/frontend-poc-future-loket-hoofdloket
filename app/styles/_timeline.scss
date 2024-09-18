@@ -1,0 +1,71 @@
+.timeline{
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+}
+
+.timeline__item{
+    height: 100%;
+    list-style: none;
+    position: relative;
+    
+    &:not(:first-child){
+        margin-left: -1rem;
+    }
+}
+
+.timeline__item > .au-c-pill{
+    height: 100%;
+    padding-right: 1.4rem;
+
+    &:after{
+        content:"";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        height: 21px;
+        width: auto;
+        aspect-ratio: 1 / 1;
+        
+        transform: translate(0%, -50%) rotate(-45deg);
+        z-index: 5;
+
+        background-color: red;
+        border: 1px solid transparent;
+        border-top: none;
+        border-left: none;
+        border-color: inherit;
+        background-color: inherit;
+        mix-blend-mode: darken;
+    }
+}
+
+.timeline__item:not(:first-child) > .au-c-pill
+// .timeline__item:not(:last-child) > .au-c-pill
+{
+    border-radius: 0;
+    padding-left: 1.8rem;
+    border-left: none;
+}
+
+.timeline__item:last-child > .au-c-pill{
+    border-radius: 0 0.6rem 0.6rem 0;
+
+    &:after{
+        display: none;
+    }
+}
+
+
+
+
+
+
+// CARD FOOTER
+.card__footer{
+    background-color: var(--au-gray-200);
+    border: 1px solid var(--au-gray-300);
+    border-radius: .2rem;
+    margin-top: 1.5rem;
+}
