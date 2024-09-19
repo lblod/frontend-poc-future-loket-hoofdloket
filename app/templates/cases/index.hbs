@@ -144,10 +144,13 @@
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-none">{{item.description}}</p>
                   <div class="au-u-flex au-u-flex--vertical-baseline au-u-flex--spaced-small au-u-margin-top-small">
-                    <AuButton
-                      @skin="secondary">
+                    <AuLink
+                      @skin="button-secondary"
+                      @route="cases.dossier"
+                      style="z-index: 10"
+                    >
                       Meer details
-                    </AuButton>
+                    </AuLink>
                     <p class="au-u-h-functional">
                       <span class="au-c-link au-c-link--external" aria-hidden="true">
                         Ga verder met de subsidie <AuIcon @icon="external" />

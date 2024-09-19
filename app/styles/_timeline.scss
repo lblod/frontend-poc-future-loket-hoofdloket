@@ -46,8 +46,8 @@
 }
 
 .timeline__item--done{
-  color: var(--au-green-700);
-  background-color: var(--au-green-100);
+  color: var(--au-green-100);
+  background-color: var(--au-green-700);
   border: 1px solid var(--au-green-300);
 }
 
@@ -109,9 +109,25 @@
   background-color: var(--au-white);
   border: 1px solid var(--au-gray-200);
   height: 100%;
-  margin: 1.2rem;
   border-radius: .2rem;
   color: var(--au-gray-900);
+
+  width: 75%;
+  max-width: 1000px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.dossier-container__infos{
+  gap: 2.4rem;
+}
+
+@media screen and (min-width: 900px) {
+  .dossier-container__infos{
+    gap: 4.8rem;
+  }
 }
 
 .info-container {
