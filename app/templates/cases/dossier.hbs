@@ -1,3 +1,4 @@
+
 <AuMainContainer as |m|>
     <m.sidebar>
         <Sidebar>
@@ -104,13 +105,12 @@
     </m.sidebar>
     <m.content>
         <AuBodyContainer class="au-u-background-gray-100">
-            {{!-- Container with back button? --}}
             <AuBodyContainer @scroll={{true}}>
-                <div class="au-o-box au-o-box--small dossier-container">
-                    <div class="au-u-flex au-u-flex--between au-u-margin-bottom-small">
+                <div class="au-o-box au-o-box--small au-u-padding dossier-container">
+                    <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
                         <div class="au-u-flex au-u-flex--column">
                             <h1 class="au-u-h3">{{ this.subsidies.[0].name }}</h1>
-                            <p class="au-u-h-functional au-u-muted">{{ this.subsidies.[0].id }}</p>
+                            <p class="au-u-muted">{{ this.subsidies.[0].id }}</p>
                         </div>
                         <AuButton
                             @icon="external-link"
@@ -119,8 +119,8 @@
                         </AuButton>
                     </div>
 
-                    <div class="au-u-flex au-u-flex--column au-u-flex--spaced-small">
-                        <div class="au-u-flex au-u-flex--spaced-small">
+                    <div class="au-u-flex au-u-flex--column au-u-flex--spaced au-u-margin-bottom">
+                        <div class="au-u-flex au-u-flex--spaced-large">
                             <div class="info-container">
                                 <p>Dienst</p>
                                 <p>{{ this.subsidies.[0].theme }}</p>
@@ -129,14 +129,6 @@
                                 <p>Aanbieder</p>
                                 <p>{{ this.subsidies.[0].provider }}</p>
                             </div>
-                        </div>
-
-                        <div class="info-container">
-                            <p>Beschrijving</p>
-                            <p>{{ this.subsidies.[0].description }}</p>
-                        </div>
-
-                        <div class="au-u-flex au-u-flex--spaced-small">
                             <div class="info-container">
                                 <p>Deadline</p>
                                 <p>{{ this.subsidies.[0].deadline }}</p>
@@ -146,16 +138,21 @@
                                 <p>{{ this.subsidies.[0].lastUpdate }}</p>
                             </div>
                         </div>
+
+                        <div class="info-container">
+                            <p>Beschrijving</p>
+                            <p>{{ this.subsidies.[0].description }}</p>
+                        </div>
                     </div>
 
-                    <div class="au-u-padding-small au-u-margin-bottom-small card__footer">
+                    <div class="au-u-padding-small au-u-margin-bottom-small timeline__container">
                         <Timeline />
-                        <p class="au-u-h-functional au-u-margin-bottom-none au-u-margin-top-small ">
-                            <span class="au-u-bold">Details</span>
+                        <p class="au-u-margin-bottom-none au-u-margin-top-small ">
+                            <span class="au-u-bold">Details:</span>
                             {{this.subsidies.[0].details}}
                         </p>
-                        <p class="au-u-h-functional au-u-margin-bottom-none">
-                            <span class="au-u-bold">Action</span>
+                        <p class="au-u-margin-bottom-none">
+                            <span class="au-u-bold">Action:</span>
                             {{this.subsidies.[0].action}}
                         </p>
                     </div>

@@ -1,32 +1,66 @@
-<ul class="au-u-flex au-c-list-horizontal timeline">
-    <li class="timeline__item">
-        <AuPill @skin="success" @icon="check">
-            Samenstelling
-        </AuPill>
-    </li>
-    <li class="timeline__item">
-        <AuPill @skin="link" @icon="clock">
-            Behandeling - <span style="font-weight: 400">Klaar voor beslissing</span>
-        </AuPill>
-    </li>
-    <li class="timeline__item">
-        <AuPill @skin="default">
-            <span style="font-weight: 400">Beslissing</span>
-        </AuPill>
-    </li>
-    <li class="timeline__item">
-        <AuPill @skin="default">
-            <span style="font-weight: 400">(Beroep)</span>
-        </AuPill>
-    </li>
-    <li class="timeline__item">
-        <AuPill @skin="default">
-            <span style="font-weight: 400">(Uitvoering)</span>
-        </AuPill>
-    </li>
-    <li class="timeline__item">
-        <AuPill @skin="default">
-            <span style="font-weight: 400">Afgerond</span>
-        </AuPill>
-    </li>
-</ul>
+<ol class="au-u-flex au-c-list-horizontal timeline">
+  <TimelineStep
+    @status="done"
+    @icon="check"
+    @step="Samenstelling"
+  />
+  <TimelineStep
+    @status="ongoing"
+    @icon="clock"
+    @step="Behandeling"
+    @code="Klaar voor beslissing"
+  />
+  <TimelineStep
+    @status="idle"
+    @icon=""
+    @step="Beslissing"
+  />
+  <TimelineStep
+    @status="idle"
+    @icon=""
+    @step="(Beroep)"
+  />
+  <TimelineStep
+    @status="idle"
+    @icon=""
+    @step="(Uitvoering)"
+  />
+  <TimelineStep
+    @status="idle"
+    @icon=""
+    @step="Afgerond"
+  />
+</ol>
+
+{{!--
+<li class="timeline__item">
+    <AuPill @skin="success" @icon="check">
+        Samenstelling
+    </AuPill>
+</li>
+<li class="timeline__item">
+    <AuPill @skin="link" @icon="clock">
+        Behandeling - <span style="font-weight: 400">Klaar voor beslissing</span>
+    </AuPill>
+</li>
+<li class="timeline__item">
+    <AuPill @skin="defaolt">
+        <span style="font-weight: 400">Beslissing</span>
+    </AuPill>
+</li>
+<li class="timeline__item">
+    <AuPill @skin="default">
+        <span style="font-weight: 400">(Beroep)</span>
+    </AuPill>
+</li>
+<li class="timeline__item">
+    <AuPill @skin="default">
+        <span style="font-weight: 400">(Uitvoering)</span>
+    </AuPill>
+</li>
+<li class="timeline__item">
+    <AuPill @skin="default">
+        <span style="font-weight: 400">Afgerond</span>
+    </AuPill>
+</li>
+--}}
