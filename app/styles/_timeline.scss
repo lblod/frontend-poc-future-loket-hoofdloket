@@ -55,6 +55,7 @@
   color: var(--au-blue-100);
   background-color: var(--au-blue-900);
   border: 1px solid var(--au-blue-700);
+  flex-wrap: wrap;
 
   &>.timeline__item__label {
     font-weight: 500;
