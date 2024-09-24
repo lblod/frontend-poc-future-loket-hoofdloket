@@ -1,11 +1,11 @@
-.timeline {
+.c-timeline {
   align-items: center;
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
 }
 
-.timeline__item {
+.c-timeline__item {
   position: relative;
   display: flex;
   align-items: center;
@@ -45,33 +45,33 @@
   }
 }
 
-.timeline__item--done {
+.c-timeline__item--done {
   color: var(--au-green-100);
   background-color: var(--au-green-700);
   border: 1px solid var(--au-green-300);
 }
 
-.timeline__item--ongoing {
+.c-timeline__item--ongoing {
   color: var(--au-blue-100);
   background-color: var(--au-blue-900);
   border: 1px solid var(--au-blue-700);
   flex-wrap: wrap;
 
-  &>.timeline__item__label {
+  &>.c-timeline__item__label {
     font-weight: 500;
   }
 }
 
-.timeline__item:not(:first-child) {
+.c-timeline__item:not(:first-child) {
   border-radius: 0;
   border-left: none;
 }
 
-.timeline__item:first-child {
+.c-timeline__item:first-child {
   padding-left: 1rem;
 }
 
-.timeline__item:last-child {
+.c-timeline__item:last-child {
   border-radius: 0 0.6rem 0.6rem 0;
   padding-right: 1rem;
 
@@ -90,11 +90,11 @@
 }
 
 @container (max-width: 850px) {
-  .timeline__item:not(.timeline__item--ongoing) {
+  .c-timeline__item:not(.c-timeline__item--ongoing) {
     display: none;
   }
 
-  .timeline__item--ongoing:not(:first-child) {
+  .c-timeline__item--ongoing:not(:first-child) {
     padding: .5rem 1rem;
     border-radius: .5rem;
     margin-left: 0;
