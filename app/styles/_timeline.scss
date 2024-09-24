@@ -109,24 +109,30 @@
 .dossier-container {
   background-color: var(--au-white);
   border: 1px solid var(--au-gray-200);
-  height: 100%;
   border-radius: .2rem;
   color: var(--au-gray-900);
 
-  width: 75%;
-  max-width: 1000px;
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
+  max-height: 95%;
+  padding: 1.2rem;
+  overflow-y: scroll;
   z-index: 9999;
+
+  @include mq(small) {
+    width: 75%;
+    max-width: 1000px;
+    height: 100%;
+    max-height: 100%;
+    padding: 2.4rem;
+  }
 }
 
 .dossier-container__infos {
   gap: 2.4rem;
-}
 
-@media screen and (min-width: 900px) {
-  .dossier-container__infos {
+  @include mq(medium) {
     gap: 4.8rem;
   }
 }
