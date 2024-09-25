@@ -90,7 +90,7 @@
             {{#if (eq this.dateFilter true)}}
             <div class="au-c-list-navigation__form">
               <AuLabel>Specifiek</AuLabel>
-              <AuDateInput/>
+              <AuDateInput />
             </div>
             {{else}}
             <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}>
@@ -103,7 +103,7 @@
     </Sidebar>
   </m.sidebar>
   <m.content>
-    <AuBodyContainer class="au-u-background-gray-100" >
+    <AuBodyContainer class="au-u-background-gray-100">
       <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
           <div class="c-navigation-search">
@@ -115,7 +115,7 @@
               Zoek
             </AuLink>
           </div>
-          </Group>
+        </Group>
       </AuToolbar>
       {{!-- <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
@@ -137,23 +137,20 @@
                       <p class="au-u-muted">{{ item.id }}</p>
                     </div>
                     <AuPill @skin="link" @icon="clock" @size="small">
-                        Behandeling - <span style="font-weight: 400">Klaar voor beslissing</span>
+                      Behandeling - <span style="font-weight: 400">Klaar voor beslissing</span>
                     </AuPill>
                   </div>
                 </card.header>
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-none">{{item.description}}</p>
                   <div class="au-u-flex au-u-flex--vertical-baseline au-u-flex--spaced-small au-u-margin-top-small">
-                    <AuLink
-                      @skin="button-secondary"
-                      @route="cases.dossier"
-                      style="z-index: 10"
-                    >
+                    <AuButton @skin="secondary">
                       Meer details
-                    </AuLink>
+                    </AuButton>
                     <p class="au-u-h-functional">
                       <span class="au-c-link au-c-link--external" aria-hidden="true">
-                        Ga naar het subsidieportaal <AuIcon @icon="external" />
+                        Ga naar het subsidieportaal
+                        <AuIcon @icon="external" />
                       </span>
                     </p>
                   </div>
@@ -164,7 +161,76 @@
           </AuList>
         </div>
       </AuBodyContainer>
-      {{!-- <Pagination /> --}}
+      {{!--
+      <Pagination /> --}}
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>
+
+<div class="au-c-modal-backdrop is-visible"></div>
+<div class="dossier-container">
+  <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
+    <div class="au-u-flex au-u-flex--column">
+      <h1 class="au-u-h3">{{ this.subsidies.[1].name }}</h1>
+      <p class="au-u-muted">{{ this.subsidies.[1].id }}</p>
+    </div>
+    <AuLink
+      @skin="button-naked"
+      @route="cases"
+      @icon="cross"
+      @iconAlignment="right"
+    >
+      Sluiten
+    </AuLink>
+  </div>
+
+  <div class="au-u-flex au-u-flex--column au-u-flex--spaced au-u-margin-bottom">
+    <div class="au-u-flex au-u-flex--wrap dossier-container__infos">
+      <div class="info-container">
+        <p>Type</p>
+        <p>{{ this.subsidies.[1].type }}</p>
+      </div>
+      <div class="info-container">
+        <p>Aanbieder</p>
+        <p>{{ this.subsidies.[1].provider }}</p>
+      </div>
+      <div class="info-container">
+        <p>Deadline</p>
+        <p>{{ this.subsidies.[1].deadline }}</p>
+      </div>
+      <div class="info-container">
+        <p>Wijzigingsdatum</p>
+        <p>{{ this.subsidies.[1].lastUpdate }}</p>
+      </div>
+    </div>
+
+    <div class="info-container">
+      <p>Dienst: <span class="au-u-regular">{{ this.subsidies.[1].service }}</span></p>
+      <p>{{ this.subsidies.[1].description }}</p>
+    </div>
+  </div>
+
+  <div class="au-u-padding-small au-u-margin-bottom-small timeline__container">
+    <Timeline />
+    <p class="au-u-margin-bottom-none au-u-margin-top-small ">
+      <span class="au-u-bold au-u-muted">Details:</span>
+      <span class="au-u-muted">Onbekend</span>
+    </p>
+    <p class="au-u-margin-bottom-none">
+      <span class="au-u-bold">Actie:</span>
+      {{this.subsidies.[1].action}}
+    </p>
+  </div>
+
+  <AuAlert @title="Wil je dat je collega's meedoen?" @skin="warning" @size="tiny">
+    <p>Neem contact op met de verantwoordelijke voor het gebruikersbeheer van jouw gemeente, om anderen toegang te geven
+      tot dit dossier.</p>
+  </AuAlert>
+
+  <AuButton
+    @icon="external-link"
+    @iconAlignment="right"
+  >
+    Ga naar het subsidieportaal
+  </AuButton>
+</div>

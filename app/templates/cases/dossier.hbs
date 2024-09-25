@@ -149,7 +149,7 @@
                     </AuButton>
                     <p class="au-u-h-functional">
                       <span class="au-c-link au-c-link--external" aria-hidden="true">
-                        Ga verder met de subsidie
+                        Ga naar het subsidieportaal
                         <AuIcon @icon="external" />
                       </span>
                     </p>
@@ -178,14 +178,17 @@
       @skin="button-naked"
       @route="cases"
       @icon="cross"
-    />
+      @iconAlignment="right"
+    >
+      Sluiten
+    </AuLink>
   </div>
 
   <div class="au-u-flex au-u-flex--column au-u-flex--spaced au-u-margin-bottom">
     <div class="au-u-flex au-u-flex--wrap dossier-container__infos">
       <div class="info-container">
-        <p>Dienst</p>
-        <p>{{ this.subsidies.[0].theme }}</p>
+        <p>Type</p>
+        <p>{{ this.subsidies.[0].type }}</p>
       </div>
       <div class="info-container">
         <p>Aanbieder</p>
@@ -202,7 +205,7 @@
     </div>
 
     <div class="info-container">
-      <p>Beschrijving</p>
+      <p>Dienst: <span class="au-u-regular">{{ this.subsidies.[0].service }}</span></p>
       <p>{{ this.subsidies.[0].description }}</p>
     </div>
   </div>
@@ -214,7 +217,7 @@
       {{this.subsidies.[0].details}}
     </p>
     <p class="au-u-margin-bottom-none">
-      <span class="au-u-bold">Action:</span>
+      <span class="au-u-bold">Actie:</span>
       {{this.subsidies.[0].action}}
     </p>
   </div>
@@ -228,6 +231,6 @@
     @icon="external-link"
     @iconAlignment="right"
   >
-    Ga verder met de subsidie
+    Ga naar het subsidieportaal
   </AuButton>
 </div>
