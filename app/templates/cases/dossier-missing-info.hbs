@@ -167,7 +167,13 @@
   </m.content>
 </AuMainContainer>
 
-<div class="au-c-modal-backdrop is-visible"></div>
+<div class="au-c-modal-backdrop is-visible">
+  <AuLink
+      @skin="button-naked"
+      @route="cases"
+      class="backdrop-close"
+  />
+</div>
 <div class="dossier-container">
   <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
     <div class="au-u-flex au-u-flex--column">
