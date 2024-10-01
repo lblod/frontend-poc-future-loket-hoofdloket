@@ -5,7 +5,7 @@ export const mySubsidiesData = [
       'Voor de aanleg van een bos met inheemse soorten, eventueel gecombineerd met populier, kunt u een subsidie krijgen. De subsidie geldt zowel voor de aanplant, als voor natuurlijke verjonging. De bebossing mag gedurende een periode van 25 jaar na de uitbetaling van de subsidie niet worden ontbost.',
     status: 'Actief - Aanvraag uitbetaling',
     deadline: '15 september 2025',
-    lastUpdate: '12 augustus 24',
+    lastUpdate: '12 augustus 2024',
     link: 'https://dev.loket.lblod.info/subsidy/applications/6576E8B1D9E01244D47144E9/steps/5f6193e5-7427-4ec8-90b1-636ed5181c19/forms/6576E8D1D9E01244D47144EB',
     type: 'Financieel voordeel',
     service: 'Subsidie voor bebossing',
