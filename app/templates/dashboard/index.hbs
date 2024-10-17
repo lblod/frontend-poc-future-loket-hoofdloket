@@ -18,62 +18,10 @@
         </ul>
         <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
-            <f.legend>Type</f.legend>
-            <f.content>
-              <AuControlCheckbox
-                @label="Documenten (7.602)"
-                @name="Checkbox1"
-                @value="Documenten"
-                @identifier="Documenten"
-                @checked={{this.filters.documenten}}
-                @onChange={{fn this.updateFilter 'documenten'}}
-              />
-              <AuControlCheckbox
-                @label="Vergunningen (7.475)"
-                @name="Checkbox2"
-                @value="Vergunningen"
-                @identifier="Vergunningen"
-                @checked={{this.filters.vergunningen}}
-                @onChange={{fn this.updateFilter 'vergunningen'}}
-              />
-              <AuControlCheckbox
-                @label="Steunmaatregelen (3.062)"
-                @name="Checkbox3"
-                @value="Steunmaatregelen"
-                @identifier="Steunmaatregelen"
-                @checked={{this.filters.steunmaatregelen}}
-                @onChange={{fn this.updateFilter 'steunmaatregelen'}}
-              />
-              <AuControlCheckbox
-                @label="Advies en begeleiding (896)"
-                @name="Checkbox4"
-                @value="Advies en begeleiding"
-                @identifier="Advies en begeleiding"
-                @checked={{this.filters.advies}}
-                @onChange={{fn this.updateFilter 'advies'}}
-              />
-              <AuControlCheckbox
-                @label="Infrastructuur en materiaal (654)"
-                @name="Checkbox5"
-                @value="Infrastructuur en materiaal"
-                @identifier="Infrastructuur en materiaal"
-                @checked={{this.filters.infrastructuur}}
-                @onChange={{fn this.updateFilter 'infrastructuur'}}
-              />
-              <AuControlCheckbox
-                @label="Belastingen (590)"
-                @name="Checkbox6"
-                @value="Belastingen"
-                @identifier="Belastingen"
-                @checked={{this.filters.belastingen}}
-                @onChange={{fn this.updateFilter 'belastingen'}}
-              />
-            </f.content>
-          </AuFieldset>
-        </div>
-        <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Thematisch</f.legend>
+            <f.legend class="collapsibleTitle" id="collapsible1" onclick="document.querySelector('#collapsible1 + .au-c-fieldset__content').classList.toggle('filters-hidden')">
+              Thematisch
+              <AuIcon @icon="chevron-down"/>
+            </f.legend>
             <f.content>
               <AuControlCheckbox
                 @label="Burger en overheid (7.268)"
@@ -143,8 +91,69 @@
         </div>
         <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
-            <f.legend>Deadline</f.legend>
-            <f.content>
+            <f.legend  class="collapsibleTitle" id="collapsible2" onclick="document.querySelector('#collapsible2 + .au-c-fieldset__content').classList.toggle('filters-hidden')">
+              Type
+              <AuIcon @icon="chevron-down"/>
+            </f.legend>
+            <f.content class="filters-hidden">
+              <AuControlCheckbox
+                @label="Documenten (7.602)"
+                @name="Checkbox1"
+                @value="Documenten"
+                @identifier="Documenten"
+                @checked={{this.filters.documenten}}
+                @onChange={{fn this.updateFilter 'documenten'}}
+              />
+              <AuControlCheckbox
+                @label="Vergunningen (7.475)"
+                @name="Checkbox2"
+                @value="Vergunningen"
+                @identifier="Vergunningen"
+                @checked={{this.filters.vergunningen}}
+                @onChange={{fn this.updateFilter 'vergunningen'}}
+              />
+              <AuControlCheckbox
+                @label="Steunmaatregelen (3.062)"
+                @name="Checkbox3"
+                @value="Steunmaatregelen"
+                @identifier="Steunmaatregelen"
+                @checked={{this.filters.steunmaatregelen}}
+                @onChange={{fn this.updateFilter 'steunmaatregelen'}}
+              />
+              <AuControlCheckbox
+                @label="Advies en begeleiding (896)"
+                @name="Checkbox4"
+                @value="Advies en begeleiding"
+                @identifier="Advies en begeleiding"
+                @checked={{this.filters.advies}}
+                @onChange={{fn this.updateFilter 'advies'}}
+              />
+              <AuControlCheckbox
+                @label="Infrastructuur en materiaal (654)"
+                @name="Checkbox5"
+                @value="Infrastructuur en materiaal"
+                @identifier="Infrastructuur en materiaal"
+                @checked={{this.filters.infrastructuur}}
+                @onChange={{fn this.updateFilter 'infrastructuur'}}
+              />
+              <AuControlCheckbox
+                @label="Belastingen (590)"
+                @name="Checkbox6"
+                @value="Belastingen"
+                @identifier="Belastingen"
+                @checked={{this.filters.belastingen}}
+                @onChange={{fn this.updateFilter 'belastingen'}}
+              />
+            </f.content>
+          </AuFieldset>
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <AuFieldset as |f|>
+            <f.legend class="collapsibleTitle" id="collapsible3" onclick="document.querySelector('#collapsible3 + .au-c-fieldset__content').classList.toggle('filters-hidden')">
+              Deadline
+              <AuIcon @icon="chevron-down"/>
+              </f.legend>
+            <f.content class="filters-hidden">
               <AuControlCheckbox
                 @label="Deze maand"
                 @name="CheckboxC1"
@@ -168,10 +177,13 @@
         </div>
         <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
-            <f.legend>Aanbieder</f.legend>
-            <f.content>
+            <f.legend class="collapsibleTitle" id="collapsible4" onclick="document.querySelector('#collapsible4 + .au-c-fieldset__content').classList.toggle('filters-hidden')">
+              Aanbieder
+              <AuIcon @icon="chevron-down"/>
+            </f.legend>
+            <f.content class="filters-hidden">
               <AuControlCheckbox
-                @label="Europese overheid (307)"
+                @label="Europese (307)"
                 @name="CheckboxD1"
                 @value="Europese"
                 @identifier="Europese"
@@ -180,7 +192,7 @@
                 @onChange={{fn this.updateFilter 'europese'}}
               />
               <AuControlCheckbox
-                @label="Federale overheid (10.153)"
+                @label="Federale (10.153)"
                 @name="CheckboxD2"
                 @value="Federale"
                 @identifier="Federale"
@@ -189,7 +201,7 @@
                 @onChange={{fn this.updateFilter 'federale'}}
               />
               <AuControlCheckbox
-                @label="Vlaamse overheid (6.238)"
+                @label="Vlaamse (6.238)"
                 @name="CheckboxD3"
                 @value="Vlaamse"
                 @identifier="Vlaamse"
@@ -198,7 +210,7 @@
                 @onChange={{fn this.updateFilter 'vlaamse'}}
               />
               <AuControlCheckbox
-                @label="Provinciale overheid (311)"
+                @label="Provinciale (311)"
                 @name="CheckboxD4"
                 @value="Provinciale"
                 @identifier="Provinciale"
@@ -207,7 +219,7 @@
                 @onChange={{fn this.updateFilter 'provinciale'}}
               />
               <AuControlCheckbox
-                @label="Lokale overheid (6.529)"
+                @label="Lokale (6.529)"
                 @name="CheckboxD5"
                 @value="Lokale"
                 @identifier="Lokale"
@@ -289,13 +301,9 @@
                       <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
                       {{/if}}
                       {{/if}}
-                      {{#if item.categorie}}
+                      {{#if item.theme}}
                       <AuPill @skin="border" @size="small">
-                        {{item.categorie}}
-                      </AuPill>
-                      {{else}}
-                      <AuPill @skin="border" @size="small">
-                        {{item.type}}
+                        {{item.theme}}
                       </AuPill>
                       {{/if}}
                     </div>
