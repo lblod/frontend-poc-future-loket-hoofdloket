@@ -321,7 +321,7 @@
   border-right: 1px solid var(--au-gray-200);
 
   @include mq($au-main-container-breakpoint) {
-    flex-basis: 200px;
+    flex-basis: 250px;
     border-right: 0;
   }
 }
@@ -426,4 +426,19 @@
 
 .au-c-pill {
   white-space: nowrap;
+}
+
+.collapsibleTitle{
+  width: 100%;
+}
+
+.collapsibleTitle > legend{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filters-hidden{
+  display: none;
 }

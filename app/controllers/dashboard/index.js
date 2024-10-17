@@ -56,14 +56,14 @@ export default class DashboardSearchController extends Controller {
   }
 
   get filteredResults() {
-    // Check if any filter in the first group is active
-    const isFirstGroupActive = this.filters.tools || this.filters.subsidies;
-    // Check if any filter in the second group is active
-    const isSecondGroupActive = this.filters.burger || this.filters.financieel;
+    // Check if any filter in each group is active
+    const isFirstGroupActive = this.filters.documenten || this.filters.vergunningen || this.filters.steunmaatregelen || this.filters.advies || this.filters.infrastructuur || this.filters.belastingen;
+    const isSecondGroupActive = this.filters.burger || this.filters.werken || this.filters.welzijn || this.filters.bouwen || this.filters.mobiliteit || this.filters.omgeving || this.filters.vrijeTijd;
     const isThirdGroupActive = this.filters.month || this.filters.quart;
+    const isFourthGroupActive = this.filters.europese || this.filters.federale || this.filters.vlaamse || this.filters.provinciale || this.filters.lokale;
 
     // If no filters are active in both groups, return all results
-    if (!isFirstGroupActive && !isSecondGroupActive && !isThirdGroupActive) {
+    if (!isFirstGroupActive && !isSecondGroupActive && !isThirdGroupActive && !isFourthGroupActive) {
       return this.results.slice();
     }
 
@@ -71,22 +71,39 @@ export default class DashboardSearchController extends Controller {
       // If the first group is active, check if the item matches any of the active filters in this group
       const matchesFirstGroup =
         !isFirstGroupActive ||
-        (this.filters.tools && item.filter === 'tools') ||
-        (this.filters.subsidies && item.filter === 'subsidies');
+        (this.filters.documenten && item.filter === 'documenten') ||
+        (this.filters.vergunningen && item.filter === 'vergunningen') ||
+        (this.filters.steunmaatregelen && item.filter === 'steunmaatregelen') ||
+        (this.filters.advies && item.filter === 'advies') ||
+        (this.filters.infrastructuur && item.filter === 'infrastructuur') ||
+        (this.filters.belastingen && item.filter === 'belastingen');
 
       // If the second group is active, check if the item matches any of the active filters in this group
       const matchesSecondGroup =
         !isSecondGroupActive ||
         (this.filters.burger && item.filterTheme === 'burger') ||
-        (this.filters.financieel && item.filterTheme === 'financieel');
+        (this.filters.werken && item.filterTheme === 'werken') ||
+        (this.filters.welzijn && item.filterTheme === 'welzijn') ||
+        (this.filters.bouwen && item.filterTheme === 'bouwen') ||
+        (this.filters.mobiliteit && item.filterTheme === 'mobiliteit') ||
+        (this.filters.omgeving && item.filterTheme === 'omgeving') ||
+        (this.filters.vrijeTijd && item.filterTheme === 'vrijeTijd');
 
       const matchesThirdGroup =
         !isThirdGroupActive ||
         (this.filters.month && item.deadline === 'burger') ||
         (this.filters.quart && item.deadline === 'financieel');
 
+      const matchesFourthGroup =
+        !isFourthGroupActive ||
+        (this.filters.europese && item.aanbieder === 'europese') ||
+        (this.filters.federale && item.aanbieder === 'federale') ||
+        (this.filters.vlaamse && item.aanbieder === 'vlaamse') ||
+        (this.filters.provinciale && item.aanbieder === 'provinciale') ||
+        (this.filters.lokale && item.aanbieder === 'lokale');
+
       // An item is included only if it matches active filters in both groups
-      return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup;
+      return matchesFirstGroup && matchesSecondGroup && matchesThirdGroup && matchesFourthGroup;
     });
   }
 
