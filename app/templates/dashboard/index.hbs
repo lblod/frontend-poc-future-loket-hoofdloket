@@ -21,38 +21,53 @@
             <f.legend>Type</f.legend>
             <f.content>
               <AuControlCheckbox
-                @label="Tools"
+                @label="Documenten (7.602)"
                 @name="Checkbox1"
-                @value="tools"
-                @identifier="tools"
-                @checked={{this.filters.tools}}
-                @disabled={{false}}
-                @onChange={{fn this.updateFilter 'tools'}}
+                @value="Documenten"
+                @identifier="Documenten"
+                @checked={{this.filters.documenten}}
+                @onChange={{fn this.updateFilter 'documenten'}}
               />
               <AuControlCheckbox
-                @label="Subsidies"
+                @label="Vergunningen (7.475)"
                 @name="Checkbox2"
-                @value="Subsidies"
-                @identifier="Subsidies"
-                @checked={{false}}
-                @disabled= {{false}} @onChange={{fn this.updateFilter 'subsidies'}}
-              />
-              {{!-- <AuControlCheckbox
-                @label="Premies"
-                @name="Checkbox3"
-                @value="Premies"
-                @identifier="Premies"
-                @checked={{false}}
-                @disabled= {{false}}
-              />
-              <AuControlCheckbox
-                @label="Vergunningen"
-                @name="Checkbox4"
                 @value="Vergunningen"
                 @identifier="Vergunningen"
-                @checked={{false}}
-                @disabled= {{false}}
-              /> --}}
+                @checked={{this.filters.vergunningen}}
+                @onChange={{fn this.updateFilter 'vergunningen'}}
+              />
+              <AuControlCheckbox
+                @label="Steunmaatregelen (3.062)"
+                @name="Checkbox3"
+                @value="Steunmaatregelen"
+                @identifier="Steunmaatregelen"
+                @checked={{this.filters.steunmaatregelen}}
+                @onChange={{fn this.updateFilter 'steunmaatregelen'}}
+              />
+              <AuControlCheckbox
+                @label="Advies en begeleiding (896)"
+                @name="Checkbox4"
+                @value="Advies en begeleiding"
+                @identifier="Advies en begeleiding"
+                @checked={{this.filters.advies}}
+                @onChange={{fn this.updateFilter 'advies'}}
+              />
+              <AuControlCheckbox
+                @label="Infrastructuur en materiaal (654)"
+                @name="Checkbox5"
+                @value="Infrastructuur en materiaal"
+                @identifier="Infrastructuur en materiaal"
+                @checked={{this.filters.infrastructuur}}
+                @onChange={{fn this.updateFilter 'infrastructuur'}}
+              />
+              <AuControlCheckbox
+                @label="Belastingen (590)"
+                @name="Checkbox6"
+                @value="Belastingen"
+                @identifier="Belastingen"
+                @checked={{this.filters.belastingen}}
+                @onChange={{fn this.updateFilter 'belastingen'}}
+              />
             </f.content>
           </AuFieldset>
         </div>
@@ -61,7 +76,7 @@
             <f.legend>Thematisch</f.legend>
             <f.content>
               <AuControlCheckbox
-                @label="Burger en Overheid"
+                @label="Burger en overheid (7.268)"
                 @name="CheckboxB1"
                 @value="Burger en Overheid"
                 @identifier="Burger en Overheid"
@@ -70,22 +85,59 @@
                 @onChange={{fn this.updateFilter 'burger'}}
               />
               <AuControlCheckbox
-                @label="Financieel voordeel"
+                @label="Werken en ondernemen (5.455)"
                 @name="CheckboxB2"
-                @value="Financieel voordeel"
-                @identifier="Financieel voordeel"
-                @checked={{this.filters.financieel}}
+                @value="Werken en ondernemen"
+                @identifier="Werken en ondernemen"
+                @checked={{this.filters.werken}}
                 @disabled={{false}}
-                @onChange={{fn this.updateFilter 'financieel'}}
+                @onChange={{fn this.updateFilter 'werken'}}
               />
-              {{!-- <AuControlCheckbox
-                @label="Sport"
-                @name="CheckboxA3"
-                @value="Sport"
-                @identifier="Sport"
-                @checked={{false}}
-                @disabled= {{false}}
-              /> --}}
+              <AuControlCheckbox
+                @label="Welzijn (4.771)"
+                @name="CheckboxB3"
+                @value="Welzijn"
+                @identifier="Welzijn"
+                @checked={{this.filters.welzijn}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'welzijn'}}
+              />
+              <AuControlCheckbox
+                @label="Bouwen en wonen (2.617)"
+                @name="CheckboxB4"
+                @value="Bouwen en wonen"
+                @identifier="Bouwen en wonen"
+                @checked={{this.filters.bouwen}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'bouwen'}}
+              />
+              <AuControlCheckbox
+                @label="Mobiliteit (1.695)"
+                @name="CheckboxB5"
+                @value="Mobiliteit"
+                @identifier="Mobiliteit"
+                @checked={{this.filters.mobiliteit}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'mobiliteit'}}
+              />
+              <AuControlCheckbox
+                @label="Omgeving (1.405)"
+                @name="CheckboxB6"
+                @value="Omgeving"
+                @identifier="Omgeving"
+                @checked={{this.filters.omgeving}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'omgeving'}}
+              />
+              <AuControlCheckbox
+                @label="Vrije tijd (1.197)"
+                @name="CheckboxB7"
+                @value="Vrije tijd"
+                @identifier="Vrije tijd"
+                @checked={{this.filters.vrijeTijd}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'vrijeTijd'}}
+              />
             </f.content>
           </AuFieldset>
         </div>
@@ -95,7 +147,7 @@
             <f.content>
               <AuControlCheckbox
                 @label="Deze maand"
-                @name="Checkboxs"
+                @name="CheckboxC1"
                 @value="Deze maand"
                 @identifier="Deze maand"
                 @checked={{this.filters.month}}
@@ -104,7 +156,7 @@
               />
               <AuControlCheckbox
                 @label="Dit kwartaal"
-                @name="Checkboxs"
+                @name="CheckboxC2"
                 @value="Dit kwartaal"
                 @identifier="Dit kwartaal"
                 @checked={{this.filters.quart}}
@@ -114,29 +166,58 @@
             </f.content>
           </AuFieldset>
         </div>
-        {{!-- <div class="au-o-box au-o-box--small">
+        <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
             <f.legend>Aanbieder</f.legend>
             <f.content>
               <AuControlCheckbox
-                @label="ABB"
-                @name="Checkboxs"
-                @value="ABB"
-                @identifier="ABB"
-                @checked={{false}}
-                @disabled= {{false}}
+                @label="Europese overheid (307)"
+                @name="CheckboxD1"
+                @value="Europese"
+                @identifier="Europese"
+                @checked={{this.filters.europese}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'europese'}}
               />
               <AuControlCheckbox
-                @label="Opgroeien"
-                @name="Checkboxs"
-                @value="Opgroeien"
-                @identifier="Opgroeien"
-                @checked={{false}}
-                @disabled= {{false}}
+                @label="Federale overheid (10.153)"
+                @name="CheckboxD2"
+                @value="Federale"
+                @identifier="Federale"
+                @checked={{this.filters.federale}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'federale'}}
+              />
+              <AuControlCheckbox
+                @label="Vlaamse overheid (6.238)"
+                @name="CheckboxD3"
+                @value="Vlaamse"
+                @identifier="Vlaamse"
+                @checked={{this.filters.vlaamse}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'vlaamse'}}
+              />
+              <AuControlCheckbox
+                @label="Provinciale overheid (311)"
+                @name="CheckboxD4"
+                @value="Provinciale"
+                @identifier="Provinciale"
+                @checked={{this.filters.provinciale}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'provinciale'}}
+              />
+              <AuControlCheckbox
+                @label="Lokale overheid (6.529)"
+                @name="CheckboxD5"
+                @value="Lokale"
+                @identifier="Lokale"
+                @checked={{this.filters.lokale}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'lokale'}}
               />
             </f.content>
           </AuFieldset>
-        </div> --}}
+        </div>
 
       </div>
     </Sidebar>
