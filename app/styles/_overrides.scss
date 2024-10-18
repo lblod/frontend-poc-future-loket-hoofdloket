@@ -153,16 +153,21 @@
 
 .c-overview-card {
   position: relative;
-  transition: box-shadow var(--au-transition);
-  box-shadow: 0 0 12px rgba(33,35,38,0);
-
-  &:hover {
-    box-shadow: 0 0 12px rgba(33,35,38,.1),0 0 2px rgba(33,35,38,.1);
-  }
+  background-color: var(--au-gray-100);
 
   .c-external {
     position: relative;
     z-index: 1;
+  }
+}
+
+.c-overview-card--link {
+  transition: box-shadow var(--au-transition);
+  box-shadow: 0 0 12px rgba(33,35,38,0);
+  background-color: var(--au-white);
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(33,35,38,.1),0 0 2px rgba(33,35,38,.1);
   }
 }
 
@@ -186,11 +191,12 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: $au-unit-tiny;
+  gap: $au-unit-tiny;
 
   @include mq(small) {
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    gap: $au-unit-tiny;
   }
 }
 
