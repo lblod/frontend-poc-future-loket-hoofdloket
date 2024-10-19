@@ -1,8 +1,7 @@
-{{page-title "Zoeken"}}
 <AuMainContainer as |m|>
   <m.sidebar>
     <Sidebar>
-      <div class="au-c-sidebar__content">
+      <div class="au-c-sidebar__content" tabindex="-1">
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__section-title">
             In te dienen
@@ -10,7 +9,7 @@
           <li class="au-c-list-navigation__item">
             <AuNavigationLink role="menuitem">
               Nieuwste updates
-              <span class="c-list-navigation__counter">5</span>
+              <span class="c-list-navigation__counter">4</span>
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
@@ -115,28 +114,19 @@
           <div class="c-navigation-search">
             <div>
               <AuLabel for="search">Trefwoord</AuLabel>
-              <AuInput id="search" @width="block" value="test zoek" />
+              <AuInput id="search" @width="block" />
             </div>
-            <AuLink
-              @skin="button-secondary"
-              @icon="cross"
-              @route="cases"
-              @hideText="true"
-            >Reset</AuLink>
             <AuLink @skin="button" @route="cases.search" @icon="search">
               Zoek
             </AuLink>
           </div>
         </Group>
       </AuToolbar>
-      <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group
-          class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-small au-u-flex--wrap"
-        >
-          <p class="au-u-h6">2346 resultaten voor
-            <strong>"test zoek"</strong></p>
+      {{! <AuToolbar @border="bottom" @size="medium" as |Group|>
+        <Group>
+          <p class="au-u-h6">2346 resultaten voor <strong>'zoekterm'</strong></p>
         </Group>
-      </AuToolbar>
+      </AuToolbar> }}
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
@@ -148,9 +138,11 @@
                   as |card|
                 >
                   <card.header class="au-u-padding-bottom-none">
-                    <div class="c-overview-card__header">
+                    <div
+                      class="c-overview-card__header au-u-flex--vertical-start"
+                    >
                       <div
-                        class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny"
+                        class="au-u-flex au-u-flex au-u-flex--vertical-baseline au-u-flex--spaced-tiny"
                       >
                         <AuLinkExternal
                           href={{item.link}}
@@ -158,48 +150,34 @@
                         >
                           {{item.name}}
                         </AuLinkExternal>
-                        {{#if (eq item.status "Actief - Aanvraag uitbetaling")}}
-                          <AuPill @skin="success" @size="small">
-                            {{item.status}}
-                          </AuPill>
-                        {{else if (eq item.status "Actief")}}
-                          <AuPill @skin="ongoing" @size="small">
-                            {{item.status}}
-                          </AuPill>
-                        {{else if (eq item.status "Actief")}}
-                          <AuPill @skin="default" @size="small">
-                            {{item.status}}
-                          </AuPill>
-                        {{else}}
-                          <AuPill @skin="border" @size="small">
-                            {{item.status}}
-                          </AuPill>
-                        {{/if}}
+                        <p class="au-u-muted">{{item.id}}</p>
                       </div>
-                      <div class="au-u-flex au-u-flex--spaced-tiny">
-                        {{#if item.deadline}}
-                          <AuPill @skin="warning" @size="small">Deadline:
-                            {{item.deadline}}</AuPill>
-                        {{/if}}
-                        <AuPill @skin="border" @size="small">
-                          {{item.theme}}
-                        </AuPill>
-                      </div>
+                      <AuPill @skin="link" @icon="clock" @size="small">
+                        Behandeling -
+                        <span style="font-weight: 400">Klaar voor beslissing</span>
+                      </AuPill>
                     </div>
                   </card.header>
                   <card.content>
                     <p
-                      class="au-u-h-functional au-u-margin-bottom-tiny"
+                      class="au-u-h-functional au-u-margin-bottom-none"
                     >{{item.description}}</p>
-                    <p class="au-u-h-functional au-u-margin-top-tiny">
-                      <span
-                        class="au-c-link au-c-link--external"
-                        aria-hidden="true"
-                      >
-                        Ga verder met de subsidie
-                        <AuIcon @icon="external" />
-                      </span>
-                    </p>
+                    <div
+                      class="au-u-flex au-u-flex--vertical-baseline au-u-flex--spaced-small au-u-margin-top-small"
+                    >
+                      <AuButton @skin="secondary">
+                        Meer details
+                      </AuButton>
+                      <p class="au-u-h-functional">
+                        <span
+                          class="au-c-link au-c-link--external"
+                          aria-hidden="true"
+                        >
+                          Ga naar het subsidieportaal
+                          <AuIcon @icon="external" />
+                        </span>
+                      </p>
+                    </div>
                   </card.content>
                 </AuCard>
               </listitem>
@@ -207,7 +185,77 @@
           </AuList>
         </div>
       </AuBodyContainer>
-      {{! <Pagination /> }}
+      {{!
+      <Pagination /> }}
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>
+
+<div class="au-c-modal-backdrop is-visible"></div>
+<div class="dossier-container">
+  <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
+    <div class="au-u-flex au-u-flex--column">
+      <h1 class="au-u-h3">{{this.subsidies.0.name}}</h1>
+      <p class="au-u-muted">{{this.subsidies.0.id}}</p>
+    </div>
+    <AuLink
+      @skin="button-naked"
+      @route="cases"
+      @icon="cross"
+      @iconAlignment="right"
+    >
+      Sluiten
+    </AuLink>
+  </div>
+
+  <div class="au-u-flex au-u-flex--column au-u-flex--spaced au-u-margin-bottom">
+    <div class="au-u-flex au-u-flex--wrap dossier-container__infos">
+      <div class="info-container">
+        <p>Type</p>
+        <p>{{this.subsidies.0.type}}</p>
+      </div>
+      <div class="info-container">
+        <p>Aanbieder</p>
+        <p>{{this.subsidies.0.provider}}</p>
+      </div>
+      <div class="info-container">
+        <p>Deadline</p>
+        <p>{{this.subsidies.0.deadline}}</p>
+      </div>
+      <div class="info-container">
+        <p>Wijzigingsdatum</p>
+        <p>{{this.subsidies.0.lastUpdate}}</p>
+      </div>
+    </div>
+
+    <div class="info-container">
+      <p>{{this.subsidies.0.service}}</p>
+      <p>{{this.subsidies.0.description}}</p>
+    </div>
+  </div>
+
+  <div class="au-u-padding-small au-u-margin-bottom-small timeline__container">
+    <Timeline />
+    <p class="au-u-margin-bottom-none au-u-margin-top-small">
+      <span class="au-u-bold">Details:</span>
+      {{this.subsidies.0.details}}
+    </p>
+    <p class="au-u-margin-bottom-none">
+      <span class="au-u-bold">Actie:</span>
+      {{this.subsidies.0.action}}
+    </p>
+  </div>
+
+  <AuAlert
+    @title="Wil je dat je collega's meedoen?"
+    @skin="warning"
+    @size="tiny"
+  >
+    <p>Neem contact op met de verantwoordelijke voor het gebruikersbeheer van
+      jouw gemeente, om anderen toegang te geven tot dit dossier.</p>
+  </AuAlert>
+
+  <AuButton @icon="external-link" @iconAlignment="right">
+    Ga naar het subsidieportaal
+  </AuButton>
+</div>

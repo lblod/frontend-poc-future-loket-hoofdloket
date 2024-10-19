@@ -3,22 +3,6 @@
   <m.sidebar>
     <Sidebar>
       <div class="au-c-sidebar__content" tabindex="-1">
-        <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Zoekterm</f.legend>
-            <f.content>
-              <span class="au-c-pill-container">
-                <span class="au-c-pill au-c-pill--default">
-                  test zoek
-                </span>
-                <LinkTo @route="data.index" class="au-c-pill-action  au-c-pill--default">
-                  <AuIcon @icon="cross" />
-                  <span class="au-u-hidden-visually">close</span>
-                </LinkTo>
-              </span>
-            </f.content>
-          </AuFieldset>
-        </div>
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__item">
             <AuNavigationLink @route="data.search" role="menuitem">
@@ -36,7 +20,7 @@
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
-            <AuNavigationLink  role="menuitem">
+            <AuNavigationLink role="menuitem">
               Protocol
             </AuNavigationLink>
           </li>
@@ -44,8 +28,8 @@
       </div>
     </Sidebar>
   </m.sidebar>
-  <m.content>  
-    <AuBodyContainer class="au-u-background-gray-100" >
+  <m.content>
+    <AuBodyContainer class="au-u-background-gray-100">
       <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
           <div class="c-navigation-search">
@@ -57,7 +41,7 @@
               Zoek
             </AuLink>
           </div>
-          </Group>
+        </Group>
       </AuToolbar>
       <AuToolbar @border="bottom" @size="medium" as |Group|>
         <Group>
@@ -68,28 +52,37 @@
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
             {{#each this.data as |item|}}
-            <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
-                <card.header class="au-u-padding-bottom-none">
-                  <div class="c-overview-card__header">
-                    <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-                      <AuLink @route="data.detail" class="au-u-h6 au-u-medium c-overview-card__link">
-                        {{item.name}}
-                      </AuLink>
+              <listitem>
+                <AuCard @size="small" class="c-overview-card" as |card|>
+                  <card.header class="au-u-padding-bottom-none">
+                    <div class="c-overview-card__header">
+                      <div
+                        class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny"
+                      >
+                        <AuLink
+                          @route="data.detail"
+                          class="au-u-h6 au-u-medium c-overview-card__link"
+                        >
+                          {{item.name}}
+                        </AuLink>
+                      </div>
                     </div>
-                  </div>
-                </card.header>
-                <card.content>
-                  <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
-                  <p class="au-u-h-functional au-u-muted au-u-margin-top-tiny">Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
-                </card.content>
-              </AuCard>
-            </listitem>
+                  </card.header>
+                  <card.content>
+                    <p
+                      class="au-u-h-functional au-u-margin-bottom-tiny"
+                    >{{item.description}}</p>
+                    <p
+                      class="au-u-h-functional au-u-muted au-u-margin-top-tiny"
+                    >Laatst aangepast: {{item.date}} - Door {{item.person}}</p>
+                  </card.content>
+                </AuCard>
+              </listitem>
             {{/each}}
           </AuList>
         </div>
       </AuBodyContainer>
-      {{!-- <Pagination /> --}}
+      {{! <Pagination /> }}
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>

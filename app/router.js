@@ -14,6 +14,9 @@ Router.map(function () {
   });
   this.route('cases', function () {
     this.route('search');
+    this.route('dossier');
+    this.route('dossier-missing-info');
+
   });
   this.route('email');
   this.route('settings', function () {
