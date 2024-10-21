@@ -235,6 +235,15 @@
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'quart'}}
               />
+              <AuControlCheckbox
+                @label="Gepasseerd"
+                @name="CheckboxC3"
+                @value="Gepasseerd"
+                @identifier="Gepasseerd"
+                @checked={{this.filters.gepasseerd}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'gepasseerd'}}
+              />
             </f.content>
           </AuFieldset>
         </div>
@@ -246,46 +255,46 @@
             </f.legend>
             <f.content class="filters-hidden">
               <AuControlCheckbox
-                @label="Europese (307)"
+                @label="Europees (307)"
                 @name="CheckboxD1"
-                @value="Europese"
-                @identifier="Europese"
+                @value="Europees"
+                @identifier="Europees"
                 @checked={{this.filters.europese}}
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'europese'}}
               />
               <AuControlCheckbox
-                @label="Federale (10.153)"
+                @label="Federaal (10.153)"
                 @name="CheckboxD2"
-                @value="Federale"
-                @identifier="Federale"
+                @value="Federaal"
+                @identifier="Federaal"
                 @checked={{this.filters.federale}}
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'federale'}}
               />
               <AuControlCheckbox
-                @label="Vlaamse (6.238)"
+                @label="Vlaams (6.238)"
                 @name="CheckboxD3"
-                @value="Vlaamse"
-                @identifier="Vlaamse"
+                @value="Vlaams"
+                @identifier="Vlaams"
                 @checked={{this.filters.vlaamse}}
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'vlaamse'}}
               />
               <AuControlCheckbox
-                @label="Provinciale (311)"
+                @label="Provinciaal (311)"
                 @name="CheckboxD4"
-                @value="Provinciale"
-                @identifier="Provinciale"
+                @value="Provinciaal"
+                @identifier="Provinciaal"
                 @checked={{this.filters.provinciale}}
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'provinciale'}}
               />
               <AuControlCheckbox
-                @label="Lokale (6.529)"
+                @label="Lokaal (6.529)"
                 @name="CheckboxD5"
-                @value="Lokale"
-                @identifier="Lokale"
+                @value="Lokaal"
+                @identifier="Lokaal"
                 @checked={{this.filters.lokale}}
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'lokale'}}
@@ -332,6 +341,9 @@
             </option>
             <option value="nameDesc" selected={{eq this.sortBy "nameDesc"}}>
               Z-A (aflopend)
+            </option>
+            <option value="nieuwste" selected={{eq this.sortBy "nieuwste"}}>
+              Nieuwste
             </option>
           </select>
         </Group>

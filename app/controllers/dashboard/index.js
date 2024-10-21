@@ -123,6 +123,7 @@ export default class DashboardSearchController extends Controller {
         return results.slice().sort((a, b) => a.name.localeCompare(b.name));
       case 'nameDesc':
         return results.slice().sort((a, b) => b.name.localeCompare(a.name));
+      case 'nieuwste':
       case 'deadline':
       default:
         return results.slice().sort(this.sortByDeadline);
