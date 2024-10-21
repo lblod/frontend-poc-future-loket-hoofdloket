@@ -58,7 +58,7 @@ export default class DashboardSearchController extends Controller {
   get filteredResults() {
     // Check if any filter in each group is active
     const isFirstGroupActive = this.filters.documenten || this.filters.vergunningen || this.filters.steunmaatregelen || this.filters.advies || this.filters.infrastructuur || this.filters.belastingen;
-    const isSecondGroupActive = this.filters.burger || this.filters.werken || this.filters.welzijn || this.filters.bouwen || this.filters.mobiliteit || this.filters.omgeving || this.filters.vrijeTijd;
+    const isSecondGroupActive = this.filters.burger || this.filters.werken || this.filters.welzijn || this.filters.bouwen || this.filters.mobiliteit || this.filters.omgeving || this.filters.vrijeTijd || this.filters.onderwijs || this.filters.landbouw || this.filters.gemeente || this.filters.onderzoek || this.filters.jeugd || this.filters.veiligheid || this.filters.europa;
     const isThirdGroupActive = this.filters.month || this.filters.quart;
     const isFourthGroupActive = this.filters.europese || this.filters.federale || this.filters.vlaamse || this.filters.provinciale || this.filters.lokale;
 
@@ -87,7 +87,15 @@ export default class DashboardSearchController extends Controller {
         (this.filters.bouwen && item.filterTheme === 'bouwen') ||
         (this.filters.mobiliteit && item.filterTheme === 'mobiliteit') ||
         (this.filters.omgeving && item.filterTheme === 'omgeving') ||
-        (this.filters.vrijeTijd && item.filterTheme === 'vrijeTijd');
+        (this.filters.vrijeTijd && item.filterTheme === 'vrijeTijd') ||
+        (this.filters.onderwijs && item.filterTheme === 'onderwijs') ||
+        (this.filters.landbouw && item.filterTheme === 'landbouw') ||
+        (this.filters.gemeente && item.filterTheme === 'gemeente') ||
+        (this.filters.onderzoek && item.filterTheme === 'onderzoek') ||
+        (this.filters.jeugd && item.filterTheme === 'jeugd') ||
+        (this.filters.veiligheid && item.filterTheme === 'veiligheid') ||
+        (this.filters.europa && item.filterTheme === 'europa')
+      ;
 
       const matchesThirdGroup =
         !isThirdGroupActive ||

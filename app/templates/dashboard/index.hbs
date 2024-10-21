@@ -86,6 +86,69 @@
                 @disabled={{false}}
                 @onChange={{fn this.updateFilter 'vrijeTijd'}}
               />
+              <AuControlCheckbox
+                @label="Onderwijs (238)"
+                @name="CheckboxB8"
+                @value="Onderwijs"
+                @identifier="Onderwijs"
+                @checked={{this.filters.onderwijs}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'onderwijs'}}
+              />
+              <AuControlCheckbox
+                @label="Landbouw (0)"
+                @name="CheckboxB9"
+                @value="Landbouw"
+                @identifier="Landbouw"
+                @checked={{this.filters.landbouw}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'landbouw'}}
+              />
+              <AuControlCheckbox
+                @label="Gemeente en bestuur (0)"
+                @name="CheckboxB10"
+                @value="Gemeente en bestuur"
+                @identifier="Gemeente en bestuur"
+                @checked={{this.filters.gemeente}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'gemeente'}}
+              />
+              <AuControlCheckbox
+                @label="Onderzoek en innovatie (0)"
+                @name="CheckboxB11"
+                @value="Onderzoek en innovatie"
+                @identifier="Onderzoek en innovatie"
+                @checked={{this.filters.onderzoek}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'onderzoek'}}
+              />
+              <AuControlCheckbox
+                @label="Jeugd (0)"
+                @name="CheckboxB12"
+                @value="Jeugd"
+                @identifier="Jeugd"
+                @checked={{this.filters.jeugd}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'jeugd'}}
+              />
+              <AuControlCheckbox
+                @label="Veiligheid (0)"
+                @name="CheckboxB13"
+                @value="Veiligheid"
+                @identifier="Veiligheid"
+                @checked={{this.filters.veiligheid}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'veiligheid'}}
+              />
+              <AuControlCheckbox
+                @label="Europa en internationaal (0)"
+                @name="CheckboxB14"
+                @value="Europa en internationaal"
+                @identifier="Europa en internationaal"
+                @checked={{this.filters.europa}}
+                @disabled={{false}}
+                @onChange={{fn this.updateFilter 'europa'}}
+              />
             </f.content>
           </AuFieldset>
         </div>
