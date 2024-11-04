@@ -3,22 +3,6 @@
   <m.sidebar>
     <Sidebar>
       <div class="au-c-sidebar__content" tabindex="-1">
-        <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Zoekterm</f.legend>
-            <f.content>
-              <span class="au-c-pill-container">
-                <span class="au-c-pill au-c-pill--default">
-                  test zoek
-                </span>
-                <LinkTo @route="messages.index" class="au-c-pill-action  au-c-pill--default">
-                  <AuIcon @icon="cross" />
-                  <span class="au-u-hidden-visually">close</span>
-                </LinkTo>
-              </span>
-            </f.content>
-          </AuFieldset>
-        </div>
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__section-title">
             Periode
@@ -45,7 +29,7 @@
               <AuDateInput/>
             </div>
             {{else}}
-            <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}> 
+            <AuNavigationLink role="menuitem" {{on 'click' this.toggleDateFilter}}>
               Specifiek
             </AuNavigationLink>
             {{/if}}
@@ -79,7 +63,7 @@
       </div>
     </Sidebar>
   </m.sidebar>
-  <m.content>  
+  <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
       <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">

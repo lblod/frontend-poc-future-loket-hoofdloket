@@ -16,27 +16,6 @@
             </AuNavigationLink>
           </li>
         </ul>
-        {{#if this.searchTerm}}
-          <div class="au-o-box au-o-box--small">
-            <AuFieldset as |f|>
-              <f.legend>Zoekterm</f.legend>
-              <f.content>
-                <span class="au-c-pill-container">
-                  <span class="au-c-pill au-c-pill--default">
-                    {{this.searchTerm}}
-                  </span>
-                  <AuButton
-                    @skin="link"
-                    class="au-c-pill-action au-c-pill--default"
-                    {{on "click" this.resetSearch}}>
-                    <AuIcon @icon="cross" />
-                    <span class="au-u-hidden-visually">close</span>
-                  </AuButton>
-                </span>
-              </f.content>
-            </AuFieldset>
-          </div>
-        {{/if}}
         <div class="au-o-box au-o-box--small">
           <ConceptSchemeFilter
             @label="Type"
@@ -75,28 +54,35 @@
         <Group class="au-u-1-1">
           <form {{on "submit" this.search}} class="c-navigation-search">
             <div>
-              <AuLabel for="search">Trefwoord</AuLabel>
-              <AuInput
-                id="search"
-                value={{this.searchTermBuffer}}
-                @width="block"
-                {{on "input" this.updateSearchTermBuffer}} />
+            <AuLabel for="search">Trefwoord</AuLabel>
+            <AuInput id="search" value={{this.searchTermBuffer}} @width="block" {{on "input" this.updateSearchTermBuffer}} />
             </div>
-            <AuButton
-              type="submit"
-              @icon="search">
+            {{#if this.searchTerm}}
+              <AuButton
+                @skin="secondary"
+                {{on "click" this.resetSearch}}>
+                <AuIcon @icon="cross" />
+                <span class="au-u-hidden-visually">close</span>
+              </AuButton>
+            {{/if}}
+            <AuButton type="submit" @icon="search">
               Zoek
             </AuButton>
           </form>
         </Group>
       </AuToolbar>
-      {{#if this.searchTerm}}
-        <AuToolbar @border="bottom" @size="medium" as |Group|>
-          <Group>
+      <AuToolbar @border="bottom" @size="medium" as |Group|>
+        <Group>
+          {{#if this.searchTerm}}
             <p class="au-u-h6">{{@model.meta.count}} resultaten voor <strong>'{{this.searchTerm}}'</strong></p>
-          </Group>
-        </AuToolbar>
-      {{/if}}
+          {{else}}
+            <p class="au-u-h6">{{@model.meta.count}} items</p>
+          {{/if}}
+        </Group>
+        <Group>
+          {{!-- Add sorting dropdown --}}
+        </Group>
+      </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
@@ -111,15 +97,13 @@
                 @icon="circle-question"
                 @size={{this.size}}
                 @closable={{this.closable}}
-                @onClose={{this.onClose}}
-              >
+                @onClose={{this.onClose}}>
                 <p>Laat ons weten welke diensten je mist op <a href="#!" class="au-c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
               </AuAlert>
             {{/each}}
           </AuList>
         </div>
       </AuBodyContainer>
-
       <Pagination
         @page={{this.page}}
         @size={{this.size}}

@@ -18,22 +18,6 @@
         </ul>
         <div class="au-o-box au-o-box--small">
           <AuFieldset as |f|>
-            <f.legend>Zoekterm</f.legend>
-            <f.content>
-              <span class="au-c-pill-container">
-                <span class="au-c-pill au-c-pill--default">
-                  test zoek
-                </span>
-                <LinkTo @route="dashboard.index" class="au-c-pill-action  au-c-pill--default">
-                  <AuIcon @icon="cross" />
-                  <span class="au-u-hidden-visually">close</span>
-                </LinkTo>
-              </span>
-            </f.content>
-          </AuFieldset>
-        </div>
-        <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
             <f.legend>Type</f.legend>
             <f.content>
               <AuControlCheckbox
@@ -51,10 +35,7 @@
                 @value="Subsidies"
                 @identifier="Subsidies"
                 @checked={{false}}
-                @disabled= {{false}}
-                @checked={{this.filters.tools}}
-                @disabled={{false}}
-                @onChange={{fn this.updateFilter 'subsidies'}}
+                @disabled= {{false}} @onChange={{fn this.updateFilter 'subsidies'}}
               />
               {{!-- <AuControlCheckbox
                 @label="Premies"
@@ -162,13 +143,14 @@
   </m.sidebar>
   <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
-       <AuToolbar @border="bottom" @size="small" as |Group|>
+      <AuToolbar @border="bottom" @size="small" as |Group|>
         <Group class="au-u-1-1">
           <div class="c-navigation-search">
             <div>
               <AuLabel for="search">Trefwoord</AuLabel>
               <AuInput id="search" @width="block" value="test zoek" />
             </div>
+            <AuLink @skin="button-secondary" @icon="cross" @route="dashboard" @hideText="true">Reset</AuLink>
             <AuLink @skin="button" @route="dashboard.search" @icon="search">
               Zoek
             </AuLink>
@@ -176,23 +158,48 @@
           </Group>
       </AuToolbar>
       <AuToolbar @border="bottom" @size="medium" as |Group|>
+        <Group class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-small au-u-flex--wrap">
+          <p class="au-u-h6">2346 resultaten voor <strong>"test zoek"</strong></p>
+        </Group>
         <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'test zoek'</strong></p>
+          <AuLabel for="sorting">Gesorteerd op:</AuLabel>
+          <select
+            name="sorting"
+            id="sorting"
+            class="c-select"
+            {{on "change" this.updateSorting}}
+          >
+            <option value="deadline" selected={{eq this.sortBy "deadline"}}>
+              Deadline
+            </option>
+            <option value="nameAsc" selected={{eq this.sortBy "nameAsc"}}>
+              A-Z (oplopend)
+            </option>
+            <option value="nameDesc" selected={{eq this.sortBy "nameDesc"}}>
+              Z-A (aflopend)
+            </option>
+          </select>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
-            {{#each this.filteredResults as |item|}}
+            {{#each this.sortedResults as |item|}}
             <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
+              <AuCard @size="small" class="c-overview-card {{if item.link 'c-overview-card--link'}}" as |card|>
                 <card.header class="au-u-padding-bottom-none">
                   <div class="c-overview-card__header">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
                       <Favorite @active={{item.favorite}} />
+                      {{#if item.link}}
                       <AuLinkExternal href={{item.link}} class="au-u-h6 au-u-medium c-overview-card__link">
                         {{item.name}}
                       </AuLinkExternal>
+                      {{else}}
+                      <p class="au-u-h6 au-u-medium">
+                        {{item.name}}
+                      </p>
+                      {{/if}}
                     </div>
                     <div class="au-u-flex au-u-flex--spaced-tiny">
                       {{#if item.type}}
@@ -216,11 +223,16 @@
                 </card.header>
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
+                  {{#if item.link}}
                   <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
+                    <span class="au-c-link au-c-link--external" aria-hidden="true">
                       Naar de {{#if item.categorie}}tool{{else}}subsidie{{/if}}
-                    </AuLinkExternal>
+                      <AuIcon @icon="external" />
+                    </span>
                   </p>
+                  {{else}}
+                  <AuAlert @skin="info" @size="tiny" class="au-u-margin-bottom-none">Deze dienst is niet beschikbaar. Ga naar <AuLinkExternal>de pagina van de aanbieder</AuLinkExternal>.</AuAlert>
+                  {{/if}}
                 </card.content>
               </AuCard>
             </listitem>

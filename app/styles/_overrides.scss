@@ -153,16 +153,21 @@
 
 .c-overview-card {
   position: relative;
-  transition: box-shadow var(--au-transition);
-  box-shadow: 0 0 12px rgba(33,35,38,0);
-
-  &:hover {
-    box-shadow: 0 0 12px rgba(33,35,38,.1),0 0 2px rgba(33,35,38,.1);
-  }
+  background-color: var(--au-gray-100);
 
   .c-external {
     position: relative;
     z-index: 1;
+  }
+}
+
+.c-overview-card--link {
+  transition: box-shadow var(--au-transition);
+  box-shadow: 0 0 12px rgba(33,35,38,0);
+  background-color: var(--au-white);
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(33,35,38,.1),0 0 2px rgba(33,35,38,.1);
   }
 }
 
@@ -183,14 +188,14 @@
 
 .c-overview-card__header {
   display: flex;
-  align-items: center;
   flex-direction: column;
   margin-bottom: $au-unit-tiny;
+  gap: $au-unit-tiny;
 
   @include mq(small) {
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    gap: $au-unit-tiny;
   }
 }
 
@@ -316,7 +321,7 @@
   border-right: 1px solid var(--au-gray-200);
 
   @include mq($au-main-container-breakpoint) {
-    flex-basis: 200px;
+    flex-basis: 250px;
     border-right: 0;
   }
 }
@@ -346,7 +351,7 @@
       position: absolute;
       top: $au-unit * 2;
       left: $au-unit-tiny;
-      width: 200px;
+      width: 250px;
       z-index: 2;
       background-color: var(--au-white);
       border: 1px solid var(--au-gray-300);
@@ -421,4 +426,19 @@
 
 .au-c-pill {
   white-space: nowrap;
+}
+
+.collapsibleTitle{
+  width: 100%;
+}
+
+.collapsibleTitle > legend{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filters-hidden{
+  display: none;
 }

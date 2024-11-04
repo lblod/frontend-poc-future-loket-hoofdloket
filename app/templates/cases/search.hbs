@@ -3,22 +3,6 @@
   <m.sidebar>
     <Sidebar>
       <div class="au-c-sidebar__content">
-        <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Zoekterm</f.legend>
-            <f.content>
-              <span class="au-c-pill-container">
-                <span class="au-c-pill au-c-pill--default">
-                  test zoek
-                </span>
-                <LinkTo @route="cases.index" class="au-c-pill-action  au-c-pill--default">
-                  <AuIcon @icon="cross" />
-                  <span class="au-u-hidden-visually">close</span>
-                </LinkTo>
-              </span>
-            </f.content>
-          </AuFieldset>
-        </div>
         <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__section-title">
             In te dienen
@@ -128,6 +112,7 @@
               <AuLabel for="search">Trefwoord</AuLabel>
               <AuInput id="search" @width="block" value="test zoek" />
             </div>
+            <AuLink @skin="button-secondary" @icon="cross" @route="cases" @hideText="true">Reset</AuLink>
             <AuLink @skin="button" @route="cases.search" @icon="search">
               Zoek
             </AuLink>
@@ -135,8 +120,8 @@
           </Group>
       </AuToolbar>
       <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group>
-          <p class="au-u-h6">2346 resultaten voor <strong>'test zoek'</strong></p>
+        <Group class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-small au-u-flex--wrap">
+          <p class="au-u-h6">2346 resultaten voor <strong>"test zoek"</strong></p>
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
@@ -144,7 +129,7 @@
           <AuList as |listitem|>
             {{#each this.subsidies as |item|}}
             <listitem>
-              <AuCard @size="small" class="c-overview-card" as |card|>
+              <AuCard @size="small" class="c-overview-card c-overview-card--link" as |card|>
                 <card.header class="au-u-padding-bottom-none">
                   <div class="c-overview-card__header">
                     <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
@@ -182,9 +167,9 @@
                 <card.content>
                   <p class="au-u-h-functional au-u-margin-bottom-tiny">{{item.description}}</p>
                   <p class="au-u-h-functional au-u-margin-top-tiny">
-                     <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{item.link}} class="c-external">
-                      Ga verder met de subsidie
-                    </AuLinkExternal>
+                    <span class="au-c-link au-c-link--external" aria-hidden="true">
+                      Ga verder met de subsidie <AuIcon @icon="external" />
+                    </span>
                   </p>
                 </card.content>
               </AuCard>

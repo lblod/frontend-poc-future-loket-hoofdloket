@@ -5,7 +5,7 @@ import constants from '../../config/constants';
 
 const { CONCEPT_SCHEMES } = constants;
 
-export default class DashboardSearchController extends Controller {
+export default class DashboardIndexController extends Controller {
   serviceTypeConceptScheme = CONCEPT_SCHEMES.SERVICE_TYPE;
   themeConceptScheme = CONCEPT_SCHEMES.THEME;
   deadlineOptions = [
@@ -67,5 +67,10 @@ export default class DashboardSearchController extends Controller {
   setPageSize(size) {
     this.size = size;
     this.setPage(0);
+  }
+
+  @action
+  updateSorting(event) {
+    this.sortBy = event.target.value;
   }
 }
