@@ -1,22 +1,17 @@
+{{#let (unique-id) as |uuid| }}
+{{#if @label}}
+  <AuLabel for="selection">{{@label}}</AuLabel>
+{{/if}}
 <select
-  name="amount"
-  id="amount"
+  name={{or @name "selection"}}
+  id="selection{{uuid}}"
   class="c-select"
+  {{on "change" @onChange}}
 >
-  <option
-    value="10"
-    selected="selected"
-  >
-    10
-  </option>
-  <option
-    value="20"
-  >
-    20
-  </option>
-  <option
-    value="50"
-  >
-    50
-  </option>
+  {{#each @options as |opt|}}
+    <option value={{opt.value}} selected={{eq @selection opt.value}}>
+      {{opt.label}}
+    </option>
+  {{/each}}
 </select>
+{{/let}}

@@ -6,11 +6,20 @@ import constants from '../../config/constants';
 const { CONCEPT_SCHEMES } = constants;
 
 export default class DashboardIndexController extends Controller {
-  serviceTypeConceptScheme = CONCEPT_SCHEMES.SERVICE_TYPE;
-  themeConceptScheme = CONCEPT_SCHEMES.THEME;
+  serviceTypeConceptScheme = CONCEPT_SCHEMES.SERVICE_TYPE_FILTER;
+  themeConceptScheme = CONCEPT_SCHEMES.THEME_FILTER;
+  authorityConceptScheme = CONCEPT_SCHEMES.COMPETENT_AUTHORITY_FILTER;
   deadlineOptions = [
     { label: 'Deze maand', value: 'month' },
     { label: 'Dit kwartaal', value: 'quarter' },
+    { label: 'Verstreken', value: 'passed' },
+  ];
+
+  sortingOptions = [
+    { label: 'Deadline', value: 'end-date' },
+    { label: 'A-Z (oplopend)', value: ':no-case:name' },
+    { label: 'Z-A (aflopend)', value: '-:no-case:name' },
+    { label: 'Niewste', value: 'date-created' },
   ];
 
   @tracked page = 0;
@@ -19,7 +28,13 @@ export default class DashboardIndexController extends Controller {
   @tracked searchTermBuffer;
   @tracked types = [];
   @tracked themes = [];
+  @tracked authorities = [];
   @tracked deadline = [];
+  @tracked sortBy;
+  // set in Route `setupController`
+  @tracked themeRecords;
+  @tracked typeRecords;
+  @tracked authorityRecords;
 
   @action
   updateSearchTermBuffer(event) {
@@ -53,8 +68,16 @@ export default class DashboardIndexController extends Controller {
   }
 
   @action
+  updateAuthorityLevelFilter(authorities) {
+    this.authorities = authorities.map((record) => record.id);
+    this.setPage(0);
+  }
+
+  @action
   updateDeadlineFilter(values) {
-    this.deadline = values;
+    // only one deadline is possible at a time
+    // last item in array is the most recently clicked
+    this.deadline = values.slice(-1);
     this.setPage(0);
   }
 
