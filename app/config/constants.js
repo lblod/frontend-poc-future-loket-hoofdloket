@@ -1,5 +1,8 @@
 export default {
   CONCEPT_SCHEMES: {
+    SERVICE_TYPE_FILTER: 'http://mu.semte.ch/vocabularies/ext/conceptscheme/Type',
+    THEME_FILTER: 'http://mu.semte.ch/vocabularies/ext/conceptscheme/Thema',
+    COMPETENT_AUTHORITY_FILTER: 'http://mu.semte.ch/vocabularies/ext/conceptscheme/BevoegdBestuursniveau',
     SERVICE_TYPE: 'https://productencatalogus.data.vlaanderen.be/id/conceptscheme/Type',
     THEME: 'https://productencatalogus.data.vlaanderen.be/id/conceptscheme/Thema'
   },

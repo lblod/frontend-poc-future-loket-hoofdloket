@@ -18,32 +18,39 @@
         </ul>
         <div class="au-o-box au-o-box--small">
           <ConceptSchemeFilter
-            @label="Type"
             @conceptScheme={{this.serviceTypeConceptScheme}}
             @selected={{this.typeRecords}}
-            @onChange={{this.updateServiceTypeFilter}} />
+            @onChange={{this.updateServiceTypeFilter}}
+            @label="Type"
+            @isOpenInitially={{not (is-empty this.typeRecords)}} />
         </div>
         <div class="au-o-box au-o-box--small">
-          <ConceptSchemeFilter
-            @label="Thematisch"
-            @conceptScheme={{this.themeConceptScheme}}
-            @selected={{this.themeRecords}}
-            @onChange={{this.updateThemeFilter}} />
+            <ConceptSchemeFilter
+              @conceptScheme={{this.themeConceptScheme}}
+              @selected={{this.themeRecords}}
+              @onChange={{this.updateThemeFilter}}
+              @label="Thematisch"
+              @isOpenInitially={{not (is-empty this.themeRecords)}} />
         </div>
         <div class="au-o-box au-o-box--small">
-          <AuFieldset as |f|>
-            <f.legend>Deadline</f.legend>
-            <f.content>
-              <AuCheckboxGroup
-                @name="deadline"
-                @selected={{this.deadline}}
-                @onChange={{this.updateDeadlineFilter}} as |Group|>
-                {{#each this.deadlineOptions as |opt|}}
-                  <Group.Checkbox @value={{opt.value}}>{{opt.label}}</Group.Checkbox>
-                {{/each}}
-              </AuCheckboxGroup>
-            </f.content>
-          </AuFieldset>
+            <ConceptSchemeFilter
+              @conceptScheme={{this.authorityConceptScheme}}
+              @selected={{this.authorityRecords}}
+              @onChange={{this.updateAuthorityLevelFilter}}
+              @label="Aanbieders"
+              @isOpenInitially={{not (is-empty this.authorityRecords)}} />
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <CollapsibleFieldset @label="Deadline" @isOpenInitially={{not (is-empty this.deadline)}} >
+                <AuCheckboxGroup
+                  @name="deadline"
+                  @selected={{this.deadline}}
+                  @onChange={{this.updateDeadlineFilter}} as |Group|>
+                  {{#each this.deadlineOptions as |opt|}}
+                    <Group.Checkbox @value={{opt.value}}>{{opt.label}}</Group.Checkbox>
+                  {{/each}}
+                </AuCheckboxGroup>
+          </CollapsibleFieldset>
         </div>
       </div>
     </Sidebar>
@@ -80,7 +87,11 @@
           {{/if}}
         </Group>
         <Group>
-          {{!-- Add sorting dropdown --}}
+          <AuSelect
+            @label="Gesorteerd op:"
+            @selection={{this.sortBy}}
+            @options={{this.sortingOptions}}
+            @onChange={{this.updateSorting}} />
         </Group>
       </AuToolbar>
       <AuBodyContainer @scroll={{true}}>
