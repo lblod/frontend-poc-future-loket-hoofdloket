@@ -19,7 +19,7 @@ export default class DashboardIndexController extends Controller {
     { label: 'Deadline', value: 'end-date' },
     { label: 'A-Z (oplopend)', value: ':no-case:name' },
     { label: 'Z-A (aflopend)', value: '-:no-case:name' },
-    { label: 'Niewste', value: 'date-created' },
+    { label: 'Nieuwste', value: 'date-created' },
   ];
 
   @tracked page = 0;
