@@ -29,15 +29,23 @@
           {{/if}}
           {{#if @model.thematicAreas}}
             {{#each @model.thematicAreas as |theme|}}
-              <AuPill @skin="border" @size="small">
-                {{theme.label}}
-              </AuPill>
+              {{#let (load theme.broader) as |parents|}}
+                {{#if parents.isResolved}}
+                  <AuPill @skin="border" @size="small">
+                    {{get (get parents.value 0) "label"}}
+                  </AuPill>
+                {{/if}}
+              {{/let}}
             {{/each}}
           {{/if}}
           {{#if @model.type}}
-            <AuPill @skin="border" @size="small">
-              {{@model.type.label}}
-            </AuPill>
+            {{#let (load @model.type.broader) as |parents|}}
+              {{#if parents.isResolved}}
+                <AuPill @skin="border" @size="small">
+                  {{get (get parents.value 0) "label"}}
+                </AuPill>
+              {{/if}}
+            {{/let}}
           {{/if}}
         </div>
         <div>

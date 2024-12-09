@@ -43,7 +43,7 @@ export default class DashboardIndexRoute extends Route {
     ]);
 
     const queryOptions = {
-      include: 'type,thematic-areas,websites',
+      include: 'type,thematic-areas.broader,websites',
       page: {
         number: params.page,
         size: params.size
