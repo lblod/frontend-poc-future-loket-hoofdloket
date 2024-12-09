@@ -17,14 +17,6 @@
           </li>
         </ul>
         <div class="au-o-box au-o-box--small">
-          <ConceptSchemeFilter
-            @conceptScheme={{this.serviceTypeConceptScheme}}
-            @selected={{this.typeRecords}}
-            @onChange={{this.updateServiceTypeFilter}}
-            @label="Type"
-            @isOpenInitially={{not (is-empty this.typeRecords)}} />
-        </div>
-        <div class="au-o-box au-o-box--small">
             <ConceptSchemeFilter
               @conceptScheme={{this.themeConceptScheme}}
               @selected={{this.themeRecords}}
@@ -33,12 +25,12 @@
               @isOpenInitially={{not (is-empty this.themeRecords)}} />
         </div>
         <div class="au-o-box au-o-box--small">
-            <ConceptSchemeFilter
-              @conceptScheme={{this.authorityConceptScheme}}
-              @selected={{this.authorityRecords}}
-              @onChange={{this.updateAuthorityLevelFilter}}
-              @label="Aanbieders"
-              @isOpenInitially={{not (is-empty this.authorityRecords)}} />
+          <ConceptSchemeFilter
+            @conceptScheme={{this.serviceTypeConceptScheme}}
+            @selected={{this.typeRecords}}
+            @onChange={{this.updateServiceTypeFilter}}
+            @label="Type"
+            @isOpenInitially={{not (is-empty this.typeRecords)}} />
         </div>
         <div class="au-o-box au-o-box--small">
           <CollapsibleFieldset @label="Deadline" @isOpenInitially={{not (is-empty this.deadline)}} >
@@ -51,6 +43,14 @@
                   {{/each}}
                 </AuCheckboxGroup>
           </CollapsibleFieldset>
+        </div>
+        <div class="au-o-box au-o-box--small">
+            <ConceptSchemeFilter
+              @conceptScheme={{this.authorityConceptScheme}}
+              @selected={{this.authorityRecords}}
+              @onChange={{this.updateAuthorityLevelFilter}}
+              @label="Aanbieder"
+              @isOpenInitially={{not (is-empty this.authorityRecords)}} />
         </div>
       </div>
     </Sidebar>
