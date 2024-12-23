@@ -11,45 +11,72 @@ export default class DashboardIndexRoute extends Route {
 
   queryParams = {
     page: {
-      refreshModel: true
+      refreshModel: true,
     },
     size: {
-      refreshModel: true
+      refreshModel: true,
     },
     searchTerm: {
-      refreshModel: true
+      refreshModel: true,
     },
     themes: {
-      refreshModel: true
+      refreshModel: true,
     },
     types: {
-      refreshModel: true
+      refreshModel: true,
     },
     authorities: {
-      refreshModel: true
+      refreshModel: true,
     },
     deadline: {
-      refreshModel: true
+      refreshModel: true,
     },
     sortBy: {
-      refreshModel: true
-    }
+      refreshModel: true,
+    },
+    targetAudience: {
+      refreshModel: true,
+    },
   };
 
   async model(params) {
-    const targetAudiences = await Promise.all([
-      this.store.findRecordByUri('concept', TARGET_AUDIENCES.LOCAL_GOVERNMENT),
-      this.store.findRecordByUri('concept', TARGET_AUDIENCES.ORGANIZATION)
-    ]);
-
     const queryOptions = {
       include: 'type,thematic-areas.broader,websites',
       page: {
         number: params.page,
-        size: params.size
+        size: params.size,
       },
-      'filter[target-audiences][:id:]': targetAudiences.map((c) => c.id).join(','),
     };
+
+    // Automatically filter targetAudience to LOCAL_GOVERNMENT if queryParam is missing,
+    // but allow setting empty`[]` queryParam too (=no targetAudience filtering)
+    let targetAudiences = [];
+    if (params.targetAudience === undefined) {
+      targetAudiences = await Promise.all([
+        this.store.findRecordByUri(
+          'concept',
+          TARGET_AUDIENCES.LOCAL_GOVERNMENT,
+        ),
+      ]);
+    } else {
+      try {
+        targetAudiences = await Promise.all(
+          JSON.parse(params.targetAudience).map((audience) =>
+            this.store.findRecordByUri('concept', audience),
+          ),
+        );
+      } catch (e) {
+        console.error(`Cannot parse targetAudience queryParam ${params.targetAudience}.`);
+        console.log(e);
+        targetAudiences = [];
+      }
+    }
+    if (targetAudiences.length !== 0) {
+      queryOptions['filter[target-audiences][:id:]'] = targetAudiences
+        .filter((c) => c != null)
+        .map((c) => c.id)
+        .join(',');
+    }
 
     this.searchTerm = params.searchTerm;
     if (isPresent(params.searchTerm)) {
@@ -61,31 +88,37 @@ export default class DashboardIndexRoute extends Route {
     this.themeRecords = [];
     if (params.themes.length) {
       this.themeRecords = await Promise.all(
-        params.themes.map((id) => this.store.findRecord('concept', id))
+        params.themes.map((id) => this.store.findRecord('concept', id)),
       );
-      queryOptions['filter[thematic-areas][broader][:id:]'] = this.themeRecords.map((c) => c.id).join(',');
+      queryOptions['filter[thematic-areas][broader][:id:]'] = this.themeRecords
+        .map((c) => c.id)
+        .join(',');
     }
 
     this.authorityRecords = [];
     if (params.authorities.length) {
       this.authorityRecords = await Promise.all(
-        params.authorities.map((id) => this.store.findRecord('concept', id))
+        params.authorities.map((id) => this.store.findRecord('concept', id)),
       );
-      queryOptions['filter[competent-authority-levels][broader][:id:]'] = this.authorityRecords.map((c) => c.id).join(',');
+      queryOptions['filter[competent-authority-levels][broader][:id:]'] =
+        this.authorityRecords.map((c) => c.id).join(',');
     }
 
     this.typeRecords = [];
     if (params.types.length) {
       this.typeRecords = await Promise.all(
-        params.types.map((id) => this.store.findRecord('concept', id))
+        params.types.map((id) => this.store.findRecord('concept', id)),
       );
-      queryOptions['filter[type][broader][:id:]'] = this.typeRecords.map((c) => c.id).join(',');
+      queryOptions['filter[type][broader][:id:]'] = this.typeRecords
+        .map((c) => c.id)
+        .join(',');
     }
 
     if (params.deadline.length) {
       const now = new Date();
       if (params.deadline.includes('quarter')) {
-        queryOptions['filter[:gte:end-date]'] = startOfQuarter(now).toISOString();
+        queryOptions['filter[:gte:end-date]'] =
+          startOfQuarter(now).toISOString();
         queryOptions['filter[:lte:end-date]'] = endOfQuarter(now).toISOString();
       } else if (params.deadline.includes('month')) {
         queryOptions['filter[:gte:end-date]'] = startOfMonth(now).toISOString();
