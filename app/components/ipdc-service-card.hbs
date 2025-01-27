@@ -2,7 +2,7 @@
 {{!-- TODO: sanitize publicService.description --}}
 
 <AuCard @size="small" class="c-overview-card c-overview-card--link" as |card|>
-  <card.header class="au-u-padding-bottom-none">
+  <card.header>
     <div class="c-overview-card__header">
       <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
         <Favorite @active={{@model.favorite}} />
@@ -48,7 +48,7 @@
             {{/let}}
           {{/if}}
         </div>
-        <div>
+        {{!-- <div>
           <AuLink
             @icon="circle-info"
             @route="external"
@@ -58,7 +58,7 @@
           >
             Info
           </AuLink>
-        </div>
+        </div> --}}
       </div>
     </div>
   </card.header>
