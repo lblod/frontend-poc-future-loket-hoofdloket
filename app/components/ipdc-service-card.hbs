@@ -21,11 +21,11 @@
         {{/if}}
       </div>
       <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-center">
-        <div>
+        <div class="au-u-flex au-u-flex--end au-u-flex--spaced-tiny">
           {{#if @model.endDate}}
             <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
           {{else}}
-            <AuPill @skin="default" @size="small">Doorlopend inschrijven</AuPill>
+            <AuPill @skin="default" @size="small">Onbekend</AuPill>
           {{/if}}
           {{#if @model.thematicAreas}}
             {{#each @model.thematicAreas as |theme|}}
@@ -63,10 +63,10 @@
     </div>
   </card.header>
   <card.content>
-    <p class="au-u-h-functional au-u-margin-bottom-tiny">
+    {{!-- <p class="au-u-h-functional au-u-margin-bottom-tiny">
       {{{@model.description.default}}}
-    </p>
-    {{#each @model.websites as |website|}}
+    </p> --}}
+    {{!-- {{#each @model.websites as |website|}}
       <p class="au-u-h-functional au-u-margin-top-tiny">
         <AuLinkExternal @icon="external-link" @iconAlignment="right" href={{website.url}} class="c-external">
           {{website.title.default}}
@@ -76,6 +76,6 @@
       <AuAlert @skin="info" @size="tiny" class="au-u-margin-bottom-none">
         Deze dienst is niet beschikbaar. Ga naar <AuLinkExternal>de pagina van de aanbieder</AuLinkExternal>.
       </AuAlert>
-    {{/each}}
+    {{/each}} --}}
   </card.content>
 </AuCard>
