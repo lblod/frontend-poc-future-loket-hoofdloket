@@ -13,7 +13,7 @@
   </AuButton>
   {{#if this.dropdownOpen}}
     <div
-      id="help" 
+      id="help"
       {{focus-trap
         shouldSelfFocus=true
         focusTrapOptions=(hash
@@ -36,11 +36,11 @@
               U krijgt antwoord binnen 2 werkdagen
             </ComplexLink>
           </item>
-          <item>
+          {{!-- <item>
             <ComplexLink @title="Via chat" @icon="message">
               Elke werkdag bereikbaar tussen 9u en 19u
             </ComplexLink>
-          </item>
+          </item> --}}
         </AuList>
         <AuHelpText class="au-u-margin-top">
           De Vlaamse overheid hecht veel belang aan de bescherming van uw persoonlijke levenssfeer. Voor meer informatie raadpleeg de <a href="#!" class="au-c-link">privacyverklaring</a>.
