@@ -189,7 +189,7 @@
 .c-overview-card__header {
   display: flex;
   flex-direction: column;
-  margin-bottom: $au-unit-tiny;
+  // margin-bottom: $au-unit-tiny;
   gap: $au-unit-tiny;
 
   @include mq(small) {
