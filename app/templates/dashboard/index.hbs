@@ -2,27 +2,28 @@
   <m.sidebar>
     <Sidebar>
       <div class="au-c-sidebar__content">
-        <ul class="au-c-list-navigation">
+        {{!-- <ul class="au-c-list-navigation">
           <li class="au-c-list-navigation__item">
             <AuNavigationLink @route="dashboard.index" role="menuitem">
               <AuIcon @icon="tiles" @alignment="left" />
-              Overzicht
+              TEST
             </AuNavigationLink>
           </li>
           <li class="au-c-list-navigation__item">
             <AuNavigationLink @route="dashboard.favorites" role="menuitem">
               <AuIcon @icon="star-filled" @alignment="left" />
-              Favorieten
+              TEST
             </AuNavigationLink>
           </li>
-        </ul>
+        </ul> --}}
+        <p class="au-o-box au-o-box--small">Filters</p>
         <div class="au-o-box au-o-box--small">
             <ConceptSchemeFilter
               @conceptScheme={{this.themeConceptScheme}}
               @selected={{this.themeRecords}}
               @onChange={{this.updateThemeFilter}}
               @label="Thematisch"
-              @isOpenInitially={{not (is-empty this.themeRecords)}} />
+              @isOpenInitially={{true}} />
         </div>
         <div class="au-o-box au-o-box--small">
           <ConceptSchemeFilter
@@ -44,14 +45,14 @@
                 </AuCheckboxGroup>
           </CollapsibleFieldset>
         </div> --}}
-        {{!-- <div class="au-o-box au-o-box--small">
+        <div class="au-o-box au-o-box--small">
             <ConceptSchemeFilter
               @conceptScheme={{this.authorityConceptScheme}}
               @selected={{this.authorityRecords}}
               @onChange={{this.updateAuthorityLevelFilter}}
               @label="Aanbieder"
               @isOpenInitially={{not (is-empty this.authorityRecords)}} />
-        </div> --}}
+        </div>
       </div>
     </Sidebar>
   </m.sidebar>
