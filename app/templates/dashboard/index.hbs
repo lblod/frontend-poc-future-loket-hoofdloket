@@ -62,7 +62,7 @@
         <Group class="au-u-1-1">
           <form {{on "submit" this.search}} class="c-navigation-search">
             <div>
-            <AuLabel for="search">Trefwoord</AuLabel>
+            <AuLabel for="search">Wat zoek je?</AuLabel>
             <AuInput id="search" value={{this.searchTermBuffer}} @width="block" {{on "input" this.updateSearchTermBuffer}} />
             </div>
             {{#if this.searchTerm}}
