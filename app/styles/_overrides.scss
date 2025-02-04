@@ -175,6 +175,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-decoration: none;
+  color: var(--au-blue-700);
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+  white-space: nowrap;
 
   &:after {
     content: '';
@@ -191,12 +196,7 @@
   flex-direction: column;
   // margin-bottom: $au-unit-tiny;
   gap: $au-unit-tiny;
-
-  @include mq(small) {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  padding: .2rem .4rem .4rem .4rem;
 }
 
 .au-c-link--box {
@@ -330,6 +330,7 @@
   height: 100%;
   flex-basis: 0;
   flex-grow: 999;
+  min-width: 0;
 }
 
 .au-c-sidebar {
