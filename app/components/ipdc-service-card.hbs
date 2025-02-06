@@ -21,7 +21,7 @@
         {{/if}}
       </div>
       <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-center">
-        <div class="au-u-flex au-u-flex--end au-u-flex--spaced-tiny">
+        <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--wrap">
           {{#if @model.endDate}}
             <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
           {{else}}
