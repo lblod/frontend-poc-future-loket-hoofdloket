@@ -1,0 +1,154 @@
+{{page-title "Landing"}}
+
+<LayoutHome>
+  <AuBodyContainer class="au-u-background-gray-100">
+    <section class="c-landing">
+      <div class="au-o-flow">
+        <AuHeading @level="1" @skin="2">Gemeente Aalter</AuHeading>
+        <p class="au-u-para landing-intro">Indien u toegang mist tot een van de modules in het loket, neem contact op met uw interne beheerder. Indien er zich een probleem voordoet met toegang, neem contact op met het gebruikersbeheer Vlaanderen.</p>
+      </div>
+
+      <div class="search-container au-u-margin-top-large">
+        <form {{on "submit" this.search}} class="c-navigation-search">
+          <div>
+            <AuLabel for="search">Wat zoek je?</AuLabel>
+            <AuInput
+              id="search"
+              value={{this.searchTermBuffer}}
+              placeholder="Zoek naar diensten"
+              @width="block"
+              {{on "input" this.updateSearchTermBuffer}}
+            />
+          </div>
+          {{#if this.searchTerm}}
+            <AuButton
+              @skin="secondary"
+              {{on "click" this.resetSearch}}>
+              <AuIcon @icon="cross" />
+              <span class="au-u-hidden-visually">close</span>
+            </AuButton>
+          {{/if}}
+          <AuButton type="submit" @icon="search">
+            Zoek
+          </AuButton>
+        </form>
+        <div class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
+          <AuPill>
+            Suggestion
+          </AuPill>
+          <AuPill>
+            Suggestion
+          </AuPill>
+          <AuPill>
+            Suggestion
+          </AuPill>
+          <AuPill>
+            Suggestion
+          </AuPill>
+          <AuPill>
+            Suggestion
+          </AuPill>
+          <AuPill>
+            Suggestion
+          </AuPill>
+        </div>
+      </div>
+
+      <div class="favorites-container au-u-margin-top-large">
+        <AuHeading @level="2" @skin="3">Favorieten</AuHeading>
+        <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <a href="#" class="favorite-title au-u-medium">Vlaams GemeentefondsVlaams GemeentefondsVlaams GemeentefondsVlaams Gemeentefonds</a>
+            <AuButton
+              @skin="naked"
+              @icon="three-dots"
+              @hideText={{true}}
+            />
+          </li>
+        </ul>
+      </div>
+    </section>
+  </AuBodyContainer>
+</LayoutHome>

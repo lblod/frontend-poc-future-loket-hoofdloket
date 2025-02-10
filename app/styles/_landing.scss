@@ -1,0 +1,45 @@
+.c-landing{
+  --inner-max-width: 680px;
+  width: 100%;
+  max-width: 950px;
+  margin: 4rem auto;
+  padding: 1rem;
+}
+
+.landing-intro,
+.search-container{
+  width: 100%;
+  max-width: var(--inner-max-width);
+}
+
+.favorite-card{
+  list-style-type: none;
+  display: flex;
+  min-width: 350px;
+  padding: 2rem;
+  flex-direction: row;
+  align-items: center;
+  gap: .5rem;
+  flex: 1 0 0;
+
+  border-radius: 3px;
+  border: 1px solid #E9EBEE;
+  background: #FFF;
+
+  & > .au-c-icon{
+    fill: var(--au-blue-700);
+  }
+
+  .au-c-button{
+    margin-left: auto;
+  }
+}
+
+.favorite-title{
+  color: var(--au-blue-700);
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
