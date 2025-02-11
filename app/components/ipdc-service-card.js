@@ -5,8 +5,8 @@ export default class ipdcServiceCard extends Component {
 
   @action
   toggleSidebar() {
-    const sideBar = document.getElementById("sidebar-container")
+    const sideBar = document.querySelector('.overlay-container');
 
-    sideBar.classList.toggle("hidden")
+    sideBar.classList.toggle('au-u-hidden');
   }
 }

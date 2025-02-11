@@ -1,7 +1,7 @@
 {{!-- TODO: item.favorite --}}
 {{!-- TODO: sanitize publicService.description --}}
 
-<AuCard @size="small" class="c-overview-card c-overview-card--link" as |card|>
+<AuCard {{on "click" this.toggleSidebar}} @size="small" class="c-overview-card c-overview-card--link" as |card|>
   <card.header>
     <div class="c-overview-card__header">
       <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
