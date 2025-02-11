@@ -58,12 +58,12 @@
   </m.sidebar>
   <m.content>
     <AuBodyContainer class="au-u-background-gray-100" >
-      <AuToolbar @border="bottom" @size="small" as |Group|>
-        <Group class="au-u-1-1">
-          <form {{on "submit" this.search}} class="c-navigation-search">
+      <div class="c-search-sort-container au-o-box au-o-box--small">
+        <div class="c-search-container au-u-flex au-u-flex--spaced-small au-u-flex--vertical-end au-u-flex--wrap">
+          <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-xsmall">
             <div>
-            <AuLabel for="search">Wat zoek je?</AuLabel>
-            <AuInput id="search" value={{this.searchTermBuffer}} @width="block" {{on "input" this.updateSearchTermBuffer}} />
+              <AuLabel for="search">Wat zoek je?</AuLabel>
+              <AuInput id="search" value={{this.searchTermBuffer}} @width="block" {{on "input" this.updateSearchTermBuffer}} />
             </div>
             {{#if this.searchTerm}}
               <AuButton
@@ -77,24 +77,22 @@
               Zoek
             </AuButton>
           </form>
-        </Group>
-      </AuToolbar>
-      <AuToolbar @border="bottom" @size="medium" as |Group|>
-        <Group>
-          {{#if this.searchTerm}}
-            <p class="au-u-h6">{{@model.meta.count}} resultaten voor <strong>'{{this.searchTerm}}'</strong></p>
-          {{else}}
-            <p class="au-u-h6">{{@model.meta.count}} diensten</p>
-          {{/if}}
-        </Group>
-        <Group>
+          <div class="au-u-margin-bottom-tiny au-u-margin-right-tiny">
+            {{#if this.searchTerm}}
+              <p class="au-u-h6">{{@model.meta.count}} resultaten voor <strong>'{{this.searchTerm}}'</strong></p>
+            {{else}}
+              <p class="au-u-h6">{{@model.meta.count}} diensten</p>
+            {{/if}}
+          </div>
+        </div>
+        <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-baseline">
           <AuSelect
             @label="Gesorteerd op:"
             @selection={{this.sortBy}}
             @options={{this.sortingOptions}}
             @onChange={{this.updateSorting}} />
-        </Group>
-      </AuToolbar>
+        </div>
+      </div>
       <AuBodyContainer @scroll={{true}}>
         <div class="au-o-box au-o-box--small">
           <AuList as |listitem|>
