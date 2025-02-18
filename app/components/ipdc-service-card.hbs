@@ -15,7 +15,7 @@
           {{#if @model.endDate}}
             <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
           {{else}}
-            <AuPill @skin="default" @size="small">Onbekend</AuPill>
+            <AuPill @skin="default" @size="small">Deadline: onbekend</AuPill>
           {{/if}}
           {{#if @model.thematicAreas}}
             {{#each @model.thematicAreas as |theme|}}
