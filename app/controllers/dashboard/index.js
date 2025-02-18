@@ -96,4 +96,9 @@ export default class DashboardIndexController extends Controller {
   updateSorting(event) {
     this.sortBy = event.target.value;
   }
+
+  @action
+  closePanel() {
+    document.querySelector('.overlay-container').classList.add('au-u-hidden');
+  }
 }
