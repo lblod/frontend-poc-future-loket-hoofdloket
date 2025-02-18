@@ -6,19 +6,9 @@
     <div class="c-overview-card__header">
       <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
         <Favorite @active={{@model.favorite}} />
-        {{#if @model.websites}}
-          {{#each @model.websites as |website index|}}
-            {{#if (eq index 0)}}
-              <AuLinkExternal href={{website.url}} class="au-u-h6 au-u-medium c-overview-card__link">
-                {{@model.name.default}}
-              </AuLinkExternal>
-            {{/if}}
-          {{/each}}
-        {{else}}
-          <div class="au-u-h6 au-u-medium c-overview-card__link">
-            {{@model.name.default}}
-          </div>
-        {{/if}}
+        <div class="au-u-h6 au-u-medium c-overview-card__link">
+          {{@model.name.default}}
+        </div>
       </div>
       <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-center">
         <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--wrap">
