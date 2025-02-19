@@ -13,9 +13,6 @@ Router.map(function () {
   this.route('dashboard', function () {
     this.route('favorites');
   });
-  this.route('favorites', function () {
-    this.route('favorites');
-  });
   this.route('cases', function () {
     this.route('search');
     this.route('dossier');
