@@ -60,10 +60,16 @@
     <AuBodyContainer class="au-u-background-gray-100" >
       <div class="c-search-sort-container au-o-box au-o-box--small">
         <div class="c-search-container au-u-flex au-u-flex--spaced-small au-u-flex--vertical-end au-u-flex--wrap">
-          <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-xsmall">
+          <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-small">
             <div>
               <AuLabel for="search">Wat zoek je?</AuLabel>
-              <AuInput id="search" value={{this.searchTermBuffer}} @width="block" {{on "input" this.updateSearchTermBuffer}} />
+              <AuInput
+                id="search"
+                value={{this.searchTermBuffer}}
+                @width="block"
+                {{on "input" this.updateSearchTermBuffer}}
+                placeholder="Zoek op naam, beschrijving of thema van een product of dienst"
+              />
             </div>
             {{#if this.searchTerm}}
               <AuButton
