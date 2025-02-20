@@ -62,7 +62,12 @@
         <div class="c-search-container au-u-flex au-u-flex--spaced-small au-u-flex--vertical-end au-u-flex--wrap">
           <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-small">
             <div>
-              <AuLabel for="search">Wat zoek je?</AuLabel>
+              <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-center au-u-margin-bottom-small">
+                <div class="c-search-icon-container">
+                  <AuIcon @icon="search" />
+                </div>
+                <AuLabel for="search">Wat zoek je?</AuLabel>
+              </div>
               <AuInput
                 id="search"
                 value={{this.searchTermBuffer}}

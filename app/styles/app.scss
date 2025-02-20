@@ -21,6 +21,9 @@
 @import "_select";
 @import "_overrides";
 
+:root{
+  --brand-color: #1C7074;
+}
 
 .au-c-app > div.au-o-layout.au-o-layout--large {
   overflow-y: auto;
