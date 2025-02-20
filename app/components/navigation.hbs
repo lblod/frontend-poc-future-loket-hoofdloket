@@ -66,6 +66,11 @@
   <div class="c-navigation__tabs">
     <AuTabs @reversed={{this.reversed}} as |Tab|>
       <Tab>
+        <AuLink @route="landing" role="menuitem">
+          <AuIcon @icon="subsidies" />Home
+        </AuLink>
+      </Tab>
+      <Tab>
         <AuLink @route="dashboard" role="menuitem">
           <AuIcon @icon="tiles" />Alle diensten
         </AuLink>
