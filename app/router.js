@@ -34,4 +34,5 @@ Router.map(function () {
 
   externalRoute(this);
   fallbackRoute(this);
+  this.route('foo');
 });
