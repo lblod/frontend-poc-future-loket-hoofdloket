@@ -23,7 +23,11 @@ module.exports = function (environment) {
     },
     fastboot: {
       hostWhitelist: ['backend',/^host:\d+$/,/^localhost:\d+$/]
-    }
+    },
+    plausible: {
+      domain: '{{ANALYTICS_APP_DOMAIN}}',
+      apiHost: '{{ANALYTICS_API_HOST}}',
+    },
   };
 
   if (environment === 'development') {
