@@ -12,32 +12,10 @@
       <div class="c-navigation__trigger">
         <AuIcon @icon="tiles" @iconAlignment="left" />
       </div>
-      {{#if (eq this.activeRoute 'dashboard.index')}}
-      Alle diensten
-      {{else if (eq this.activeRoute 'dashboard.favorites')}}
-      Alle diensten
-      {{else if (eq this.activeRoute 'cases.index')}}
-      Mijn dossiers <span class="c-counter">2</span>
-      {{else if (eq this.activeRoute 'cases.search')}}
-      Mijn dossiers <span class="c-counter">2</span>
-      {{else if (eq this.activeRoute 'data.index')}}
-      Mijn gegevens
-      {{else if (eq this.activeRoute 'data.search')}}
-      Mijn gegevens
-      {{else if (eq this.activeRoute 'data.detail')}}
-      Mijn gegevens
-      {{else if (eq this.activeRoute 'messages.index')}}
-      Berichten <span class="c-counter">3</span>
-      {{else if (eq this.activeRoute 'messages.search')}}
-      Berichten <span class="c-counter">3</span>
-      {{else if (eq this.activeRoute 'messages.detail')}}
-      Berichten <span class="c-counter">3</span>
-      {{else if (eq this.activeRoute 'updates')}}
-      Notificaties
-      {{else if (eq this.activeRoute 'settings.index')}}
-      Instellingen
-      {{else if (eq this.activeRoute 'settings.newsletter')}}
-      Instellingen
+      {{#if (eq this.activeRoute "dashboard.index")}}
+        Alle diensten
+      {{else if (eq this.activeRoute "dashboard.favorites")}}
+        Mijn favorieten
       {{/if}}
     </AuButton>
     {{#if this.dropdownOpen}}
@@ -56,9 +34,9 @@
         <AuLink @route="dashboard.index" role="menuitem">
           <AuIcon @icon="tiles" />Alle diensten
         </AuLink>
-        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
-        {{!-- <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink> --}}
-        {{!-- <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink> --}}
+        <AuLink @route="dashboard.favorites" role="menuitem">
+          <AuIcon @icon="star-outline" />Mijn favorieten
+        </AuLink>
       </div>
     {{/if}}
   </div>
@@ -80,15 +58,6 @@
           <AuIcon @icon="star-outline" />Mijn favorieten
         </AuLink>
       </Tab>
-      {{!-- <Tab>
-        <AuLink @route="cases" role="menuitem"><AuIcon @icon="subsidies" />Mijn dossiers <span class="c-counter">2</span></AuLink>
-      </Tab> --}}
-      {{!-- <Tab>
-        <AuLink @route="data" role="menuitem"><AuIcon @icon="datasource" />Mijn gegevens</AuLink>
-      </Tab> --}}
-      {{!-- <Tab>
-        <AuLink role="menuitem" @route="messages"><AuIcon @icon="message" />Berichten <span class="c-counter">3</span></AuLink>
-      </Tab> --}}
     </AuTabs>
   </div>
 </div>

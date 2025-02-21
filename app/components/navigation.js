@@ -4,7 +4,7 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 
-export default class Navigation extends Component {
+export default class NavigationComponent extends Component {
   @service router;
   @tracked referenceElement = undefined;
   @tracked arrowElement = undefined;
