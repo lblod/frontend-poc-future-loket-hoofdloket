@@ -2,8 +2,9 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
-const { productData } = require('../products');
-const { subsidiesData } = require('../subsidies');
+
+const productData = [];
+const subsidiesData = [];
 
 export default class DashboardFavoritesController extends Controller {
   @tracked filters = {
