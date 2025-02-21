@@ -11,9 +11,7 @@ export default class DashboardIndexController extends Controller {
   authorityConceptScheme = CONCEPT_SCHEMES.COMPETENT_AUTHORITY_FILTER;
 
   sortingOptions = [
-    // { label: 'Deadline', value: 'end-date' },
     { label: 'A-Z (oplopend)', value: ':no-case:name' },
-    // { label: 'Z-A (aflopend)', value: '-:no-case:name' },
     { label: 'Nieuwste', value: 'date-created' },
   ];
 
