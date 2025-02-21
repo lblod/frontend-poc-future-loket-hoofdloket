@@ -28,9 +28,6 @@ export default class DashboardIndexRoute extends Route {
     authorities: {
       refreshModel: true
     },
-    deadline: {
-      refreshModel: true
-    },
     sortBy: {
       refreshModel: true
     }
@@ -80,19 +77,6 @@ export default class DashboardIndexRoute extends Route {
         params.types.map((id) => this.store.findRecord('concept', id))
       );
       queryOptions['filter[type][broader][:id:]'] = this.typeRecords.map((c) => c.id).join(',');
-    }
-
-    if (params.deadline.length) {
-      const now = new Date();
-      if (params.deadline.includes('quarter')) {
-        queryOptions['filter[:gte:end-date]'] = startOfQuarter(now).toISOString();
-        queryOptions['filter[:lte:end-date]'] = endOfQuarter(now).toISOString();
-      } else if (params.deadline.includes('month')) {
-        queryOptions['filter[:gte:end-date]'] = startOfMonth(now).toISOString();
-        queryOptions['filter[:lte:end-date]'] = endOfMonth(now).toISOString();
-      } else if (params.deadline.includes('passed')) {
-        queryOptions['filter[:lte:end-date]'] = now.toISOString();
-      }
     }
 
     if (params.sortBy) {

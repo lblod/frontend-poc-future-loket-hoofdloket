@@ -9,11 +9,6 @@ export default class DashboardIndexController extends Controller {
   serviceTypeConceptScheme = CONCEPT_SCHEMES.SERVICE_TYPE_FILTER;
   themeConceptScheme = CONCEPT_SCHEMES.THEME_FILTER;
   authorityConceptScheme = CONCEPT_SCHEMES.COMPETENT_AUTHORITY_FILTER;
-  deadlineOptions = [
-    { label: 'Deze maand', value: 'month' },
-    { label: 'Dit kwartaal', value: 'quarter' },
-    { label: 'Verstreken', value: 'passed' },
-  ];
 
   sortingOptions = [
     // { label: 'Deadline', value: 'end-date' },
@@ -29,7 +24,6 @@ export default class DashboardIndexController extends Controller {
   @tracked types = [];
   @tracked themes = [];
   @tracked authorities = [];
-  @tracked deadline = [];
   @tracked sortBy;
   // set in Route `setupController`
   @tracked themeRecords;
@@ -70,14 +64,6 @@ export default class DashboardIndexController extends Controller {
   @action
   updateAuthorityLevelFilter(authorities) {
     this.authorities = authorities.map((record) => record.id);
-    this.setPage(0);
-  }
-
-  @action
-  updateDeadlineFilter(values) {
-    // only one deadline is possible at a time
-    // last item in array is the most recently clicked
-    this.deadline = values.slice(-1);
     this.setPage(0);
   }
 
