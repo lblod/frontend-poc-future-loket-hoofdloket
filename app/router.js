@@ -13,26 +13,7 @@ Router.map(function () {
   this.route('dashboard', function () {
     this.route('favorites');
   });
-  this.route('cases', function () {
-    this.route('search');
-    this.route('dossier');
-    this.route('dossier-missing-info');
-  });
-  this.route('email');
-  this.route('settings', function () {
-    this.route('newsletter');
-  });
-  this.route('updates');
-  this.route('messages', function () {
-    this.route('search');
-    this.route('detail');
-  });
-  this.route('data', function () {
-    this.route('search');
-    this.route('detail');
-  });
 
   externalRoute(this);
   fallbackRoute(this);
-  this.route('foo');
 });
