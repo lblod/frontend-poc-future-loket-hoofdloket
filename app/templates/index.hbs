@@ -45,101 +45,30 @@
         </div>
       </div>
 
-      <div class="favorites-container au-u-margin-top-large">
-        <AuHeading @level="2" @skin="3">Favorieten</AuHeading>
-        <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-          <li class="favorite-card">
-            <AuIcon @icon='star-filled' />
-            <a href="#" class="favorite-title au-u-medium">Vlaams GemeentefondsVlaams GemeentefondsVlaams GemeentefondsVlaams Gemeentefonds</a>
-            <AuButton
-              @skin="naked"
-              @icon="three-dots"
-              @hideText={{true}}
-            />
-          </li>
-        </ul>
-      </div>
+      {{#if @model.length}}
+        <div class="favorites-container au-u-margin-top-large">
+          <AuHeading @level="2" @skin="3">Favorieten</AuHeading>
+          <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
+            {{#each @model as |product|}}
+              <li class="favorite-card">
+                <AuIcon @icon='star-filled' />
+                <LinkTo
+                  @route="products.product"
+                  @model={{product.id}}
+                  class="favorite-title au-u-medium">
+                  {{product.name.default}}
+                </LinkTo>
+                <AuLink
+                  @skin="button-naked"
+                  @icon="three-dots"
+                  @route="products.product"
+                  @model={{product.id}}
+                  @hideText={{true}} />
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
     </section>
   </AuBodyContainer>
 </LayoutHome>
