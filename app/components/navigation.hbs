@@ -3,7 +3,7 @@
     <AuButton
       {{this.reference}}
       aria-haspopup="true"
-      aria-expanded="{{if this.dropdownOpen 'true' 'false'}}"
+      aria-expanded="{{if this.dropdownOpen "true" "false"}}"
       class="c-navigation__button"
       @skin="naked"
       type="button"
@@ -12,11 +12,7 @@
       <div class="c-navigation__trigger">
         <AuIcon @icon="tiles" @iconAlignment="left" />
       </div>
-      {{#if (eq this.activeRoute "dashboard.index")}}
-        Alle diensten
-      {{else if (eq this.activeRoute "dashboard.favorites")}}
-        Mijn favorieten
-      {{/if}}
+      {{this.activeTileLabel}}
     </AuButton>
     {{#if this.dropdownOpen}}
       <div
@@ -31,11 +27,13 @@
         {{on "click" this.closeDropdown}}
         class="c-navigation__dialog"
       >
-        <AuLink @route="dashboard.index" role="menuitem">
-          <AuIcon @icon="tiles" />Alle diensten
+        <AuLink @route="dashboard.index" @query={{hash isFavorite=false}} role="menuitem">
+          <AuIcon @icon="tiles" />
+          Alle diensten
         </AuLink>
-        <AuLink @route="dashboard.favorites" role="menuitem">
-          <AuIcon @icon="star-outline" />Mijn favorieten
+        <AuLink @route="dashboard.index" @query={{hash isFavorite=true}} role="menuitem">
+          <AuIcon @icon="star-outline" />
+          Mijn favorieten
         </AuLink>
       </div>
     {{/if}}
@@ -45,17 +43,20 @@
     <AuTabs @reversed={{this.reversed}} as |Tab|>
       <Tab>
         <AuLink @route="landing" role="menuitem">
-          <AuIcon @icon="subsidies" />Home
+          <AuIcon @icon="subsidies" />
+          Home
         </AuLink>
       </Tab>
       <Tab>
-        <AuLink @route="dashboard" role="menuitem">
-          <AuIcon @icon="tiles" />Alle diensten
+        <AuLink @route="dashboard.index" @query={{hash isFavorite=false}} role="menuitem">
+          <AuIcon @icon="tiles" />
+          Alle diensten
         </AuLink>
       </Tab>
       <Tab>
-        <AuLink @route="dashboard.favorites" role="menuitem">
-          <AuIcon @icon="star-outline" />Mijn favorieten
+        <AuLink @route="dashboard.index" @query={{hash isFavorite=true}} role="menuitem">
+          <AuIcon @icon="star-outline" />
+          Mijn favorieten
         </AuLink>
       </Tab>
     </AuTabs>

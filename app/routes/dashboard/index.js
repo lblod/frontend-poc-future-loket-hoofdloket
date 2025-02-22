@@ -28,6 +28,9 @@ export default class DashboardIndexRoute extends Route {
     authorities: {
       refreshModel: true
     },
+    isFavorite: {
+      refreshModel: true
+    },
     sortBy: {
       refreshModel: true
     }
@@ -51,6 +54,10 @@ export default class DashboardIndexRoute extends Route {
     this.searchTerm = params.searchTerm;
     if (isPresent(params.searchTerm)) {
       queryOptions['filter'] = params.searchTerm;
+    }
+
+    if (params.isFavorite) {
+      queryOptions['filter'] = 'test'; // TODO replace with filter on favorite
     }
 
     // these params are filters for conceptSchemes that are referred to

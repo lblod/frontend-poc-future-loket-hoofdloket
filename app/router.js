@@ -11,7 +11,7 @@ Router.map(function () {
   this.route('login');
   this.route('landing');
   this.route('dashboard', function () {
-    this.route('favorites');
+
   });
 
   externalRoute(this);

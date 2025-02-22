@@ -17,12 +17,14 @@ export default class DashboardIndexController extends Controller {
 
   @tracked page = 0;
   @tracked size = 25;
+  @tracked sortBy;
   @tracked searchTerm;
   @tracked searchTermBuffer;
+  @tracked isFavorite = false;
+  // Array of record ids used as query param
   @tracked types = [];
   @tracked themes = [];
   @tracked authorities = [];
-  @tracked sortBy;
   // set in Route `setupController`
   @tracked themeRecords;
   @tracked typeRecords;

@@ -8,10 +8,16 @@ export default class NavigationComponent extends Component {
   @service router;
   @tracked referenceElement = undefined;
   @tracked arrowElement = undefined;
-  @tracked dropdownOpen = false;
+  @tracked dropdownOpen = false
 
-  get activeRoute() {
-    return this.router.currentRouteName;
+  get activeTileLabel() {
+    if (this.router.currentRouteName == "dashboard.index") {
+      return this.router.currentRoute.queryParams.isFavorite
+        ? "Mijn favorieten"
+        : "Alle diensten"
+    } else {
+      return this.router.currentRouteName;
+    }
   }
 
   reference = modifier(
@@ -41,11 +47,7 @@ export default class NavigationComponent extends Component {
 
   @action
   toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-
-    if (!this.dropdownOpen) {
-      this.args.onClose?.();
-    }
+    this.dropdownOpen ? this.closeDropdown() : this.openDropdown();
   }
 
   @action
