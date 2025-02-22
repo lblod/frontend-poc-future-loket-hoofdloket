@@ -89,7 +89,9 @@
             <AuList as |listitem|>
               {{#each @model as |publicService|}}
                 <listitem>
-                  <IpdcServiceCard @model={{publicService}} />
+                  <IpdcServiceCard
+                    @model={{publicService}}
+                    @onClick={{this.openDetail}} />
                 </listitem>
               {{else}}
                 <AuAlert
@@ -111,61 +113,5 @@
     </m.content>
   </AuMainContainer>
 
-  <div class="overlay-container au-u-hidden">
-    <div {{on "click" this.closePanel}} class="overlay"></div>
-    <div class="dossier-container">
-      <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
-        <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny">
-          <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-            <Favorite @active={{@model.favorite}} />
-            <h1 class="au-u-h3">Naam van de dienst</h1>
-          </div>
-          <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--wrap">
-            <AuPill @skin="warning" @size="small">Deadline: 01-01-2024</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-            <AuPill @skin="border" @size="small">Label</AuPill>
-        </div>
-      </div>
-      <AuLink
-        @skin="button-naked"
-        @route="products"
-        @icon="cross"
-        @iconAlignment="right"
-        {{on "click" this.closePanel}}
-      >
-        Sluiten
-      </AuLink>
-    </div>
-
-    <div class="au-o-flow--tiny au-u-margin-bottom">
-      <AuButton
-        @icon="external-link"
-        @iconAlignment="right"
-        class="au-u-margin-bottom-small"
-      >
-        Primary link
-      </AuButton>
-      <p>Het Gemeentefonds zorgt voor een basisfinanciering van de gemeenten en OCMW's en een herverdeling van middelen van meer draagkrachtige naar minder draagkrachtige gemeenten. De gemeenten en OCMW's beslissen autonoom over de aanwending van deze financieringsmiddelen, hetzij voor de financiering van reguliere uitgaven, hetzij voor hun investeringsbeleid. Het Gemeentefonds omvat een hoofddotatie en aanvullende dotaties voor:</p>
-        <ul class="au-u-bullet-list">
-          <li>de centrumsteden</li>
-          <li>de Eliacompensatie</li>
-          <li>de integratie van een aantal sectorale subsidies</li>
-          <li>de overname van provinciale instellingen door enkele gemeenten.</li>
-        </ul>
-        </div>
-
-        <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny au-u-margin-bottom">
-          <AuLink>Link 1</AuLink>
-          <AuLink>Link 2</AuLink>
-        </div>
-        </div>
-  </div>
-
+  {{outlet}}
 </LayoutDashboard>
-
-{{outlet}}
