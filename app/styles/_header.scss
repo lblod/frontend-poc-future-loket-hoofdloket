@@ -31,7 +31,7 @@
 }
 
 .au-c-main-header .au-c-brand__logo {
-  background-color: var(--au-yellow-300);
+  // background-color: var(--au-yellow-300);
 
   &:after {
     display: none;
@@ -56,6 +56,7 @@
   line-height: 4.2rem;
   margin-left: $au-unit-small;
   overflow: visible;
+  background-color: var(--brand-color);
 
   &:after {
     content: "";
@@ -67,6 +68,7 @@
     border-top: 0 solid transparent;
     border-bottom: 43px solid transparent;
     border-right: 13.5px solid var(--au-yellow-300);
+    border-right: 13.5px solid var(--brand-color);
     transition: border-color 0.2s ease-in-out;
   }
 
@@ -78,14 +80,16 @@
   &,
   &:visited {
     background-color: var(--au-yellow-300);
-    color: var(--au-gray-900);
+    background-color: var(--brand-color);
+    // color: var(--au-gray-900);
   }
 
   &:hover,
   &:focus {
-    color: var(--au-gray-900);
+    // color: var(--au-gray-900);
     text-decoration: underline;
     background-color: var(--au-yellow-300);
+    background-color: var(--brand-color);
   }
 }
 

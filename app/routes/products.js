@@ -1,12 +1,11 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import { isPresent } from '@ember/utils';
-import { startOfMonth, endOfMonth, startOfQuarter, endOfQuarter } from 'date-fns';
-import constants from '../../config/constants';
+import constants from '../config/constants';
 
 const { TARGET_AUDIENCES } = constants;
 
-export default class DashboardIndexRoute extends Route {
+export default class ProductsRoute extends Route {
   @service store;
 
   queryParams = {
@@ -28,7 +27,7 @@ export default class DashboardIndexRoute extends Route {
     authorities: {
       refreshModel: true
     },
-    deadline: {
+    isFavorite: {
       refreshModel: true
     },
     sortBy: {
@@ -56,6 +55,10 @@ export default class DashboardIndexRoute extends Route {
       queryOptions['filter'] = params.searchTerm;
     }
 
+    if (params.isFavorite) {
+      queryOptions['filter'] = 'test'; // TODO replace with filter on favorite
+    }
+
     // these params are filters for conceptSchemes that are referred to
     // by the actual concept via 'broader'
     this.themeRecords = [];
@@ -80,19 +83,6 @@ export default class DashboardIndexRoute extends Route {
         params.types.map((id) => this.store.findRecord('concept', id))
       );
       queryOptions['filter[type][broader][:id:]'] = this.typeRecords.map((c) => c.id).join(',');
-    }
-
-    if (params.deadline.length) {
-      const now = new Date();
-      if (params.deadline.includes('quarter')) {
-        queryOptions['filter[:gte:end-date]'] = startOfQuarter(now).toISOString();
-        queryOptions['filter[:lte:end-date]'] = endOfQuarter(now).toISOString();
-      } else if (params.deadline.includes('month')) {
-        queryOptions['filter[:gte:end-date]'] = startOfMonth(now).toISOString();
-        queryOptions['filter[:lte:end-date]'] = endOfMonth(now).toISOString();
-      } else if (params.deadline.includes('passed')) {
-        queryOptions['filter[:lte:end-date]'] = now.toISOString();
-      }
     }
 
     if (params.sortBy) {
