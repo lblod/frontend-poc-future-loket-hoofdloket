@@ -11,7 +11,7 @@ export default class NavigationComponent extends Component {
   @tracked dropdownOpen = false
 
   get activeTileLabel() {
-    if (this.router.currentRouteName == "dashboard.index") {
+    if (this.router.currentRouteName.startsWith("products")) {
       return this.router.currentRoute.queryParams.isFavorite
         ? "Mijn favorieten"
         : "Alle diensten"

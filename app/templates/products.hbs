@@ -1,0 +1,171 @@
+{{page-title "Diensten"}}
+
+<LayoutDashboard @loggedIn={{true}}>
+  <NavigationHeader />
+
+  <AuMainContainer as |m|>
+    <m.sidebar>
+    <Sidebar>
+      <div class="au-c-sidebar__content">
+        <p class="au-u-margin-left-small au-u-margin-top-small au-c-label">
+          Filters
+        </p>
+        <div class="au-o-box au-o-box--small">
+          <ConceptSchemeFilter
+            @conceptScheme={{this.themeConceptScheme}}
+            @selected={{this.themeRecords}}
+            @onChange={{this.updateThemeFilter}}
+            @label="Thematisch"
+            @isOpenInitially={{true}} />
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <ConceptSchemeFilter
+            @conceptScheme={{this.serviceTypeConceptScheme}}
+            @selected={{this.typeRecords}}
+            @onChange={{this.updateServiceTypeFilter}}
+            @label="Type"
+            @isOpenInitially={{not (is-empty this.typeRecords)}} />
+        </div>
+        <div class="au-o-box au-o-box--small">
+          <ConceptSchemeFilter
+            @conceptScheme={{this.authorityConceptScheme}}
+            @selected={{this.authorityRecords}}
+            @onChange={{this.updateAuthorityLevelFilter}}
+            @label="Aanbieder"
+            @isOpenInitially={{not (is-empty this.authorityRecords)}} />
+        </div>
+      </div>
+    </Sidebar>
+    </m.sidebar>
+    <m.content>
+      <AuBodyContainer class="au-u-background-gray-100" >
+        <div class="c-search-sort-container au-o-box au-o-box--small">
+          <div class="c-search-container au-u-flex au-u-flex--spaced-small au-u-flex--vertical-end au-u-flex--wrap">
+            <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-small">
+              <div>
+                <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-center au-u-margin-bottom-small">
+                  <div class="c-search-icon-container">
+                    <AuIcon @icon="search" />
+                  </div>
+                  <AuLabel for="search">Wat zoek je?</AuLabel>
+                </div>
+                <AuInput
+                  id="search"
+                  value={{this.searchTermBuffer}}
+                  @width="block"
+                  {{on "input" this.updateSearchTermBuffer}}
+                  placeholder="Zoek op naam, beschrijving of thema van een product of dienst" />
+              </div>
+              {{#if this.searchTerm}}
+                <AuButton
+                  @skin="secondary"
+                  {{on "click" this.resetSearch}}>
+                  <AuIcon @icon="cross" />
+                  <span class="au-u-hidden-visually">close</span>
+                </AuButton>
+              {{/if}}
+              <AuButton type="submit" @icon="search">
+                Zoek
+              </AuButton>
+            </form>
+            <div class="au-u-margin-bottom-tiny au-u-margin-right-tiny">
+              {{#if this.searchTerm}}
+                <p class="au-u-h6">{{@model.meta.count}} resultaten voor <strong>'{{this.searchTerm}}'</strong></p>
+              {{else}}
+                <p class="au-u-h6">{{@model.meta.count}} diensten</p>
+              {{/if}}
+            </div>
+          </div>
+          <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--vertical-baseline">
+            <AuSelect
+              @label="Gesorteerd op:"
+              @selection={{this.sortBy}}
+              @options={{this.sortingOptions}}
+              @onChange={{this.updateSorting}} />
+          </div>
+        </div>
+        <AuBodyContainer @scroll={{true}}>
+          <div class="au-o-box au-o-box--small">
+            <AuList as |listitem|>
+              {{#each @model as |publicService|}}
+                <listitem>
+                  <IpdcServiceCard @model={{publicService}} />
+                </listitem>
+              {{else}}
+                <AuAlert
+                  @title="Niet gevonden wat je zocht?"
+                  @icon="circle-question">
+                  <p>Laat ons weten welke diensten je mist op <a href="#!" class="au-c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
+                </AuAlert>
+              {{/each}}
+            </AuList>
+          </div>
+        </AuBodyContainer>
+        <Pagination
+          @page={{this.page}}
+          @size={{this.size}}
+          @total={{this.model.meta.count}}
+          @onChange={{this.setPage}}
+          @onChangeSize={{this.setPageSize}} />
+      </AuBodyContainer>
+    </m.content>
+  </AuMainContainer>
+
+  <div class="overlay-container au-u-hidden">
+    <div {{on "click" this.closePanel}} class="overlay"></div>
+    <div class="dossier-container">
+      <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
+        <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny">
+          <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
+            <Favorite @active={{@model.favorite}} />
+            <h1 class="au-u-h3">Naam van de dienst</h1>
+          </div>
+          <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--wrap">
+            <AuPill @skin="warning" @size="small">Deadline: 01-01-2024</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+            <AuPill @skin="border" @size="small">Label</AuPill>
+        </div>
+      </div>
+      <AuLink
+        @skin="button-naked"
+        @route="products"
+        @icon="cross"
+        @iconAlignment="right"
+        {{on "click" this.closePanel}}
+      >
+        Sluiten
+      </AuLink>
+    </div>
+
+    <div class="au-o-flow--tiny au-u-margin-bottom">
+      <AuButton
+        @icon="external-link"
+        @iconAlignment="right"
+        class="au-u-margin-bottom-small"
+      >
+        Primary link
+      </AuButton>
+      <p>Het Gemeentefonds zorgt voor een basisfinanciering van de gemeenten en OCMW's en een herverdeling van middelen van meer draagkrachtige naar minder draagkrachtige gemeenten. De gemeenten en OCMW's beslissen autonoom over de aanwending van deze financieringsmiddelen, hetzij voor de financiering van reguliere uitgaven, hetzij voor hun investeringsbeleid. Het Gemeentefonds omvat een hoofddotatie en aanvullende dotaties voor:</p>
+        <ul class="au-u-bullet-list">
+          <li>de centrumsteden</li>
+          <li>de Eliacompensatie</li>
+          <li>de integratie van een aantal sectorale subsidies</li>
+          <li>de overname van provinciale instellingen door enkele gemeenten.</li>
+        </ul>
+        </div>
+
+        <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny au-u-margin-bottom">
+          <AuLink>Link 1</AuLink>
+          <AuLink>Link 2</AuLink>
+        </div>
+        </div>
+  </div>
+
+</LayoutDashboard>
+
+{{outlet}}

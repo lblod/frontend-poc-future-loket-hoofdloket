@@ -1,12 +1,11 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import { isPresent } from '@ember/utils';
-import { startOfMonth, endOfMonth, startOfQuarter, endOfQuarter } from 'date-fns';
-import constants from '../../config/constants';
+import constants from '../config/constants';
 
 const { TARGET_AUDIENCES } = constants;
 
-export default class DashboardIndexRoute extends Route {
+export default class ProductsRoute extends Route {
   @service store;
 
   queryParams = {

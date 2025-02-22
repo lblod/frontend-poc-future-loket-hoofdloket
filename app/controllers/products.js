@@ -1,11 +1,11 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import constants from '../../config/constants';
+import constants from '../config/constants';
 
 const { CONCEPT_SCHEMES } = constants;
 
-export default class DashboardIndexController extends Controller {
+export default class ProductsController extends Controller {
   serviceTypeConceptScheme = CONCEPT_SCHEMES.SERVICE_TYPE_FILTER;
   themeConceptScheme = CONCEPT_SCHEMES.THEME_FILTER;
   authorityConceptScheme = CONCEPT_SCHEMES.COMPETENT_AUTHORITY_FILTER;
