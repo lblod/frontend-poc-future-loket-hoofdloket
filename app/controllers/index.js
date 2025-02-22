@@ -15,7 +15,8 @@ export default class IndexController extends Controller {
     this.router.transitionTo('products', {
       queryParams: {
         page: 0,
-        searchTerm: this.searchTerm
+        searchTerm: this.searchTerm,
+        isFavorite: false
       }
     });
   }
