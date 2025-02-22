@@ -1,9 +1,10 @@
-{{page-title "Landing"}}
+{{page-title "Loket voor lokale besturen"}}
 
 <LayoutHome>
   <AuBodyContainer class="au-u-background-gray-100">
     <section class="c-landing">
       <div class="au-o-flow">
+        {{!-- TODO replace with user's organization name --}}
         <AuHeading @level="1" @skin="2">Gemeente Aalter</AuHeading>
         <p class="au-u-para landing-intro">Indien u toegang mist tot een van de modules in het loket, neem contact op met uw interne beheerder. Indien er zich een probleem voordoet met toegang, neem contact op met het gebruikersbeheer Vlaanderen.</p>
       </div>
@@ -14,10 +15,10 @@
             <AuLabel for="search">Wat zoek je?</AuLabel>
             <AuInput
               id="search"
-              value={{this.searchTermBuffer}}
+              value={{this.searchTerm}}
               placeholder="Zoek op naam, beschrijving of thema van een product of dienst"
               @width="block"
-              {{on "input" this.updateSearchTermBuffer}}
+              {{on "input" this.updateSearchTerm}}
             />
           </div>
           {{#if this.searchTerm}}
@@ -38,24 +39,9 @@
           </AuLink>
         </form>
         <div class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
-          <AuPill>
-            Suggestion
-          </AuPill>
-          <AuPill>
-            Suggestion
-          </AuPill>
-          <AuPill>
-            Suggestion
-          </AuPill>
-          <AuPill>
-            Suggestion
-          </AuPill>
-          <AuPill>
-            Suggestion
-          </AuPill>
-          <AuPill>
-            Suggestion
-          </AuPill>
+          {{#each this.suggestions as |suggestion|}}
+            <AuPill>{{suggestion}}</AuPill>
+          {{/each}}
         </div>
       </div>
 
