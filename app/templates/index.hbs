@@ -58,12 +58,19 @@
                   class="favorite-title au-u-medium">
                   {{product.name.default}}
                 </LinkTo>
-                <AuLink
+                {{!-- <AuLink
                   @skin="button-naked"
                   @icon="three-dots"
                   @route="products.product"
                   @model={{product.id}}
-                  @hideText={{true}} />
+                  @hideText={{true}} /> --}}
+
+                <AuLinkExternal
+                  href={{product.website.url}}
+                  @skin="naked"
+                  @icon="external-link"
+                  @iconAlignment="right">
+                </AuLinkExternal>
               </li>
             {{/each}}
           </ul>

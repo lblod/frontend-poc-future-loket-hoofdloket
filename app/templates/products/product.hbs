@@ -4,12 +4,19 @@
 <div class="overlay-container">
   <div {{on "click" this.closeDetail}} class="overlay"></div>
     <div class="dossier-container">
-      <div class="au-u-flex au-u-flex--between au-u-margin-bottom">
+      <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny au-u-margin-bottom">
+        <div class="au-u-flex au-u-flex--between">
+          <Favorite @active={{@model.favorite}} />
+          <AuLink
+            @skin="button-naked"
+            @route="products"
+            @icon="cross"
+            @iconAlignment="right">
+            Sluiten
+          </AuLink>
+        </div>
         <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny">
-          <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-            <Favorite @active={{@model.favorite}} />
-            <h1 class="au-u-h3">{{@model.name.default}}</h1>
-          </div>
+          <h1 class="au-u-h3">{{@model.name.default}}</h1>
           <div class="au-u-flex au-u-flex--spaced-tiny au-u-flex--wrap">
             {{#if @model.endDate}}
               <AuPill @skin="warning" @size="small">Deadline: {{format-date @model.endDate}}</AuPill>
@@ -38,13 +45,6 @@
             {{/if}}
           </div>
         </div>
-        <AuLink
-          @skin="button-naked"
-          @route="products"
-          @icon="cross"
-          @iconAlignment="right">
-          Sluiten
-        </AuLink>
       </div>
 
     <div class="au-o-flow--tiny au-u-margin-bottom">
