@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    {{#if @model.length}}
+    {{!-- {{#if @model.length}}
       <div class="favorites-container au-u-margin-top-large">
         <AuHeading @level="2" @skin="3">Favorieten</AuHeading>
         <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
@@ -59,12 +59,6 @@
                 class="favorite-title au-u-medium">
                 {{product.name.default}}
               </LinkTo>
-              {{!-- <AuLink
-                @skin="button-naked"
-                @icon="three-dots"
-                @route="products.product"
-                @model={{product.id}}
-                @hideText={{true}} /> --}}
 
               <AuLinkExternal
                 href={{product.website.url}}
@@ -76,7 +70,114 @@
           {{/each}}
         </ul>
       </div>
-    {{/if}}
+    {{/if}} --}}
+
+    <div class="favorites-container au-u-margin-top-large">
+        <AuHeading @level="2" @skin="3">Favorieten</AuHeading>
+        <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <AuLinkExternal
+              @skin="naked"
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/berichtencentrum"
+              class="favorite-title au-u-medium">
+              Berichtencentrum
+            </AuLinkExternal>
+
+            <AuLinkExternal
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/berichtencentrum"
+              @skin="naked"
+              @icon="external-link"
+              @iconAlignment="right">
+            </AuLinkExternal>
+          </li>
+
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <AuLinkExternal
+              @skin="naked"
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/beleids-en-beheerscyclus-digitale-rapportering-bbc-dr"
+              class="favorite-title au-u-medium">
+              BBC-DR
+            </AuLinkExternal>
+
+            <AuLinkExternal
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/beleids-en-beheerscyclus-digitale-rapportering-bbc-dr"
+              @skin="naked"
+              @icon="external-link"
+              @iconAlignment="right">
+            </AuLinkExternal>
+          </li>
+
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <AuLinkExternal
+              @skin="naked"
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/mandatenbeheer-lokale-besturen"
+              class="favorite-title au-u-medium">
+              Mandatenbeheer
+            </AuLinkExternal>
+
+            <AuLinkExternal
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/mandatenbeheer-lokale-besturen"
+              @skin="naked"
+              @icon="external-link"
+              @iconAlignment="right">
+            </AuLinkExternal>
+          </li>
+
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <AuLinkExternal
+              @skin="naked"
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/subsidiebeheer"
+              class="favorite-title au-u-medium">
+              SubsidiePunt
+            </AuLinkExternal>
+
+            <AuLinkExternal
+              href="https://www.vlaanderen.be/lokaal-bestuur/loket-voor-lokale-besturen/subsidiebeheer"
+              @skin="naked"
+              @icon="external-link"
+              @iconAlignment="right">
+            </AuLinkExternal>
+          </li>
+
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <AuLinkExternal
+              @skin="naked"
+              href="https://www.vlaanderen.be/lokaal-bestuur/data-en-tools/databank-erediensten"
+              class="favorite-title au-u-medium">
+              Databank Erediensten
+            </AuLinkExternal>
+
+            <AuLinkExternal
+              href="https://www.vlaanderen.be/lokaal-bestuur/data-en-tools/databank-erediensten"
+              @skin="naked"
+              @icon="external-link"
+              @iconAlignment="right">
+            </AuLinkExternal>
+          </li>
+
+          <li class="favorite-card">
+            <AuIcon @icon='star-filled' />
+            <AuLinkExternal
+              @skin="naked"
+              href="https://www.vlaanderen.be/lokaal-bestuur/organisatie-en-werking/loket-voor-lokale-besturen"
+              class="favorite-title au-u-medium">
+              Verenigingen
+            </AuLinkExternal>
+
+            <AuLinkExternal
+              href="https://www.vlaanderen.be/lokaal-bestuur/organisatie-en-werking/loket-voor-lokale-besturen"
+              @skin="naked"
+              @icon="external-link"
+              @iconAlignment="right">
+            </AuLinkExternal>
+          </li>
+        </ul>
+      </div>
   </section>
 </AuBodyContainer>
 
