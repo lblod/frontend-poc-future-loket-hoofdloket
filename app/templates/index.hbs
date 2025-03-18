@@ -10,36 +10,40 @@
       <p class="au-u-para landing-intro">Indien je toegang mist tot een van de modules in het loket, neem contact op met je interne beheerder. Indien er zich een probleem voordoet met toegang, neem contact op met het gebruikersbeheer Vlaanderen.</p>
     </div>
 
-    <div class="search-container au-u-margin-top-large">
-      <form {{on "submit" this.search}} class="c-navigation-search">
-        <div>
-          <AuLabel for="search">Wat zoek je?</AuLabel>
-          <AuInput
-            id="search"
-            value={{this.searchTerm}}
-            placeholder="Zoek op naam, beschrijving of thema van een product of dienst"
-            @width="block"
-            {{on "input" this.updateSearchTerm}}
-          />
+    <div class="c-main-search-container au-u-margin-top">
+      <div class="c-search-sort-container">
+        <div class="c-search-container">
+          <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-small">
+            <div>
+              <div class="c-search-icon-label">
+                <div class="c-search-icon-container">
+                  <AuIcon @icon="search" />
+                </div>
+                <AuLabel for="search">Wat zoek je?</AuLabel>
+              </div>
+              <AuInput
+                id="search"
+                value={{this.searchTermBuffer}}
+                @width="block"
+                {{on "input" this.updateSearchTermBuffer}}
+                placeholder="Zoek op naam, beschrijving of thema van een product of dienst"
+              />
+            </div>
+            {{#if this.searchTerm}}
+              <AuButton
+                @skin="secondary"
+                {{on "click" this.resetSearch}}>
+                <AuIcon @icon="cross" />
+                <span class="au-u-hidden-visually">close</span>
+              </AuButton>
+            {{/if}}
+            <AuButton type="submit" @icon="search">
+              Zoek
+            </AuButton>
+          </form>
         </div>
-        {{#if this.searchTerm}}
-          <AuButton
-            @skin="secondary"
-            {{on "click" this.resetSearch}}>
-            <AuIcon @icon="cross" />
-            <span class="au-u-hidden-visually">close</span>
-          </AuButton>
-        {{/if}}
-        <AuLink
-          @route="products"
-          @skin="button"
-          @icon="search"
-          @iconAlignment="left"
-        >
-          Zoek
-        </AuLink>
-      </form>
-      <div class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny">
+      </div>
+      <div class="c-suggestions-container">
         {{#each this.suggestions as |suggestion|}}
           <AuPill>{{suggestion}}</AuPill>
         {{/each}}
