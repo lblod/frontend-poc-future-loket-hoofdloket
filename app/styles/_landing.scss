@@ -38,6 +38,12 @@
   .au-c-button{
     margin-left: auto;
   }
+
+  &:hover {
+    color: var(--au-blue-700);
+    background-color: var(--au-blue-100);
+    border-color: var(--au-blue-300);
+  }
 }
 
 .favorite-title{

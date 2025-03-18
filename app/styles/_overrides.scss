@@ -169,6 +169,8 @@
 
   &:hover {
     box-shadow: 0 0 12px rgba(33,35,38,.1),0 0 2px rgba(33,35,38,.1);
+    background-color: var(--au-blue-100);
+    border-color: var(--au-blue-300);
   }
 }
 
