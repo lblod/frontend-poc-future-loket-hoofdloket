@@ -83,8 +83,12 @@
 
         <AuBodyContainer @scroll={{true}}>
           <div class="au-o-box au-o-box--small">
-            <AuHeading @level="2" @skin="4" class="au-u-margin-bottom-small">
-              Resultaten voor "{{this.searchTerm}}"
+            <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-margin-bottom-small">
+              {{#if this.searchTerm}}
+                {{@model.meta.count}} resultaten voor "{{this.searchTerm}}"
+              {{else}}
+                {{@model.meta.count}} diensten
+              {{/if}}
             </AuHeading>
             <AuList as |listitem|>
               {{#each @model as |publicService|}}
