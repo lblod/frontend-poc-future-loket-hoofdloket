@@ -1,9 +1,14 @@
 .c-landing{
   --inner-max-width: 680px;
   width: 100%;
-  max-width: 950px;
-  margin: 4rem auto;
-  padding: 1rem;
+  padding: 4rem 0 0 0;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: minmax(1.2rem, 1fr) minmax(300px, 950px) minmax(1.2rem, 1fr);
+}
+
+.c-landing > *{
+  grid-column: 2 / 3;
 }
 
 .landing-intro,
@@ -32,6 +37,12 @@
 
   .au-c-button{
     margin-left: auto;
+  }
+
+  &:hover {
+    color: var(--au-blue-700);
+    background-color: var(--au-blue-100);
+    border-color: var(--au-blue-300);
   }
 }
 

@@ -14,7 +14,7 @@
   </AuButton>
   {{#if this.dropdownOpen}}
     <div
-      id="account" 
+      id="account"
       role="menu"
       {{focus-trap
         shouldSelfFocus=true
@@ -31,11 +31,12 @@
       </div>
       <AuContent class="c-account-dropdown__content">
         <AuList @divider={{true}} as |item|>
-          {{!-- <item>
-            <AuLink @route="settings" @icon="settings" role="menuitem">
-              Instellingen
+          <item>
+            <AuLink @route="login" role="menuitem">
+              <AuIcon @icon="synchronize" />
+              Wisselen van account
             </AuLink>
-          </item> --}}
+          </item>
           <item>
             <AuLink @route="login" role="menuitem">
               <AuIcon @icon="exit" />

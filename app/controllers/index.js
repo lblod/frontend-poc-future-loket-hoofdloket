@@ -7,7 +7,7 @@ export default class IndexController extends Controller {
   @service router;
 
   @tracked searchTerm;
-  suggestions = ["Suggestion", "Suggestion", "Suggestion", "Suggestion"];
+  suggestions = ["jeugddecreet", "immaterieel erfgoed", "investeringssubsidie", "projectsubsidie"];
 
   @action
   search(e) {
