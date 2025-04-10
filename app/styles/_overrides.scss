@@ -338,12 +338,9 @@
 
 .au-c-sidebar {
   @include mq($au-main-container-breakpoint) {
-    margin: $au-unit-small;
     margin-right: 0;
-    border-radius: $au-radius;
-    border: 1px solid var(--au-gray-300);
-    height: calc(100% - #{$au-unit});
-    background-color: var(--au-gray-200);
+    height: 100%;
+    background-color: var(--au-gray-100);
   }
 
   @include mq($until: $au-main-container-breakpoint) {
