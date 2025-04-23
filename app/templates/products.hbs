@@ -38,7 +38,7 @@
     </Sidebar>
     </m.sidebar>
     <m.content>
-      <AuBodyContainer class="au-u-background-gray-100" >
+      <AuBodyContainer>
         <div class="c-main-search-container au-u-margin-small">
           <div class="c-search-sort-container">
             <div class="c-search-container">
@@ -82,30 +82,28 @@
         </div>
 
         <AuBodyContainer @scroll={{true}}>
-          <div class="au-o-box au-o-box--small">
-            <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-margin-bottom-small">
-              {{#if this.searchTerm}}
-                {{@model.meta.count}} resultaten voor "{{this.searchTerm}}"
-              {{else}}
-                {{@model.meta.count}} diensten
-              {{/if}}
-            </AuHeading>
-            <AuList as |listitem|>
-              {{#each @model as |publicService|}}
-                <listitem>
-                  <IpdcServiceCard
-                    @model={{publicService}}
-                    @onClick={{this.openDetail}} />
-                </listitem>
-              {{else}}
-                <AuAlert
-                  @title="Niet gevonden wat je zocht?"
-                  @icon="circle-question">
-                  <p>Laat ons weten welke diensten je mist op <a href="#!" class="au-c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
-                </AuAlert>
-              {{/each}}
-            </AuList>
-          </div>
+          <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-margin-bottom-small">
+            {{#if this.searchTerm}}
+              {{@model.meta.count}} resultaten voor "{{this.searchTerm}}"
+            {{else}}
+              {{@model.meta.count}} diensten
+            {{/if}}
+          </AuHeading>
+          <AuList class="c-overview-cards-list" as |listitem|>
+            {{#each @model as |publicService|}}
+              <listitem>
+                <IpdcServiceCard
+                  @model={{publicService}}
+                  @onClick={{this.openDetail}} />
+              </listitem>
+            {{else}}
+              <AuAlert
+                @title="Niet gevonden wat je zocht?"
+                @icon="circle-question">
+                <p>Laat ons weten welke diensten je mist op <a href="#!" class="au-c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
+              </AuAlert>
+            {{/each}}
+          </AuList>
         </AuBodyContainer>
         <Pagination
           @page={{this.page}}
