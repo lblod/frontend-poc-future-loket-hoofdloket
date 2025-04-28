@@ -94,8 +94,7 @@
   flex-direction: column;
   padding: 1.8rem;
   box-shadow: 0 0 12px rgba(33, 35, 38, 0);
-  background-color: var(--au-white);
-  border: 0.1rem solid var(--au-gray-200);
+  border-bottom: 0.1rem solid var(--au-gray-200);
   border-radius: 0;
   background-color: var(--au-gray-100);
 
@@ -113,6 +112,7 @@
 .c-landing > .c-main-search-container{
   background-color: var(--au-white);
   border-radius: var(--au-radius);
+  border: 0.1rem solid var(--au-gray-200);
 }
 
 .c-search-sort-container{
