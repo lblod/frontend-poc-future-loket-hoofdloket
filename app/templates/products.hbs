@@ -39,7 +39,7 @@
     </m.sidebar>
     <m.content>
       <AuBodyContainer>
-        <div class="c-main-search-container au-u-margin-bottom-small">
+        <div class="c-main-search-container">
           <div class="c-search-sort-container">
             <div class="c-search-container">
               <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-small">
@@ -82,7 +82,7 @@
         </div>
 
         <AuBodyContainer @scroll={{true}}>
-          <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-margin-bottom-small">
+          <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-padding-top-small au-u-margin-bottom-small">
             {{#if this.searchTerm}}
               {{@model.meta.count}} resultaten voor "{{this.searchTerm}}"
             {{else}}
