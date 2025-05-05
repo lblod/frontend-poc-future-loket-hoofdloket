@@ -3,7 +3,7 @@ import { service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import constants from '../config/constants';
 
-const { TARGET_AUDIENCES } = constants;
+const { EXECUTING_AUTHORITY_LEVELS, TARGET_AUDIENCES } = constants;
 
 export default class ProductsRoute extends Route {
   @service store;
@@ -36,7 +36,8 @@ export default class ProductsRoute extends Route {
   };
 
   async model(params) {
-    const targetAudiences = await Promise.all([
+    const [executingAuthorityLevel, ...targetAudiences] = await Promise.all([
+      this.store.findRecordByUri('concept', EXECUTING_AUTHORITY_LEVELS.FLEMISH),
       this.store.findRecordByUri('concept', TARGET_AUDIENCES.LOCAL_GOVERNMENT),
       this.store.findRecordByUri('concept', TARGET_AUDIENCES.ORGANIZATION)
     ]);
@@ -47,6 +48,7 @@ export default class ProductsRoute extends Route {
         number: params.page,
         size: params.size
       },
+      'filter[executing-authority-levels][:id:]': executingAuthorityLevel.id,
       'filter[target-audiences][:id:]': targetAudiences.map((c) => c.id).join(','),
     };
 

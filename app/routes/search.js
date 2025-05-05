@@ -4,7 +4,7 @@ import { isPresent } from '@ember/utils';
 import constants from '../config/constants';
 import search, { langStringResourceFormat } from '../utils/mu-search';
 
-const { TARGET_AUDIENCES } = constants;
+const { EXECUTING_AUTHORITY_LEVELS, TARGET_AUDIENCES } = constants;
 
 export default class SearchRoute extends Route {
   @service store;
@@ -38,12 +38,14 @@ export default class SearchRoute extends Route {
   };
 
   async model(params) {
-    const targetAudiences = await Promise.all([
+    const [executingAuthorityLevel, ...targetAudiences] = await Promise.all([
+      this.store.findRecordByUri('concept', EXECUTING_AUTHORITY_LEVELS.FLEMISH),
       this.store.findRecordByUri('concept', TARGET_AUDIENCES.LOCAL_GOVERNMENT),
       this.store.findRecordByUri('concept', TARGET_AUDIENCES.ORGANIZATION)
     ]);
 
     const filter = {
+      'executingAuthorityLevels.uuid': executingAuthorityLevel.id,
       'targetAudiences.uuid': targetAudiences.map((c) => c.id).join(','),
     };
 
@@ -92,7 +94,7 @@ export default class SearchRoute extends Route {
           const dateStr = product[attr];
           product[attr] = dateStr ? new Date(Date.parse(dateStr)) : null;
         });
-        ['thematicAreas', 'componentAuthorityLevels'].forEach((attr) => {
+        ['thematicAreas', 'executingAuthorityLevels', 'componentAuthorityLevels', 'targetAudiences'].forEach((attr) => {
           const value = product[attr];
           product[attr] = value
             ? Array.isArray(value) ? value : [value]
