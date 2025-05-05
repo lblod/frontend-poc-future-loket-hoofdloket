@@ -38,7 +38,14 @@ export default class SearchRoute extends Route {
   };
 
   async model(params) {
-    const filter = {};
+    const targetAudiences = await Promise.all([
+      this.store.findRecordByUri('concept', TARGET_AUDIENCES.LOCAL_GOVERNMENT),
+      this.store.findRecordByUri('concept', TARGET_AUDIENCES.ORGANIZATION)
+    ]);
+
+    const filter = {
+      'targetAudiences.uuid': targetAudiences.map((c) => c.id).join(','),
+    };
 
     this.searchTerm = params.searchTerm;
     filter[':sqs:name.nl^3,description.nl'] = isPresent(params.searchTerm)
