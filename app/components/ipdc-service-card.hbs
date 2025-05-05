@@ -18,23 +18,11 @@
           {{/if}}
           {{#if @model.thematicAreas}}
             {{#each @model.thematicAreas as |theme|}}
-              {{#let (load theme.broader) as |parents|}}
-                {{#if parents.isResolved}}
-                  <AuPill @skin="border" @size="small">
-                    {{get (get parents.value 0) "label"}}
-                  </AuPill>
-                {{/if}}
-              {{/let}}
+              <BroaderConceptPills @uri={{theme.uri}} />
             {{/each}}
           {{/if}}
           {{#if @model.type}}
-            {{#let (load @model.type.broader) as |parents|}}
-              {{#if parents.isResolved}}
-                <AuPill @skin="border" @size="small">
-                  {{get (get parents.value 0) "label"}}
-                </AuPill>
-              {{/if}}
-            {{/let}}
+            <BroaderConceptPills @uri={{@model.type.uri}} />
           {{/if}}
         </div>
       </div>

@@ -12,7 +12,7 @@ export default class IndexController extends Controller {
   @action
   search(e) {
     e.preventDefault();
-    this.router.transitionTo('products', {
+    this.router.transitionTo('search', {
       queryParams: {
         page: 0,
         searchTerm: this.searchTerm,
