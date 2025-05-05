@@ -15,7 +15,7 @@ export default class SearchController extends Controller {
 
   sortingOptions = [
     { label: 'Relevantie', value: 'score' },
-    { label: 'A-Z (oplopend)', value: 'name.nl' },
+    { label: 'A-Z (oplopend)', value: 'name.nl.raw' },
     { label: 'Nieuwste', value: '-date-created' },
   ];
 

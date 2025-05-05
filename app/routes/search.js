@@ -50,7 +50,7 @@ export default class SearchRoute extends Route {
     };
 
     this.searchTerm = params.searchTerm;
-    filter[':sqs:name.nl^3,description.nl'] = isPresent(params.searchTerm)
+    filter[':sqs:name.nl^5,description.nl^2,thematicAreas.label'] = isPresent(params.searchTerm)
       ? params.searchTerm
       : '*';
 
