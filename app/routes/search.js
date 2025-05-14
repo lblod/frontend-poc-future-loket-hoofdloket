@@ -38,15 +38,14 @@ export default class SearchRoute extends Route {
   };
 
   async model(params) {
-    const [executingAuthorityLevel, ...targetAudiences] = await Promise.all([
+    const [executingAuthorityLevel, targetAudience] = await Promise.all([
       this.store.findRecordByUri('concept', EXECUTING_AUTHORITY_LEVELS.FLEMISH),
       this.store.findRecordByUri('concept', TARGET_AUDIENCES.LOCAL_GOVERNMENT),
-      this.store.findRecordByUri('concept', TARGET_AUDIENCES.ORGANIZATION)
     ]);
 
     const filter = {
       'executingAuthorityLevels.uuid': executingAuthorityLevel.id,
-      'targetAudiences.uuid': targetAudiences.map((c) => c.id).join(','),
+      'targetAudiences.uuid': targetAudience.id,
     };
 
     this.searchTerm = params.searchTerm;
