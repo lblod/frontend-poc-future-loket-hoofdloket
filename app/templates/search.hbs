@@ -39,7 +39,7 @@
     </m.sidebar>
     <m.content>
       <AuBodyContainer>
-        <div class="c-main-search-container au-u-margin-small">
+        <div class="c-main-search-container">
           <div class="c-search-sort-container">
             <div class="c-search-container">
               <form {{on "submit" this.search}} class="c-navigation-search au-u-max-width-small">
@@ -82,7 +82,7 @@
         </div>
 
         <AuBodyContainer @scroll={{true}}>
-          <div class="au-o-box au-o-box--small">
+          <div>
             <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-padding-top-small au-u-margin-bottom-small">
               {{#if this.searchTerm}}
                 {{@model.meta.count}} resultaten voor "{{this.searchTerm}}"
@@ -90,7 +90,7 @@
                 {{@model.meta.count}} diensten
               {{/if}}
             </AuHeading>
-            <AuList as |listitem|>
+            <AuList class="c-overview-cards-list" as |listitem|>
               {{#each @model as |publicService|}}
                 <listitem>
                   <IpdcServiceCard
