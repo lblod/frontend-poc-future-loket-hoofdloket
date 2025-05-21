@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class IndexController extends Controller {
   @service router;
+  @service currentSession;
 
   @tracked searchTerm;
   suggestions = ["jeugddecreet", "immaterieel erfgoed", "investeringssubsidie", "projectsubsidie"];

@@ -26,7 +26,7 @@ export default class CurrentSessionService extends Service {
         include: 'classificatie',
         reload: true,
       });
-      this.groupClassification = await this.group.classification;
+      this.groupClassification = await this.group.classificatie;
     }
   }
 }

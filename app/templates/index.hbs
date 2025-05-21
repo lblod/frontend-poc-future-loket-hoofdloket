@@ -4,7 +4,9 @@
   <section class="c-landing">
     <div class="au-o-flow">
       {{!-- TODO replace with user's organization name --}}
-      <AuHeading @level="1" @skin="2">Gemeente Aalter</AuHeading>
+      <AuHeading @level="1" @skin="2">
+        {{this.currentSession.groupClassification.label}} {{this.currentSession.group.naam}}
+      </AuHeading>
       <p class="au-u-para landing-intro">In dit loket vind je alle producten of diensten die de Vlaamse overheid aanbiedt aan lokale besturen. Veelgebruikte producten of diensten kun je zelf aanduiden als favoriet, zodat je ze snel kunt terugvinden in de onderstaande lijst of op de pagina Mijn favorieten.</p>
     </div>
 
