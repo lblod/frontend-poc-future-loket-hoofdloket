@@ -7,6 +7,7 @@ const { EXECUTING_AUTHORITY_LEVELS, TARGET_AUDIENCES } = constants;
 
 export default class ProductsRoute extends Route {
   @service store;
+  @service session;
 
   queryParams = {
     page: {
@@ -34,6 +35,10 @@ export default class ProductsRoute extends Route {
       refreshModel: true
     }
   };
+
+  beforeModel(transition) {
+    this.session.requireAuthentication(transition, 'login');
+  }
 
   async model(params) {
     const [executingAuthorityLevel, targetAudience] = await Promise.all([

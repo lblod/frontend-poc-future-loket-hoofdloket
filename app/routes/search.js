@@ -8,6 +8,7 @@ const { EXECUTING_AUTHORITY_LEVELS, TARGET_AUDIENCES } = constants;
 
 export default class SearchRoute extends Route {
   @service store;
+  @service session;
   @service fastboot;
 
   queryParams = {
@@ -36,6 +37,10 @@ export default class SearchRoute extends Route {
       refreshModel: true
     },
   };
+
+  beforeModel(transition) {
+    this.session.requireAuthentication(transition, 'login');
+  }
 
   async model(params) {
     const [executingAuthorityLevel, targetAudience] = await Promise.all([
