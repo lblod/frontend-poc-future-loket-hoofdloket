@@ -10,7 +10,7 @@
     data-test-dropdown-button
     data-au-dropdown-toggle
   >
-    Hannes Ingber
+    {{this.currentSession.user.fullName}}
   </AuButton>
   {{#if this.dropdownOpen}}
     <div
@@ -27,7 +27,7 @@
     >
       <div class="c-account-dropdown__header">
         <AuHeading @level="2" @skin="5">Loket voor Lokale Besturen</AuHeading>
-        <AuHelpText @skin="secondary" class="au-u-margin-top-none">Ingelogd als Hannes Ingber</AuHelpText>
+        <AuHelpText @skin="secondary" class="au-u-margin-top-none">Ingelogd als {{this.currentSession.user.fullName}}</AuHelpText>
       </div>
       <AuContent class="c-account-dropdown__content">
         <AuList @divider={{true}} as |item|>
@@ -38,7 +38,7 @@
             </AuLink>
           </item>
           <item>
-            <AuLink @route="login" role="menuitem">
+            <AuLink @route="auth.logout" role="menuitem">
               <AuIcon @icon="exit" />
               Afmelden
             </AuLink>
