@@ -18,7 +18,7 @@ export default class CurrentSessionService extends Service {
         include: 'user.administrative-units.classificatie',
       });
 
-      this.user = this.account.user;
+      this.user = await this.account.user;
 
       const groupId =
         this.session.data.authenticated.relationships.group.data.id;
