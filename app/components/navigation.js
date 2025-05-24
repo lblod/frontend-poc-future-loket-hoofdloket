@@ -6,6 +6,7 @@ import { modifier } from 'ember-modifier';
 
 export default class NavigationComponent extends Component {
   @service router;
+
   @tracked referenceElement = undefined;
   @tracked arrowElement = undefined;
   @tracked dropdownOpen = false
