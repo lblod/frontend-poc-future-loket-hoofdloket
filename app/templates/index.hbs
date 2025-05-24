@@ -54,21 +54,23 @@
       <div class="favorites-container au-u-margin-top-large">
         <AuHeading @level="2" @skin="3">Favoriete producten of diensten</AuHeading>
         <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny au-u-padding-bottom-large">
-          {{#each @model as |product|}}
+          {{#each @model as |favorite|}}
             <li class="favorite-card">
               <AuIcon @icon='star-filled' />
               <AuLinkExternal
                 @skin="naked"
-                href={{product.website.url}}
+                href={{favorite.website.url}}
                 class="favorite-title au-u-medium">
-                {{product.name.default}}
+                {{favorite.product.name.default}}
               </AuLinkExternal>
-              <AuLinkExternal
-                href={{product.website.url}}
-                @skin="naked"
-                @icon="external-link"
-                @iconAlignment="right">
-              </AuLinkExternal>
+              {{#if favorite.website.url}}
+                <AuLinkExternal
+                  href={{favorite.website.url}}
+                  @skin="naked"
+                  @icon="external-link"
+                  @iconAlignment="right">
+                </AuLinkExternal>
+              {{/if}}
             </li>
           {{/each}}
         </ul>
