@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 export default class CurrentSessionService extends Service {
   @service session;
   @service store;
+  @service bookmarks;
 
   @tracked account;
   @tracked user;
@@ -27,6 +28,8 @@ export default class CurrentSessionService extends Service {
         reload: true,
       });
       this.groupClassification = await this.group.classificatie;
+
+      await this.bookmarks.load();
     }
   }
 }

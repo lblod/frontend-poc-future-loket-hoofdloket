@@ -1,0 +1,34 @@
+{{page-title "Favorieten"}}
+
+<AuMainContainer as |m|>
+  <m.sidebar>
+  </m.sidebar>
+  <m.content>
+    <AuBodyContainer>
+      <AuBodyContainer @scroll={{true}}>
+        <div class="au-o-box au-o-box--small">
+          <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-padding-top-small au-u-margin-bottom-small">
+            {{@model.length}} diensten
+          </AuHeading>
+          <AuList as |listitem|>
+            {{#each @model as |product|}}
+              <listitem>
+                <IpdcServiceCard
+                  @model={{product}}
+                  @onClick={{this.openWebsite}} />
+              </listitem>
+            {{else}}
+              <AuAlert
+                @title="Niet gevonden wat je zocht?"
+                @icon="circle-question">
+                <p>Laat ons weten welke diensten je mist op <a href="#!" class="au-c-link">LoketLokaalBestuur@vlaanderen.be.</a></p>
+              </AuAlert>
+            {{/each}}
+          </AuList>
+        </div>
+      </AuBodyContainer>
+    </AuBodyContainer>
+  </m.content>
+</AuMainContainer>
+
+{{outlet}}

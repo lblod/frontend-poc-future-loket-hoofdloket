@@ -1,64 +1,66 @@
-<div class="c-navigation" ...attributes>
-  <div class="c-navigation__mobile">
-    <AuButton
-      {{this.reference}}
-      aria-haspopup="true"
-      aria-expanded="{{if this.dropdownOpen "true" "false"}}"
-      class="c-navigation__button"
-      @skin="naked"
-      type="button"
-      {{on "click" this.toggleDropdown}}
-    >
-      <div class="c-navigation__trigger">
-        <AuIcon @icon="tiles" @iconAlignment="left" />
-      </div>
-      {{this.activeTileLabel}}
-    </AuButton>
-    {{#if this.dropdownOpen}}
-      <div
-        id="account"
-        role="menu"
-        {{focus-trap
+<div class="c-navigation-header">
+  <div class="c-navigation" ...attributes>
+    <div class="c-navigation__mobile">
+      <AuButton
+        {{this.reference}}
+        aria-haspopup="true"
+        aria-expanded="{{if this.dropdownOpen "true" "false"}}"
+        class="c-navigation__button"
+        @skin="naked"
+        type="button"
+        {{on "click" this.toggleDropdown}}
+      >
+        <div class="c-navigation__trigger">
+          <AuIcon @icon="tiles" @iconAlignment="left" />
+        </div>
+        {{this.activeTileLabel}}
+      </AuButton>
+      {{#if this.dropdownOpen}}
+        <div
+          id="account"
+          role="menu"
+          {{focus-trap
           shouldSelfFocus=true
           focusTrapOptions=(hash
             clickOutsideDeactivates=this.clickOutsideDeactivates
           )
         }}
-        {{on "click" this.closeDropdown}}
-        class="c-navigation__dialog"
-      >
-        <AuLink @route="search" @query={{hash isFavorite=false}} role="menuitem">
-          <AuIcon @icon="tiles" />
-          Alle diensten
-        </AuLink>
-        <AuLink @route="search" @query={{hash isFavorite=true}} role="menuitem">
-          <AuIcon @icon="star-outline" />
-          Mijn favorieten
-        </AuLink>
-      </div>
-    {{/if}}
-  </div>
+          {{on "click" this.closeDropdown}}
+          class="c-navigation__dialog"
+        >
+          <AuLink @route="search" role="menuitem">
+            <AuIcon @icon="tiles" />
+            Alle diensten
+          </AuLink>
+          <AuLink @route="favorites" role="menuitem">
+            <AuIcon @icon="star-outline" />
+            Mijn favorieten
+          </AuLink>
+        </div>
+      {{/if}}
+    </div>
 
-  <div class="c-navigation__tabs">
-    <AuTabs @reversed={{this.reversed}} as |Tab|>
-      <Tab>
-        <AuLink @route="index" role="menuitem">
-          <AuIcon @icon="subsidies" />
-          Home
-        </AuLink>
-      </Tab>
-      <Tab>
-        <AuLink @route="search" @query={{hash isFavorite=false}} role="menuitem">
-          <AuIcon @icon="tiles" />
-          Alle diensten
-        </AuLink>
-      </Tab>
-      <Tab>
-        <AuLink @route="search" @query={{hash isFavorite=true}} role="menuitem">
-          <AuIcon @icon="star-outline" />
-          Mijn favorieten
-        </AuLink>
-      </Tab>
-    </AuTabs>
+    <div class="c-navigation__tabs">
+      <AuTabs @reversed={{this.reversed}} as |Tab|>
+        <Tab>
+          <AuLink @route="index" role="menuitem">
+            <AuIcon @icon="subsidies" />
+            Home
+          </AuLink>
+        </Tab>
+        <Tab>
+          <AuLink @route="search" role="menuitem">
+            <AuIcon @icon="tiles" />
+            Alle diensten
+          </AuLink>
+        </Tab>
+        <Tab>
+          <AuLink @route="favorites" role="menuitem">
+            <AuIcon @icon="star-outline" />
+            Mijn favorieten
+          </AuLink>
+        </Tab>
+      </AuTabs>
+    </div>
   </div>
 </div>
