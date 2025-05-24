@@ -32,10 +32,7 @@ export default class SearchRoute extends Route {
     },
     authorities: {
       refreshModel: true
-    },
-    isFavorite: {
-      refreshModel: true
-    },
+    }
   };
 
   beforeModel(transition) {

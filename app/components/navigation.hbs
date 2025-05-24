@@ -28,11 +28,11 @@
           {{on "click" this.closeDropdown}}
           class="c-navigation__dialog"
         >
-          <AuLink @route="search" @query={{hash isFavorite=false}} role="menuitem">
+          <AuLink @route="search" role="menuitem">
             <AuIcon @icon="tiles" />
             Alle diensten
           </AuLink>
-          <AuLink @route="search" @query={{hash isFavorite=true}} role="menuitem">
+          <AuLink @route="favorites" role="menuitem">
             <AuIcon @icon="star-outline" />
             Mijn favorieten
           </AuLink>
@@ -49,13 +49,13 @@
           </AuLink>
         </Tab>
         <Tab>
-          <AuLink @route="search" @query={{hash isFavorite=false}} role="menuitem">
+          <AuLink @route="search" role="menuitem">
             <AuIcon @icon="tiles" />
             Alle diensten
           </AuLink>
         </Tab>
         <Tab>
-          <AuLink @route="search" @query={{hash isFavorite=true}} role="menuitem">
+          <AuLink @route="favorites" role="menuitem">
             <AuIcon @icon="star-outline" />
             Mijn favorieten
           </AuLink>

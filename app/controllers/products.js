@@ -23,7 +23,6 @@ export default class ProductsController extends Controller {
   @tracked sortBy;
   @tracked searchTerm;
   @tracked searchTermBuffer;
-  @tracked isFavorite = false;
   // Array of record ids used as query param
   @tracked types = [];
   @tracked themes = [];
