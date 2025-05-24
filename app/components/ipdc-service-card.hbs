@@ -1,10 +1,8 @@
-{{!-- TODO: @model.favorite --}}
-
 <AuCard {{on "click" (fn @onClick @model)}} @size="small" class="c-overview-card c-overview-card--link" as |card|>
   <card.header>
     <div class="c-overview-card__header">
       <div class="au-u-flex au-u-flex--vertical-center au-u-flex--spaced-tiny">
-        <Favorite @active={{@model.favorite}} />
+        <Favorite @product={{@model}} />
         <div class="au-u-h6 au-u-medium c-overview-card__link">
           {{@model.name.default}}
         </div>
