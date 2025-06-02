@@ -50,9 +50,9 @@
       </div>
     </div>
 
-    {{#if @model.length}}
-      <div class="favorites-container au-u-margin-top-large">
-        <AuHeading @level="2" @skin="3">Favoriete producten of diensten</AuHeading>
+    <div class="favorites-container au-u-margin-top-large">
+      <AuHeading @level="2" @skin="3">Favoriete producten of diensten</AuHeading>
+      {{#if @model.length}}
         <ul class="au-u-flex au-u-flex--wrap au-u-flex--spaced-tiny au-u-padding-top-tiny au-u-padding-bottom-large">
           {{#each @model as |favorite|}}
             <li class="favorite-card">
@@ -74,7 +74,19 @@
             </li>
           {{/each}}
         </ul>
-      </div>
-    {{/if}}
+      {{else}}
+        <AuAlert
+          @title="U heeft momenteel geen favorieten"
+          @skin="info"
+          @icon="circle-info"
+          @size="small"
+          class="au-u-margin-top-small">
+          <p>Bekijk al onze services en klik op de ster om uw eerste toe te voegen.</p>
+          <AuLink @route="search" @skin="button" class="au-u-margin-top-small">
+            Alle diensten
+          </AuLink>
+        </AuAlert>
+      {{/if}}
+    </div>
   </section>
 </AuBodyContainer>
