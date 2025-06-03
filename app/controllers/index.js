@@ -17,7 +17,6 @@ export default class IndexController extends Controller {
       queryParams: {
         page: 0,
         searchTerm: this.searchTerm,
-        isFavorite: false
       }
     });
   }

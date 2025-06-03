@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { isEmpty, isPresent } from '@ember/utils';
+import { isEmpty } from '@ember/utils';
 import constants from '../config/constants';
 
 const { CONCEPT_SCHEMES } = constants;
@@ -25,7 +25,6 @@ export default class SearchController extends Controller {
   @tracked sort = '-date-created';
   @tracked searchTerm;
   @tracked searchTermBuffer;
-  @tracked isFavorite = false;
   // Array of record ids used as query param
   @tracked types = [];
   @tracked themes = [];

@@ -2,6 +2,8 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+process.env.FASTBOOT_DISABLED = true;
+
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     '@appuniversum/ember-appuniversum': {

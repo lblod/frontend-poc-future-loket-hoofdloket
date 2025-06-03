@@ -5,9 +5,6 @@ export default class AccountModel extends Model {
   @attr provider;
   @attr roles;
 
-  @belongsTo('user', {
-    async: false,
-    inverse: 'account',
-  })
+  @belongsTo('user', { async: true, inverse: 'account' })
   user;
 }

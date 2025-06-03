@@ -6,15 +6,16 @@ import { modifier } from 'ember-modifier';
 
 export default class NavigationComponent extends Component {
   @service router;
+
   @tracked referenceElement = undefined;
   @tracked arrowElement = undefined;
   @tracked dropdownOpen = false
 
   get activeTileLabel() {
-    if (this.router.currentRouteName.startsWith("search")) {
-      return this.router.currentRoute.queryParams.isFavorite
-        ? "Mijn favorieten"
-        : "Alle diensten"
+    if (this.router.currentRouteName.startsWith('search')) {
+      return 'Alle diensten';
+    } else if (this.router.currentRouteName.startsWith('favorites')) {
+      return 'Mijn favorieten';
     } else {
       return this.router.currentRouteName;
     }
