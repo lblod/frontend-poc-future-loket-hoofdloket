@@ -48,6 +48,8 @@ export default class SearchRoute extends Route {
     const filter = {
       'executingAuthorityLevels.uuid': executingAuthorityLevel.id,
       'targetAudiences.uuid': targetAudience.id,
+      'isArchived': false,
+      ':gte:filterEndDate': new Date().toISOString(),
     };
 
     this.searchTerm = params.searchTerm;

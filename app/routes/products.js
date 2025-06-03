@@ -51,6 +51,8 @@ export default class ProductsRoute extends Route {
       },
       'filter[executing-authority-levels][:id:]': executingAuthorityLevel.id,
       'filter[target-audiences][:id:]': targetAudience.id,
+      'filter[is-archived]': 'false',
+      'filter[:gte:end-date]': new Date().toISOString(),
     };
 
     this.searchTerm = params.searchTerm;
