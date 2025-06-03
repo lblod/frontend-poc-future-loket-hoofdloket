@@ -3,6 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { warn } from '@ember/debug';
 
 export default class BookmarksService extends Service {
+  @service toaster;
   @service store;
 
   @tracked bookmarks = [];
@@ -65,7 +66,9 @@ export default class BookmarksService extends Service {
 
       if (response.ok) {
         this.bookmarks = this.bookmarks.filter((b) => b != bookmark);
+        this.toaster.notify('is verwijderd uit jouw favorieten', `'${bookmark.object.name.default}'`, { timeOut: 5000 });
       } else {
+        this.toaster.error('Probeer nogmaals', 'Er liep iets mis bij het verwijderen van jouw favoriet', { timeOut: 5000 });
         const error = await response.text();
         warn(`Failed to delete bookmark: [${response.status}] ${error}`, { id: 'bookmarks.failure' });
       }
