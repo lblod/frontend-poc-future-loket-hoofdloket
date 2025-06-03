@@ -1,10 +1,7 @@
 {{page-title "Diensten"}}
 
-<LayoutDashboard @loggedIn={{true}}>
-  <NavigationHeader />
-
-  <AuMainContainer as |m|>
-    <m.sidebar>
+<AuMainContainer as |m|>
+  <m.sidebar>
     <Sidebar>
       <div class="au-c-sidebar__content">
         <p class="au-u-margin-left-small au-u-margin-top-small au-c-label">
@@ -117,5 +114,4 @@
     </m.content>
   </AuMainContainer>
 
-  {{outlet}}
-</LayoutDashboard>
+{{outlet}}

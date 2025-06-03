@@ -7,6 +7,7 @@ const { EXECUTING_AUTHORITY_LEVELS, TARGET_AUDIENCES } = constants;
 
 export default class ProductsRoute extends Route {
   @service store;
+  @service session;
 
   queryParams = {
     page: {
@@ -35,11 +36,14 @@ export default class ProductsRoute extends Route {
     }
   };
 
+  beforeModel(transition) {
+    this.session.requireAuthentication(transition, 'login');
+  }
+
   async model(params) {
-    const [executingAuthorityLevel, ...targetAudiences] = await Promise.all([
+    const [executingAuthorityLevel, targetAudience] = await Promise.all([
       this.store.findRecordByUri('concept', EXECUTING_AUTHORITY_LEVELS.FLEMISH),
       this.store.findRecordByUri('concept', TARGET_AUDIENCES.LOCAL_GOVERNMENT),
-      this.store.findRecordByUri('concept', TARGET_AUDIENCES.ORGANIZATION)
     ]);
 
     const queryOptions = {
@@ -49,7 +53,7 @@ export default class ProductsRoute extends Route {
         size: params.size
       },
       'filter[executing-authority-levels][:id:]': executingAuthorityLevel.id,
-      'filter[target-audiences][:id:]': targetAudiences.map((c) => c.id).join(','),
+      'filter[target-audiences][:id:]': targetAudience.id,
     };
 
     this.searchTerm = params.searchTerm;

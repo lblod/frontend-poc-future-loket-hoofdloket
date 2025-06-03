@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { isEmpty, isPresent } from '@ember/utils';
 import constants from '../config/constants';
 
 const { CONCEPT_SCHEMES } = constants;
@@ -21,7 +22,7 @@ export default class SearchController extends Controller {
 
   @tracked page = 0;
   @tracked size = 25;
-  @tracked sort = 'score';
+  @tracked sort = '-date-created';
   @tracked searchTerm;
   @tracked searchTermBuffer;
   @tracked isFavorite = false;
@@ -42,32 +43,60 @@ export default class SearchController extends Controller {
   @action
   search(event) {
     event.preventDefault();
-    this.searchTerm = this.searchTermBuffer;
-    this.setPage(0);
+    this.withUpdateSortAndResetPage(() => {
+      this.searchTerm = this.searchTermBuffer;
+    });
   }
 
   @action
   resetSearch() {
-    this.searchTermBuffer = null;
-    this.searchTerm = null;
-    this.setPage(0);
+    this.withUpdateSortAndResetPage(() => {
+      this.searchTermBuffer = null;
+      this.searchTerm = null;
+    });
   }
 
   @action
   updateThemeFilter(themes) {
-    this.themes = themes.map((record) => record.id);
-    this.setPage(0);
+    this.withUpdateSortAndResetPage(() => {
+      this.themes = themes.map((record) => record.id);
+    });
   }
 
   @action
   updateServiceTypeFilter(types) {
-    this.types = types.map((record) => record.id);
-    this.setPage(0);
+    this.withUpdateSortAndResetPage(() => {
+      this.types = types.map((record) => record.id);
+    });
   }
 
   @action
   updateAuthorityLevelFilter(authorities) {
-    this.authorities = authorities.map((record) => record.id);
+    this.withUpdateSortAndResetPage(() => {
+      this.authorities = authorities.map((record) => record.id);
+    });
+  }
+
+  withUpdateSortAndResetPage(callback) {
+    const isEmptySearch = () => {
+      return isEmpty(this.searchTerm)
+        && isEmpty(this.themes)
+        && isEmpty(this.types)
+        && isEmpty(this.authorities)
+    }
+
+    const searchWasEmpty = isEmptySearch();
+    callback();
+    const searchIsPresent = !isEmptySearch();
+
+    if (searchWasEmpty && searchIsPresent) {
+      // User started filering/searching => sort by 'score' by default
+      this.sort = 'score';
+    } else if (!searchWasEmpty && !searchIsPresent && this.sort == 'score') {
+      // User stopped filering/searching => sort by 'newest' by default
+      this.sort = '-date-created';
+    }
+
     this.setPage(0);
   }
 
@@ -83,7 +112,7 @@ export default class SearchController extends Controller {
   }
 
   @action
-  updateSorting(event) {
+  setSorting(event) {
     this.sort = event.target.value;
   }
 

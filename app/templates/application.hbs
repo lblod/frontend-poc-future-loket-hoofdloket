@@ -2,6 +2,12 @@
 <AuModalContainer />
 
 <AuApp>
+  <Header />
+
+  {{#if this.session.isAuthenticated}}
+    <NavigationHeader />
+  {{/if}}
+
   {{outlet}}
 </AuApp>
 
