@@ -181,12 +181,13 @@
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
 }
 
 .c-overview-cards-list--favorites > li{
   flex: 45% 1 1;
-  min-width: 300px;
+  min-width: 320px;
+  max-width: 633px;
 }
 
 .c-overview-cards-list--favorites .c-overview-card--link{
