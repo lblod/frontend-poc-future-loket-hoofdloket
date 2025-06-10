@@ -166,7 +166,7 @@
   gap: 0;
 }
 
-.favorites-container{
+.au-c-body-container--favorites{
   background-color: var(--au-gray-100);
 }
 
@@ -178,16 +178,22 @@
 
 .c-overview-cards-list--favorites{
   gap: 1rem;
-  flex-direction: row;
-  flex-wrap: wrap;
   max-width: 1280px;
   margin: 0 auto 2rem auto;
 }
 
+@media screen and (min-width: 840px) {
+  .c-overview-cards-list--favorites{
+    display: grid;
+    grid-template-columns: repeat(2, calc((100% - 1rem) / 2));
+  }
+}
+
 .c-overview-cards-list--favorites > li{
-  flex: 45% 1 1;
-  min-width: 320px;
-  max-width: 633px;
+  // flex-basis: calc((100% - 1rem) / 2);
+  // flex-grow: 1;
+  // min-width: 320px;
+  // max-width: 633px;
 }
 
 .c-overview-cards-list--favorites .c-overview-card--link{
