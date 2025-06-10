@@ -1,16 +1,14 @@
 {{page-title "Favorieten"}}
 
 <AuMainContainer as |m|>
-  <m.sidebar>
-  </m.sidebar>
   <m.content>
     <AuBodyContainer>
-      <AuBodyContainer @scroll={{true}}>
-        <div class="au-o-box au-o-box--small">
-          <AuHeading @level="2" @skin="4" class="au-u-padding-left au-u-padding-top-small au-u-margin-bottom-small">
+      <AuBodyContainer class="au-c-body-container--favorites" @scroll={{true}}>
+        <div class="favorites-container">
+          <AuHeading @level="2" @skin="4" class="favorites-title au-u-padding-left au-u-padding-top-small au-u-margin-bottom-small">
             {{@model.length}} diensten
           </AuHeading>
-          <AuList as |listitem|>
+          <AuList class="c-overview-cards-list c-overview-cards-list--favorites" as |listitem|>
             {{#each @model as |product|}}
               <listitem>
                 <IpdcServiceCard
