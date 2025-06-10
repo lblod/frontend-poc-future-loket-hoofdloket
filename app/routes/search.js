@@ -72,7 +72,7 @@ export default class SearchRoute extends Route {
       this.authorityRecords = await Promise.all(
         params.authorities.map((id) => this.store.findRecord('concept', id))
       );
-      filter['competentAuthorityLevels.broader.uuid'] = this.authorityRecords.map((c) => c.id).join(',');
+      filter['competentAuthority.uuid'] = this.authorityRecords.map((c) => c.id).join(',');
     }
 
     this.typeRecords = [];

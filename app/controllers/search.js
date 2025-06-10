@@ -70,7 +70,7 @@ export default class SearchController extends Controller {
   }
 
   @action
-  updateAuthorityLevelFilter(authorities) {
+  updateAuthorityFilter(authorities) {
     this.withUpdateSortAndResetPage(() => {
       this.authorities = authorities.map((record) => record.id);
     });
