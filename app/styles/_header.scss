@@ -136,7 +136,16 @@
 }
 
 .c-help-dropdown__content {
-  padding: $au-unit-small;
+  font-size: 1.8rem;
+
+  & > div,
+  & > span{
+    padding: $au-unit-small;
+  }
+
+  & > hr{
+    border: 1px solid var(--au-gray-200);
+  }
 }
 
 // Account dropdown
