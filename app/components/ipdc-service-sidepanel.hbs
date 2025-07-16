@@ -6,9 +6,9 @@
           <Favorite @product={{@model}} />
           <AuLink
             @skin="button-naked"
-            @route="search"
             @icon="cross"
-            @iconAlignment="right">
+            @iconAlignment="right"
+            {{on "click" @onClose}}>
             Sluiten
           </AuLink>
         </div>

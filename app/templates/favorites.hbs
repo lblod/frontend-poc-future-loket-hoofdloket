@@ -13,7 +13,7 @@
               <listitem>
                 <IpdcServiceCard
                   @model={{product}}
-                  @onClick={{this.openWebsite}} />
+                  @onClick={{this.openProductDetail}} />
               </listitem>
             {{else}}
               <AuAlert
@@ -28,5 +28,9 @@
     </AuBodyContainer>
   </m.content>
 </AuMainContainer>
+
+{{#if this.selectedProduct}}
+  <IpdcServiceSidepanel @model={{this.selectedProduct}} @onClose={{this.closeProductDetail}} />
+{{/if}}
 
 {{outlet}}

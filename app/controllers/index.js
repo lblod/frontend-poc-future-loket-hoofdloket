@@ -8,6 +8,7 @@ export default class IndexController extends Controller {
   @service currentSession;
 
   @tracked searchTerm;
+  @tracked selectedProduct;
   suggestions = ["jeugddecreet", "immaterieel erfgoed", "investeringssubsidie", "projectsubsidie"];
 
   @action
@@ -29,5 +30,15 @@ export default class IndexController extends Controller {
   @action
   resetSearch() {
     this.searchTerm = null;
+  }
+
+  @action
+  openProductDetail(product) {
+    this.selectedProduct = product;
+  }
+
+  @action
+  closeProductDetail() {
+    this.selectedProduct = null;
   }
 }

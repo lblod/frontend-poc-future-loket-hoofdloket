@@ -15,4 +15,9 @@ export default class FavoritesRoute extends Route {
       .map((bookmark) => bookmark.object)
       .sort((a, b) => compare(a.name.default, b.name.default));
   }
+
+  setupController(controller) {
+    super.setupController(...arguments);
+    controller.selectedProduct = null;
+  }
 }

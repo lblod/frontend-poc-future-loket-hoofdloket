@@ -57,19 +57,26 @@
           {{#each @model as |favorite|}}
             <li class="favorite-card">
               <AuIcon @icon='star-filled' />
-              <AuLinkExternal
-                @skin="naked"
-                href={{favorite.website.url}}
-                class="favorite-title au-u-medium">
-                {{favorite.product.name.default}}
-              </AuLinkExternal>
               {{#if favorite.website.url}}
+                <AuLinkExternal
+                  @skin="naked"
+                  href={{favorite.website.url}}
+                  class="favorite-title au-u-medium">
+                  {{favorite.product.name.default}}
+                </AuLinkExternal>
                 <AuLinkExternal
                   href={{favorite.website.url}}
                   @skin="naked"
                   @icon="external-link"
                   @iconAlignment="right">
                 </AuLinkExternal>
+              {{else}}
+                <AuLink
+                  @skin="naked-button"
+                  class="favorite-title au-u-medium"
+                  {{on "click" (fn this.openProductDetail favorite.product)}}>
+                  {{favorite.product.name.default}}
+                </AuLink>
               {{/if}}
             </li>
           {{/each}}
@@ -90,3 +97,7 @@
     </div>
   </section>
 </AuBodyContainer>
+
+{{#if this.selectedProduct}}
+  <IpdcServiceSidepanel @model={{this.selectedProduct}} @onClose={{this.closeProductDetail}} />
+{{/if}}
