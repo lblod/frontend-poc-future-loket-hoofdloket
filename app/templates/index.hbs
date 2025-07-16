@@ -45,7 +45,7 @@
       </div>
       <div class="c-suggestions-container">
         {{#each this.suggestions as |suggestion|}}
-          <AuPill>{{suggestion}}</AuPill>
+          <AuPill @route="search" @query={{hash searchTerm=suggestion}}>{{suggestion}}</AuPill>
         {{/each}}
       </div>
     </div>
