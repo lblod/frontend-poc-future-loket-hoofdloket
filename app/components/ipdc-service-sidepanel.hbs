@@ -33,29 +33,18 @@
       </div>
 
     <div class="au-o-flow--tiny au-u-margin-bottom">
-      {{#if @model.websites}}
-        {{#each @model.websites as |website index|}}
-          {{#if (eq index 0)}}
-            <AuLinkExternal
-              href={{website.url}}
-              @skin="button"
-              @icon="external-link"
-              @iconAlignment="right"
-              class="au-u-margin-bottom-small">
-              {{website.title.default}}
-            </AuLinkExternal>
-          {{/if}}
-        {{/each}}
-      {{/if}}
+      <IpdcServiceCtaButton @model={{@model}} />
       <p>
         {{{@model.description.default}}}
       </p>
     </div>
     <div class="au-u-flex au-u-flex--column au-u-flex--spaced-tiny au-u-margin-bottom">
-      {{#each @model.websites as |website|}}
-        <AuLinkExternal href={{website.url}} class="c-external">
-          {{website.title.default}}
-        </AuLinkExternal>
+      {{#each @model.procedures as |procedure|}}
+        {{#each procedure.websites as |website|}}
+          <AuLinkExternal href={{website.url}} class="c-external">
+            {{website.title.default}}
+          </AuLinkExternal>
+        {{/each}}
       {{/each}}
     </div>
   </div>

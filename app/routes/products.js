@@ -44,7 +44,7 @@ export default class ProductsRoute extends Route {
     ]);
 
     const queryOptions = {
-      include: 'type,thematic-areas.broader,websites',
+      include: 'type,thematic-areas.broader,procedures.websites',
       page: {
         number: params.page,
         size: params.size

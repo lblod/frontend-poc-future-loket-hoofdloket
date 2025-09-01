@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import { compare } from '@ember/utils';
+import { getPublicServiceCta } from '../utils/get-public-service-cta';
 
 export default class IndexRoute extends Route {
   @service('bookmarks') bookmarksService;
@@ -16,8 +17,8 @@ export default class IndexRoute extends Route {
       .sort((a, b) => compare(a.name.default, b.name.default));
     return Promise.all(
       favorites.map(async (product) => {
-        const websites = await product.websites;
-        return { product, website: websites[0] };
+        const callToAction = await getPublicServiceCta(product);
+        return { product, website: callToAction };
       })
     );
   }

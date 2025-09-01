@@ -23,5 +23,7 @@ export default class PublicServiceModel extends Model {
   @hasMany('concept', { async: true, inverse: null })
   executingAuthorityLevels;
   @hasMany('website', { async: true, inverse: 'publicService' })
-  websites
+  websites;
+  @hasMany('procedure', { async: true, inverse: 'publicService' })
+  procedures;
 }
