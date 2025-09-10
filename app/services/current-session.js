@@ -7,7 +7,7 @@ export default class CurrentSessionService extends Service {
   @service bookmarks;
 
   @tracked account;
-  @tracked user;
+  @tracked gebruiker;
   @tracked group;
   @tracked groupClassification;
 
@@ -16,14 +16,14 @@ export default class CurrentSessionService extends Service {
       const accountId =
         this.session.data.authenticated.relationships.account.data.id;
       this.account = await this.store.findRecord('account', accountId, {
-        include: 'user.administrative-units.classificatie',
+        include: 'gebruiker.bestuurseenheden.classificatie',
       });
 
-      this.user = await this.account.user;
+      this.gebruiker = await this.account.gebruiker;
 
       const groupId =
         this.session.data.authenticated.relationships.group.data.id;
-      this.group = await this.store.findRecord('administrative-unit', groupId, {
+      this.group = await this.store.findRecord('bestuurseenheid', groupId, {
         include: 'classificatie',
         reload: true,
       });
