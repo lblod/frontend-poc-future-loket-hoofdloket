@@ -1,20 +1,21 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 
-export default class UserModel extends Model {
+export default class GebruikerModel extends Model {
   @attr voornaam;
   @attr achternaam;
+  @attr rijksregisterNummer;
 
-  @hasMany('account', { async: true, inverse: 'user' }) account;
+  @hasMany('account', { async: false, inverse: 'gebruiker' }) account;
 
-  @hasMany('administrative-unit', {
+  @hasMany('bestuurseenheid', {
     async: false,
     inverse: null,
     polymorphic: true,
   })
-  administrativeUnits;
+  bestuurseenheden;
 
   get group() {
-    return this.administrativeUnits.at(0);
+    return this.bestuurseenheden.at(0);
   }
 
   // used for mock login
