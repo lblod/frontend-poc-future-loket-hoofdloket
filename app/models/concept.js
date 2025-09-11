@@ -4,6 +4,8 @@ export default class ConceptModel extends Model {
   @attr uri;
   @attr label;
 
+  @hasMany('concept', { async: true, inverse: null }) broader;
+
   @hasMany('concept-scheme', {
     async: true,
     inverse: 'concepts',
