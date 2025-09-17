@@ -18,6 +18,13 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    acmidm: {
+      clientId: '97b992e0-dcd6-41c2-8c3d-b6498b42d159',
+      baseUrl: 'https://authenticatie-ti.vlaanderen.be/op/v1/auth',
+      redirectUrl: 'https://future-loket-main.lblod.info/authorization/callback',
+      logoutUrl: 'https://authenticatie-ti.vlaanderen.be/op/v1/logout',
+      scope: 'openid vo profile abb_loketLB'
+    },
     metis: {
        baseUrl: "http://data.lblod.info/"
     },
